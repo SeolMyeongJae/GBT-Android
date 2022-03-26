@@ -25,19 +25,22 @@ public class LogIn extends AppCompatActivity {
         btn_google.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),InputInformation.class);
+                Intent intent = new Intent(getApplicationContext(),InputInfo.class);
+                startActivity(intent);
             }
         });
         btn_kakao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),InputInformation.class);
+                Intent intent = new Intent(getApplicationContext(),InputInfo.class);
+                startActivity(intent);
             }
         });
         btn_naver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),InputInformation.class);
+                Intent intent = new Intent(getApplicationContext(),InputInfo.class);
+                startActivity(intent);
             }
         });
     }
