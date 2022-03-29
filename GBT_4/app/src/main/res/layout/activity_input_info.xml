@@ -14,374 +14,182 @@
         android:layout_gravity="center"
         android:src="@drawable/logo"
         android:scaleType="fitXY"/>
-
-    <ScrollView
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fillViewport="true">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+        android:textSize="40sp"
+        android:text="회원정보 입력"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:fontFamily="@font/minkyoung"
+        android:layout_marginTop="10dp"
+        />
 
-            <TextView
-                android:layout_gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:text="회원정보 입력"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                />
-            <!--닉네임 fragment-->
-            <LinearLayout
-                android:background="@drawable/edge"
 
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="80dp">
-                <TextView
-                    android:background="@drawable/edge"
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-                    android:layout_width="90dp"
-                    android:layout_height="80dp"
-                    android:text="닉네임"
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="30dp"
-                    />
-                <LinearLayout
-                    android:layout_width="320dp"
-                    android:layout_height="100dp"
-                    android:orientation="vertical"
-                    android:layout_gravity="center">
-                    <EditText
-                        android:layout_width="300dp"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:hint="닉네임을 입력해 주세요."
-                        android:textColorHint="#605C5C"
-                        android:textSize="15sp"/>
-                    <TextView
-                        android:layout_width="300dp"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginLeft="10dp"
-                        android:text="ex)zl존 금연왕123"/>
-                </LinearLayout>
-            </LinearLayout>
-            <!--이까지 닉네임 fragment-->
-            <!--생년월일 fragment-->
-            <LinearLayout
-                android:background="@drawable/edge"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="80dp">
-                <TextView
-                    android:background="@drawable/edge"
-                    android:layout_width="90dp"
-                    android:layout_height="80dp"
-                    android:text="생년월일"
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="30dp"
-                    />
-                <LinearLayout
-                    android:layout_width="320dp"
-                    android:layout_height="100dp"
-                    android:orientation="vertical"
-                    android:layout_gravity="center">
-                    <EditText
-                        android:layout_width="300dp"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:hint="생년월일을 입력해 주세요."
-                        android:textColorHint="#605C5C"
-                        android:textSize="15sp"/>
-                    <TextView
-                        android:layout_width="300dp"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginLeft="10dp"
-                        android:text="ex)1994년 1월 15일"/>
-                </LinearLayout>
-            </LinearLayout>
-            <!--이까지 생년월일 fragment-->
-            <!--평균 흡연량 fragment-->
-            <LinearLayout
-                android:background="@drawable/edge"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="80dp">
-                <TextView
-                    android:background="@drawable/edge"
-                    android:layout_width="90dp"
-                    android:layout_height="80dp"
-                    android:text=" 1일
-                    흡연량"
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="30dp"
-                    />
-                <LinearLayout
-                    android:layout_width="320dp"
-                    android:layout_height="100dp"
-                    android:orientation="vertical"
-                    android:layout_gravity="center">
+        <TableRow
+            android:layout_marginBottom="15dp">
+            <TextView android:text="닉네임"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="35sp"
+                android:background="@drawable/input_info_nickname"
+                android:fontFamily="@font/minkyoung" />
+            <EditText android:hint="사용하실 닉네임을 입력해 주세요."
+                android:id="@+id/et_nickname"
+               />
+        </TableRow>
 
-                    <TextView
-                        android:layout_width="305dp"
-                        android:layout_height="52dp"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="ex)하루 1/2갑" />
+        <TableRow
+            android:gravity="center_vertical"
+            android:layout_marginBottom="15dp">
+            <TextView android:text="출생년도"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="35sp"
+                android:background="@drawable/input_info_birth"
+                android:fontFamily="@font/minkyoung"/>
 
-                    <EditText
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:hint="하루 평균 담배를 몇 갑 피시나요?"
-                        android:textColorHint="#605C5C"
-                        android:textSize="15sp"/>
-
-                </LinearLayout>
-            </LinearLayout>
-            <!--이까지 흡연량 fragment-->
-            <!--흡연경력 fragment-->
-            <LinearLayout
-                android:background="@drawable/edge"
-
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="80dp">
-                <TextView
-                    android:background="@drawable/edge"
-                    android:layout_width="90dp"
-                    android:layout_height="80dp"
-                    android:text="흡연 경력"
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="30dp"
-                    />
-                <LinearLayout
-                    android:layout_width="320dp"
-                    android:layout_height="100dp"
-                    android:orientation="vertical"
-                    android:layout_gravity="center">
-                    <EditText
-                        android:layout_width="300dp"
-                        android:layout_height="50dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:hint="담패를 피우신지 몇 년이 되었나요?"
-                        android:textColorHint="#605C5C"
-                        android:textSize="15sp"/>
-                    <TextView
-                        android:layout_width="300dp"
-                        android:layout_height="50dp"
-                        android:layout_marginTop="3dp"
-                        android:layout_marginLeft="10dp"
-                        android:text="ex)3년"/>
-                </LinearLayout>
-            </LinearLayout>
-            <!--이까지 흡연경력 fragment-->
-            <!--담배가격 fragment-->
-            <LinearLayout
-                android:background="@drawable/edge"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="80dp">
-                <TextView
-                    android:layout_width="90dp"
-                    android:layout_height="80dp"
-                    android:text="담배 가격"
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="30dp"
-                    />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:background="@drawable/edge">
-                    <LinearLayout
-                        android:layout_width="320dp"
-                        android:layout_height="100dp"
-                        android:orientation="vertical"
-                        android:layout_gravity="center">
-                        <EditText
-                            android:layout_width="300dp"
-                            android:layout_height="50dp"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:hint="피우시는 담배는 한 갑당 얼마인가요?"
-                            android:textColorHint="#605C5C"
-                            android:textSize="15sp"/>
-                        <TextView
-                            android:layout_width="300dp"
-                            android:layout_height="50dp"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginLeft="10dp"
-                            android:text="ex)4500원"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-            <!--이까지 담배가격 fragment-->
-            <!--금연 목표 fragment-->
-            <LinearLayout
-                android:background="@drawable/edge"
-
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="80dp">
-                <TextView
-                    android:background="@drawable/edge"
-
-                    android:layout_width="90dp"
-                    android:layout_height="80dp"
-                    android:text="나의 목표"
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="30dp"
-                    />
-                <LinearLayout
+            <LinearLayout>
+                <Button
+                    android:id="@+id/btn_select_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        android:layout_gravity="center">
-                        <Spinner
-                            android:id="@+id/spinner1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:dropDownWidth="100dp"
-                            android:spinnerMode="dialog"> </Spinner>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginLeft="10dp"
-                            android:text="을(를)"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="300dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        >
-                        <EditText
-                            android:layout_width="60dp"
-                            android:layout_height="56dp"
-                            android:textSize="18sp"
-                            android:hint="ex)2"
-                            />
-                        <Spinner
-                            android:id="@+id/spinner2"
-                            android:layout_width="80dp"
-                            android:layout_height="56dp"
-                            android:dropDownWidth="1000dp"
-                            android:spinnerMode="dialog"> </Spinner>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="56dp"
-                            android:text="동안 할 것입니다."
-                            android:gravity="center"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-            <!--이까지 목표 fragment-->
-            <!--사진 업로드편-->
-            <LinearLayout
-                android:background="@drawable/edge"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="80dp">
+                    android:text="날짜선택 하기"/>
                 <TextView
-                    android:background="@drawable/edge"
-                    android:layout_width="90dp"
-                    android:layout_height="80dp"
-                    android:text="프로필 사진"
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="30dp"
+                    android:id="@+id/tv_birthYear"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
                     />
-                <LinearLayout
-                    android:layout_width="320dp"
-                    android:layout_height="100dp"
-                    android:orientation="vertical"
-                    android:layout_gravity="center">
-                    <Button
-                        android:layout_gravity="right"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="첨부"/>
-                </LinearLayout>
-            </LinearLayout>
-            <!--이까지 프로필 사진 fragment-->
-            <!--의지부여 사진 fragment-->
-            <LinearLayout
-                android:background="@drawable/edge"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="80dp">
                 <TextView
-                    android:background="@drawable/edge"
-                    android:layout_width="90dp"
-                    android:layout_height="80dp"
-                    android:text="동기부여 사진"
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="년"
                     />
-                <LinearLayout
-                    android:layout_width="320dp"
-                    android:layout_height="100dp"
-                    android:orientation="vertical"
-                    android:layout_gravity="center">
-                    <Button
-                        android:layout_gravity="right"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="첨부"/>
 
-                </LinearLayout>
             </LinearLayout>
-            <!--이까지 동기부여 사진 fragment-->
+
+            <!--            <EditText android:hint="출생년도를 입력해 주세요."-->
+<!--                android:id="@+id/et_birth"/>-->
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="15dp">
+            <TextView android:text="성별"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="35sp"
+                android:background="@drawable/input_info_gender"
+                android:fontFamily="@font/minkyoung"/>
+            <EditText android:hint="성별을 선택해 주세요."
+                android:id="@+id/et_gender"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="15dp">
+            <TextView android:text="1일 흡연량"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="35sp"
+                android:background="@drawable/input_info_smoking_amount"
+                android:fontFamily="@font/minkyoung"/>
+            <EditText android:hint="하루 평균 담배 몇 개비를 피세요?"
+                android:id="@+id/et_smoking_amount"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="15dp">
+            <TextView android:text="흡연 경력"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="35sp"
+                android:background="@drawable/input_info_smoking_year"
+                android:fontFamily="@font/minkyoung"/>
+            <EditText android:hint="담배를 피우신 지 몇 년 되셨나요?"
+                android:id="@+id/smoking_year"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="15dp">
+            <TextView android:text="담배 가격"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="35sp"
+                android:background="@drawable/input_info_price"
+                android:fontFamily="@font/minkyoung"/>
+            <EditText android:hint="피우시는 담배의 가격을 입력해 주세요."
+                android:id="@+id/et_price"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_marginBottom="15dp">
+            <TextView android:text="포부"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="35sp"
+                android:background="@drawable/input_info_my_goal"
+                android:fontFamily="@font/minkyoung"/>
+            <EditText android:hint="금연을 위한 다짐 한마디!"
+                android:id="@+id/et_my_goal"/>
+        </TableRow>
+
+        <TableRow>
+            <TextView android:text="프로필 사진"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="35sp"
+                android:background="@drawable/input_info_profile_photo"
+                android:fontFamily="@font/minkyoung"/>
+            <EditText android:hint="사용하실 프로필 사진을 업로드 해 주세요."
+                android:layout_weight="8"/>
+            <Button
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="앨범에서 찾기"
+                />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView android:text="동기부여 사진"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:textSize="35sp"
+                android:background="@drawable/input_info_will_photo"
+                android:fontFamily="@font/minkyoung"/>
+            <EditText
+                android:layout_weight="8"
+                android:hint="금연의지를 높여줄 사진을 업로드 해주세요." />
 
             <Button
                 android:layout_gravity="center"
-                android:id="@+id/btn_submit"
+                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="제출하기"/>
+                android:text="앨범에서 찾기"
+                />
+        </TableRow>
+    </TableLayout>
+</ScrollView>
+
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="제출하기"/>
 
 
-        </LinearLayout>
-
-    </ScrollView>
 
 </LinearLayout>
