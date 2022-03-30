@@ -54,7 +54,7 @@
                 android:layout_height="50dp"
                 android:gravity="center"
                 android:textSize="35sp"
-                android:background="@drawable/input_info_birth"
+                android:background="@drawable/input_info_birth_year"
                 android:fontFamily="@font/minkyoung"/>
 
             <LinearLayout>
@@ -113,7 +113,7 @@
                 android:background="@drawable/input_info_smoking_year"
                 android:fontFamily="@font/minkyoung"/>
             <EditText android:hint="담배를 피우신 지 몇 년 되셨나요?"
-                android:id="@+id/smoking_year"/>
+                android:id="@+id/et_smoking_year"/>
         </TableRow>
 
         <TableRow
@@ -137,7 +137,7 @@
                 android:background="@drawable/input_info_my_goal"
                 android:fontFamily="@font/minkyoung"/>
             <EditText android:hint="금연을 위한 다짐 한마디!"
-                android:id="@+id/et_my_goal"/>
+                android:id="@+id/et_comment"/>
         </TableRow>
 
         <TableRow>

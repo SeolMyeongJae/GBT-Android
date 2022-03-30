@@ -62,7 +62,6 @@ public class SelectYear extends DialogFragment {
         yearPicker.setValue(year);
 
         builder.setView(dialog);
-//        this.birthYear = year;
         return builder.create();
     }
 
