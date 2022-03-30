@@ -2,16 +2,23 @@ package com.example.gbt_4;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-public class AddUserDto {
+public class GetUserDto {
+
+    @SerializedName("id")
+    private Long userId;
+
     @SerializedName("userName")
     private String userName;
 
@@ -19,7 +26,7 @@ public class AddUserDto {
     private String gender;
 
     @SerializedName("birthYear")
-    private Long birthYear;
+    private Date birthYear;
 
     @SerializedName("smokingYear")
     private Long smokingYear;
@@ -33,23 +40,14 @@ public class AddUserDto {
     @SerializedName("averageSmoking")
     private Long averageSmoking;
 
-    @SerializedName("ranking")
-    private Long ranking;
-
     @SerializedName("profileImg")
     private String profileImg;
 
     @SerializedName("popupImg")
     private String popupImg;
 
-    @SerializedName("point")
-    private Long point;
-
-    @SerializedName("badgeId")
-    private Long badgeId;
-
-
-    public AddUserDto(String userName, String gender, Long birthYear, Long smokingYear, String comment, Long price, Long averageSmoking, Long ranking, String profileImg, String popupImg, Long point, Long badgeId) {
+    public GetUserDto(Long userId, String userName, String gender, Date birthYear, Long smokingYear, String comment, Long price, Long averageSmoking, String profileImg, String popupImg) {
+        this.userId = userId;
         this.userName = userName;
         this.gender = gender;
         this.birthYear = birthYear;
@@ -57,10 +55,7 @@ public class AddUserDto {
         this.comment = comment;
         this.price = price;
         this.averageSmoking = averageSmoking;
-        this.ranking = ranking;
         this.profileImg = profileImg;
         this.popupImg = popupImg;
-        this.point = point;
-        this.badgeId = badgeId;
     }
 }

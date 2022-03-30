@@ -21,12 +21,13 @@
         <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/drawable-v24/input_info_smoking_amount.xml" value="0.298" />
         <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/drawable-v24/input_info_smoking_year.xml" value="0.298" />
         <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/drawable-v24/input_info_will_photo.xml" value="0.298" />
+        <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/drawable-v24/main_page_plus_button.xml" value="0.2085" />
         <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/drawable/ic_launcher_background.xml" value="0.268" />
         <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/drawable/select_year_textview.xml" value="0.268" />
         <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/activity_input_info.xml" value="0.25" />
         <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/activity_log_in.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/activity_main_page.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/activity_main_page.xml" value="0.25" />
         <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/year_picker.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/year_select.xml" value="0.30434782608695654" />
       </map>

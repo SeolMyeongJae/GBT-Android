@@ -20,7 +20,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class InputInfo extends AppCompatActivity implements View.OnClickListener{
-    private final String TAG = "InputInfoLog";
+    private final String TAG = "InputInfo_Log:";
     private final String URL = "http://54.219.40.82/api/";
 
 //    버튼 정의
@@ -32,12 +32,12 @@ public class InputInfo extends AppCompatActivity implements View.OnClickListener
 //    문자열 정의
     private String nickname, gender, comment, profileImg, popupImg;
 //    숫자열 정의
-    private int birthYear, smokingYear, price, smokingAmount;
+    private Long birthYear, smokingYear, price, smokingAmount, ranking, point, badId;
 
 //    레트로핏 객체 생성
     private Retrofit retrofit;
 //    인터페이스 객체 생성
-    private InputInfoInterface inputInfoInterface;
+    private RetrofitInterface retrofitInterface;
 
 
 //    날짜선택창 객체 생성
@@ -47,7 +47,7 @@ public class InputInfo extends AppCompatActivity implements View.OnClickListener
         Log.d("YearMonthPickerTest", "year = " + year + ", month = " + monthOfYear + ", day = " + dayOfMonth);
             String yearStr = Integer.toString(year);
             tv_birthYear.setText(yearStr);
-            birthYear = Integer.parseInt(tv_birthYear.getText().toString());
+            birthYear = Long.parseLong(tv_birthYear.getText().toString());
 
         }
     };
@@ -81,7 +81,7 @@ public class InputInfo extends AppCompatActivity implements View.OnClickListener
                 .baseUrl(URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        inputInfoInterface = retrofit.create(InputInfoInterface.class);
+        retrofitInterface = retrofit.create(RetrofitInterface.class);
 
         btn_select_year.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,21 +99,24 @@ public class InputInfo extends AppCompatActivity implements View.OnClickListener
             case R.id.btn_submit:
                 nickname = et_nickname.getText().toString();
                 gender = et_gender.getText().toString();
-                price = Integer.parseInt(et_price.getText().toString());
+                price = Long.parseLong(et_price.getText().toString());
                 comment = et_comment.getText().toString();
-                smokingYear = Integer.parseInt(et_smoking_year.getText().toString());
-                smokingAmount = Integer.parseInt(et_smoking_amount.getText().toString());
+                smokingYear = Long.parseLong(et_smoking_year.getText().toString());
+                smokingAmount = Long.parseLong(et_smoking_amount.getText().toString());
                 profileImg = "더미데이터";
                 popupImg = "더미데이터";
+                badId = 0L;
+                point = 0L;
+                ranking = 0L;
 
 //              addUserDto 사용
-                AddUserDto addUserDto = new AddUserDto(nickname, gender, birthYear, smokingYear,comment,price,smokingAmount,profileImg,popupImg);
+                AddUserDto addUserDto = new AddUserDto(nickname, gender, birthYear, smokingYear,comment,price,smokingAmount,ranking, profileImg,popupImg, point, badId);
                 System.out.println(addUserDto);
 
 
 
 
-                Call<AddUserDto> call_post = inputInfoInterface.addUser(addUserDto);
+                Call<AddUserDto> call_post = retrofitInterface.addUser(addUserDto);
                 call_post.enqueue(new Callback<AddUserDto>() {
                                       @Override
                                       public void onResponse(Call<AddUserDto> call, Response<AddUserDto> response) {
@@ -136,10 +139,10 @@ public class InputInfo extends AppCompatActivity implements View.OnClickListener
                                     @Override
                                     public void onFailure(Call<AddUserDto> call, Throwable t) {
                                         Log.v(TAG, "Fail");
-                                        System.out.println("***********" + t.toString());
+//                                        System.out.println("***********" + t.toString());
                                         Toast.makeText(getApplicationContext(), "Response Fail", Toast.LENGTH_SHORT).show();
                                     }
-                                    
+
                 });
                 break;
             default:
