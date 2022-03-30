@@ -33,18 +33,18 @@ pipeline {
 //      }
 //}
 
-    stage("Unit Test"){
-         steps{
-            sh "./gradlew test${env.BUILD_VARIANT}Unittest --stacktrace"
-            junit "**/TEST-*.xml"
-         }
-    }
-    stage("Assemble"){
-        steps{
-            sh "./gradlew assemble${env.BUILD_VARIANT} --stacktrace"
-            archiveArtifacts artifacts: "**/*.apk, **/mapping.txt", fingerprint: true
-    }
-   }
+//     stage("Unit Test"){
+//          steps{
+//             sh "./gradlew test${env.BUILD_VARIANT}Unittest --stacktrace"
+//             junit "**/TEST-*.xml"
+//          }
+//     }
+//     stage("Assemble"){
+//         steps{
+//             sh "./gradlew assemble${env.BUILD_VARIANT} --stacktrace"
+//             archiveArtifacts artifacts: "**/*.apk, **/mapping.txt", fingerprint: true
+//     }
+//    }
   }
- }
+}
 
