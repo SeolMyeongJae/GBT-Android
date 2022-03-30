@@ -10,18 +10,19 @@ pipeline {
 //         BUILD_VARIANT = "Debug" // "DevAlpha"
 //   }
   stages {
-    stage("Environment") {
-     steps {
-        script{
-                //withCredentials([string(credentialsId : "build-pwd", variable: "PWD")]) {
-                  //      env.DevKeyPassword = "${PWD}"
-                    //    env.DevStorePassword = "${PWD}"
-                      //  env.ProductKeyPassword = "${PWD}"
-                        //env.ProductStorePassword = "${PWD}"
-                //}
-        }
-     }
-}
+//     stage("Environment") {
+//      steps {
+//         script{
+//                 //withCredentials([string(credentialsId : "build-pwd", variable: "PWD")]) {
+//                   //      env.DevKeyPassword = "${PWD}"
+//                     //    env.DevStorePassword = "${PWD}"
+//                       //  env.ProductKeyPassword = "${PWD}"
+//                         //env.ProductStorePassword = "${PWD}"
+//                 //}
+//         }
+//      }
+//}
+
     stage("Unit Test"){
          steps{
             sh "./gradlew test${env.BUILD_VARIANT}Unittest --stacktrace"
