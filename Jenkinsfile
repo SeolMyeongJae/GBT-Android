@@ -10,6 +10,14 @@ pipeline {
 //         BUILD_VARIANT = "Debug" // "DevAlpha"
 //   }
   stages {
+     stage('build') {
+              steps {
+                  sh 'ls'
+                  dir ('GBT_4'){
+                  sh './gradlew clean build'
+                  }
+               }
+          }
 //     stage("Environment") {
 //      steps {
 //         script{
