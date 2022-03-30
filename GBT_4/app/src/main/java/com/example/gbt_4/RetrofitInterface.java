@@ -13,19 +13,14 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
-public interface InputInfoInterface {
-//
-//    @POST("users")
-//    Call<PracticeDto> practice2(@Body PracticeDto practiceDto);
-//
-//    @GET("users")
-//    Call<ResponseBody> practice(@Query("data") String data);
-
-//  여기서 ResponseBody가 dto를 말하는듯!
+public interface RetrofitInterface {
+    @GET("user/{userId}")
+//    Call<GetUserDto> getByUserId();
+    Call<GetUserDto> getByUserId(@Path("userId") int userId);
 
     @POST("user")
-//    Call<PostUserDto> postFunc(@Field("provider") String provider, @Field("userId") int userId);
     Call<AddUserDto> addUser(@Body AddUserDto addUserDto);
+//    Call<PostUserDto> postFunc(@Field("provider") String provider, @Field("userId") int userId);
 
     @FormUrlEncoded
     @PUT("user/{id}")
