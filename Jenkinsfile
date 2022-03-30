@@ -14,7 +14,9 @@ pipeline {
               steps {
                   sh 'ls'
                   dir ('GBT_4'){
-                  sh './gradlew clean build'
+                  sh 'ls'
+                  sh './gradlew assembleDebug'
+                  sh 'ls'
                   }
                }
           }
