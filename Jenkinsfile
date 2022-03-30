@@ -1,18 +1,39 @@
 pipeline {
   agent any
-  stages {
-    stage('build') {
-     steps {
-                     sh 'ls'
-                     dir ('GBT_4'){
-                     sh "chmod +x gradlew"
-                                     sh "./gradlew clean assemble" // 일반 APK 빌드
-                                     // sh "./gradlew clean app:assembleDebug" // DEBUG APK 빌드
-                                     // sh "./gradlew clean app:assembleRelease" // RELEASE APK 빌드
-                                     sh "find $WORKSPACE -name '*.apk'"
-
-                     }
-                  }
-
+  options {
+        skipStagesAfterUnstable()
   }
+  tools {
+        jdk("JAVA11")
+  }
+//   environment {
+//         BUILD_VARIANT = "Debug" // "DevAlpha"
+//   }
+  stages {
+    stage("Environment") {
+     steps {
+        script{
+                //withCredentials([string(credentialsId : "build-pwd", variable: "PWD")]) {
+                  //      env.DevKeyPassword = "${PWD}"
+                    //    env.DevStorePassword = "${PWD}"
+                      //  env.ProductKeyPassword = "${PWD}"
+                        //env.ProductStorePassword = "${PWD}"
+                //}
+        }
+     }
 }
+    stage("Unit Test"){
+         steps{
+            sh "./gradlew test${env.BUILD_VARIANT}Unittest --stacktrace"
+            junit "**/TEST-*.xml"
+         }
+    }
+    stage("Assemble"){
+        steps{
+            sh "./gradlew assemble${env.BUILD_VARIANT} --stacktrace"
+            archiveArtifacts artifacts: "**/*.apk, **/mapping.txt", fingerprint: true
+    }
+   }
+  }
+ }
+
