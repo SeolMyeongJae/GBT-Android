@@ -3,9 +3,9 @@ pipeline {
   options {
         skipStagesAfterUnstable()
   }
-  tools {
-        jdk("JAVA11")
-  }
+//   tools {
+//         jdk("JAVA11")
+//   }
 //   environment {
 //         BUILD_VARIANT = "Debug" // "DevAlpha"
 //   }
