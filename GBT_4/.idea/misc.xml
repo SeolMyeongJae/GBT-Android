@@ -27,9 +27,19 @@
         <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/activity_input_info.xml" value="0.25" />
         <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/activity_log_in.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/activity_main_page.xml" value="0.25" />
+        <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/activity_main_page.xml" value="0.33" />
+        <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/activity_main_page3.xml" value="0.3515625" />
+        <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/fragment_challenge.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/fragment_community.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/fragment_home.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/fragment_my_info.xml" value="0.17806484295845998" />
+        <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/fragment_my_information.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/fragment_statistics.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/select_photo.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/year_picker.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/layout/year_select.xml" value="0.30434782608695654" />
+        <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/admin/Documents/GitHub/GBT-Android/GBT_4/app/src/main/res/menu/bottom_navi_bar.xml" value="0.33" />
       </map>
     </option>
   </component>
