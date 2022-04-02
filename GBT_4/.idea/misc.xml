@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/SMJ/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_input_info.xml" value="0.1" />
+        <entry key="..\:/Users/SMJ/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_log_in.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/SMJ/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/SMJ/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_main_page.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/SMJ/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_my_info.xml" value="0.334375" />
+        <entry key="..\:/Users/SMJ/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_update_info.xml" value="0.1" />
+        <entry key="..\:/Users/SMJ/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/fragment_my_info.xml" value="0.334549244398124" />
+        <entry key="..\:/Users/SMJ/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/select_photo.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/SMJ/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/settings_activity.xml" value="0.1875" />
+        <entry key="..\:/Users/SMJ/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/year_select.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/SMJ/Desktop/GBT-Android/GBT_4/app/src/main/res/xml/root_preferences.xml" value="0.1875" />
         <entry key="..\:/Users/admin/Desktop/GBT_4/app/src/main/res/drawable-v24/btn_kakao.xml" value="0.226" />
         <entry key="..\:/Users/admin/Desktop/GBT_4/app/src/main/res/layout/activity_input_information.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/admin/Desktop/GBT_4/app/src/main/res/layout/activity_log_in.xml" value="0.25364583333333335" />
