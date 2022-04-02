@@ -39,7 +39,6 @@ public class InputInfo extends AppCompatActivity implements View.OnClickListener
 //    인터페이스 객체 생성
     private RetrofitInterface retrofitInterface;
 
-
 //    날짜선택창 객체 생성
     DatePickerDialog.OnDateSetListener d = new DatePickerDialog.OnDateSetListener(){
         @Override
@@ -74,8 +73,6 @@ public class InputInfo extends AppCompatActivity implements View.OnClickListener
         et_smoking_year = (EditText)findViewById(R.id.et_smoking_year);
 //        텍스트뷰 id값 부여
         tv_birthYear = (TextView) findViewById(R.id.tv_birthYear);
-
-
 
         retrofit = new Retrofit.Builder()
                 .baseUrl(URL)
@@ -162,7 +159,7 @@ public class InputInfo extends AppCompatActivity implements View.OnClickListener
             default:
                 break;
         }
-        Intent intent = new Intent(getApplicationContext(),MainPage2.class);
+        Intent intent = new Intent(getApplicationContext(),MainPage3.class);
         startActivity(intent);
     }
 }
