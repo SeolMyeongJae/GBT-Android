@@ -13,9 +13,18 @@
         android:theme="@style/Theme.GBT_4"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".info.UpdateInfo"
+            android:exported="false" />
+        <activity
+            android:name=".info.MyInfo"
+            android:exported="true">
+
+        </activity>
+        <activity
             android:name=".MainPage"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
+
         <activity
             android:name=".MainPage2"
             android:exported="false"
