@@ -24,6 +24,11 @@
             android:name=".MainPage"
             android:exported="false"
             android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".MainPage2"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".InputInfo"
             android:exported="false"
