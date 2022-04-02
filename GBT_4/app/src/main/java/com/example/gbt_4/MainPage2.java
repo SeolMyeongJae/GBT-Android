@@ -52,7 +52,7 @@ public class MainPage2 extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, new HomeFragment()).commit();
                         break;
                     case R.id.tab_info:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, new MyInformationFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, new MyInfo()).commit();
                         break;
                     case R.id.tab_statistic:
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, new StatisticsFragment()).commit();

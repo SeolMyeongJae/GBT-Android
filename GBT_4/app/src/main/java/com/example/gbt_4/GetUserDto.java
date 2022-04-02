@@ -2,6 +2,7 @@ package com.example.gbt_4;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import lombok.Getter;
@@ -14,7 +15,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class GetUserDto {
+public class GetUserDto implements Serializable {
 
     @SerializedName("id")
     private Long userId;
