@@ -97,17 +97,31 @@ public class InputInfo extends AppCompatActivity implements View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btn_submit:
-                nickname = et_nickname.getText().toString();
-                gender = et_gender.getText().toString();
-                price = Long.parseLong(et_price.getText().toString());
-                comment = et_comment.getText().toString();
-                smokingYear = Long.parseLong(et_smoking_year.getText().toString());
-                smokingAmount = Long.parseLong(et_smoking_amount.getText().toString());
+//                데이터 입력(완료) -> 앞으로는 임시로 더미데이터를 사용
+//                nickname = et_nickname.getText().toString();
+//                gender = et_gender.getText().toString();
+//                price = Long.parseLong(et_price.getText().toString());
+//                comment = et_comment.getText().toString();
+//                smokingYear = Long.parseLong(et_smoking_year.getText().toString());
+//                smokingAmount = Long.parseLong(et_smoking_amount.getText().toString());
+//                profileImg = "더미데이터";
+//                popupImg = "더미데이터";
+//                badId = 0L;
+//                point = 0L;
+//                ranking = 0L;
+
+                nickname = "설명재";
+                gender = "남자";
+                price =4500L;
+                comment = "형님형님 야야 기분좋다";
+                smokingYear = 8L;
+                smokingAmount = 20L;
                 profileImg = "더미데이터";
                 popupImg = "더미데이터";
                 badId = 0L;
                 point = 0L;
                 ranking = 0L;
+
 
 //              addUserDto 사용
                 AddUserDto addUserDto = new AddUserDto(nickname, gender, birthYear, smokingYear,comment,price,smokingAmount,ranking, profileImg,popupImg, point, badId);
@@ -148,19 +162,7 @@ public class InputInfo extends AppCompatActivity implements View.OnClickListener
             default:
                 break;
         }
-        Intent intent = new Intent(getApplicationContext(),MainPage.class);
+        Intent intent = new Intent(getApplicationContext(),MainPage2.class);
         startActivity(intent);
-
-
-//        btn_submit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(),MainPage.class);
-//                startActivity(intent);
-//
-//            }
-//        });
-
-
     }
 }
