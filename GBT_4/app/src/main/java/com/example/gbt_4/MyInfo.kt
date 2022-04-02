@@ -29,14 +29,12 @@ class MyInfo : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+//         Inflate the layout for this fragment
         binding = ActivityMyInfoBinding.inflate(inflater, container, false)
 //        getResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
 //            when (it.resultCode) {
 //                AppCompatActivity.RESULT_OK -> {
-////                    showToast("RESULT_OK")
 //                    val result = intent?.getStringExtra("name") ?: ""
-////                    showToast(result)
 //
 //                }
 //            }
@@ -49,7 +47,9 @@ class MyInfo : Fragment() {
 
 //        binding.editInfo.setOnClickListener {
 //            val intent = Intent(this, UpdateInfo::class.java)
+//
 //            getResult.launch(intent)
+//
 //        }
 
         val service: UserInterface = retrofit.create(UserInterface::class.java)
@@ -66,6 +66,7 @@ class MyInfo : Fragment() {
 
 //                    binding.username.text = pre.getString("username", "데이터가 없어요")
 
+                    binding.username.text = result?.userName.toString()
                     binding.birth.text = result?.birthYear.toString()
                     binding.smokingYear.text = result?.smokingYear.toString()
                     binding.average.text = result?.averageSmoking.toString()
