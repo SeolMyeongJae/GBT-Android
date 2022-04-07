@@ -1,4 +1,4 @@
-package com.example.gbt_4;
+package com.example.gbt_4.dto;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -47,7 +47,6 @@ public class AddUserDto {
 
     @SerializedName("badgeId")
     private Long badgeId;
-
 
     public AddUserDto(String userName, String gender, Long birthYear, Long smokingYear, String comment, Long price, Long averageSmoking, Long ranking, String profileImg, String popupImg, Long point, Long badgeId) {
         this.userName = userName;
