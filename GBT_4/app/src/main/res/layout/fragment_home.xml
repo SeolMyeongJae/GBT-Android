@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.HomeFragment">
 
     <LinearLayout
         android:id="@+id/linearLayout5"
@@ -24,6 +25,7 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/iv_profilePhoto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/nuroongji" />
@@ -116,17 +118,117 @@
         </LinearLayout>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="100dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/main_page_plus_button"
-        android:hint="담배 +1개비"
-        android:padding="10dp"
-        android:textColorHint="@color/white" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <Button
+            android:id="@+id/btn_plus"
+            android:layout_width="131dp"
+            android:layout_height="103dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="85dp"
+            android:background="@drawable/main_page_plus_button"
+            android:fontFamily="@font/modu"
+            android:hint="담배
+            +1개비"
+            android:padding="10dp"
+            android:textColorHint="@color/black"
+            android:textSize="29sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.522" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="114dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_plus"
+            app:layout_constraintTop_toTopOf="@+id/btn_plus">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/minkyoung"
+                    android:gravity="center"
+                    android:text="오늘 하루 핀 담배: "
+                    android:textSize="28sp" />
+
+                <TextView
+                    android:id="@+id/tv_todayCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:text=""
+                    android:textColor="#E1608C"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/minkyoung"
+                    android:gravity="center_vertical|left"
+                    android:text="개비"
+                    android:textSize="28sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView18"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/minkyoung"
+                    android:gravity="center"
+                    android:text="이번 달에 핀 담배: "
+                    android:textSize="28sp" />
+
+                <TextView
+                    android:id="@+id/tv_monthCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:text=""
+                    android:textColor="#E69E34"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/minkyoung"
+                    android:gravity="center_vertical|left"
+                    android:text="개비"
+                    android:textSize="28sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </FrameLayout>

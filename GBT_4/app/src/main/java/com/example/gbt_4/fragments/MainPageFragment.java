@@ -1,4 +1,4 @@
-package com.example.gbt_4;
+package com.example.gbt_4.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.gbt_4.R;
 
 import java.util.Date;
 

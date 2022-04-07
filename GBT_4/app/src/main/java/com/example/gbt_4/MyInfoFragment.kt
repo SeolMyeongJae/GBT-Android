@@ -21,7 +21,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class MyInfo : Fragment() {
+class MyInfoFragment : Fragment() {
 
     private lateinit var binding: ActivityMyInfoBinding
     private lateinit var getResult: ActivityResultLauncher<Intent>

@@ -1,4 +1,4 @@
-package com.example.gbt_4;
+package com.example.gbt_4.fragments;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class MyInformationFragment extends Fragment {
+import com.example.gbt_4.R;
+
+public class OfficialChallengeFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_information, container, false);
+        View v = inflater.inflate(R.layout.fragment_official_challenge, container,false);
+        return v;
     }
 }

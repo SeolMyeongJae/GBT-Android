@@ -1,4 +1,4 @@
-package com.example.gbt_4;
+package com.example.gbt_4.dto;
 
 import com.google.gson.annotations.SerializedName;
 
