@@ -129,28 +129,23 @@ public class InputInfo extends AppCompatActivity implements View.OnClickListener
 
 
 
-                Call<AddUserDto> call_post = retrofitInterface.addUser(addUserDto);
-                call_post.enqueue(new Callback<AddUserDto>() {
+                Call<Integer> call_post = retrofitInterface.addUser(addUserDto);
+                call_post.enqueue(new Callback<Integer>() {
                                       @Override
-                                      public void onResponse(Call<AddUserDto> call, Response<AddUserDto> response) {
+                                      public void onResponse(Call<Integer> call, Response<Integer> response) {
                                           if (response.isSuccessful()) {
                                               try {
                                                   int result = Integer.parseInt(response.body().toString());
-                                                  Log.v(TAG, "result = " + result);
-                                                  Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
                                               }catch (NumberFormatException e) {
                                                   e.printStackTrace();
                                               }
                                               catch (Exception e) {
                                                   e.printStackTrace();
                                               }
-                                          } else {
-                                              Log.v(TAG, "error = " + String.valueOf(response.code()));
-                                              Toast.makeText(getApplicationContext(), "error = " + String.valueOf(response.code()), Toast.LENGTH_SHORT).show();
                                           }
                                       }
                                     @Override
-                                    public void onFailure(Call<AddUserDto> call, Throwable t) {
+                                    public void onFailure(Call<Integer> call, Throwable t) {
                                         Log.v(TAG, "Fail");
 //                                        System.out.println("***********" + t.toString());
                                         Toast.makeText(getApplicationContext(), "Response Fail", Toast.LENGTH_SHORT).show();

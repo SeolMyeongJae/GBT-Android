@@ -13,12 +13,26 @@
         android:theme="@style/Theme.GBT_4"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".OfficialChallengeVerify"
+            android:exported="false" />
+        <activity
+            android:name=".OfficialChallengeStatus"
+            android:exported="false" />
+        <activity
+            android:name=".OfficialChallengeIng"
+            android:exported="false" />
+        <activity
+            android:name=".CustomChallengeDetail"
+            android:exported="false" />
+        <activity
+            android:name=".OfficialChallengeDetail"
+            android:exported="false" />
+        <activity
             android:name=".info.UpdateInfo"
             android:exported="false" />
         <activity
             android:name=".info.MyInfo"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".MainPage"
             android:exported="false"

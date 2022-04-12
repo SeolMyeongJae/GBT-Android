@@ -1,4 +1,4 @@
-package com.example.gbt_4
+package com.example.gbt_4.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,11 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
-import androidx.preference.PreferenceManager
 import com.example.gbt_4.databinding.ActivityMyInfoBinding
-import com.example.gbt_4.info.UpdateInfo
 import com.example.gbt_4.info.UserDto
 import com.example.gbt_4.info.UserInterface
 import retrofit2.Call
