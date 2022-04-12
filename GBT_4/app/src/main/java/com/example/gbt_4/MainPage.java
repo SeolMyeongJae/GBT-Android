@@ -54,6 +54,8 @@ public class MainPage extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
+        getSupportActionBar().hide();
+
         bundle = getHttp();
 
         bottomNavigationView = (NavigationBarView) findViewById(R.id.bottom_navi);

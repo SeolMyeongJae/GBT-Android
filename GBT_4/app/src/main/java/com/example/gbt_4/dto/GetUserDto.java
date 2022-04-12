@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +16,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
+@AllArgsConstructor
 public class GetUserDto implements Serializable {
 
     @SerializedName("id")
@@ -47,16 +49,4 @@ public class GetUserDto implements Serializable {
     @SerializedName("popupImg")
     private String popupImg;
 
-    public GetUserDto(Long userId, String userName, String gender, Date birthYear, Long smokingYear, String comment, Long price, Long averageSmoking, String profileImg, String popupImg) {
-        this.userId = userId;
-        this.userName = userName;
-        this.gender = gender;
-        this.birthYear = birthYear;
-        this.smokingYear = smokingYear;
-        this.comment = comment;
-        this.price = price;
-        this.averageSmoking = averageSmoking;
-        this.profileImg = profileImg;
-        this.popupImg = popupImg;
-    }
 }

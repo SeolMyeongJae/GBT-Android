@@ -8,8 +8,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.gbt_4.dto.GetOfficialChallengeDto;
+import com.example.gbt_4.fragments.OfficialChallengeFragment;
 
+import java.net.URI;
 import java.util.List;
 
 
@@ -31,6 +34,9 @@ public class OfficialChallengeAdapter extends BaseAdapter {
 //     context =리스트를 보여주는 액티비티의 Contenxt : itemlayout을 inflate를 할때 필요하다.
 //     layout  =데이터들을 담아둘 itemlayout Address : R.layout.sample_item 이들어오는 곳이다. 리소스 디렉토리내의 주소를 가져오므로 int로 저장된다.
 //     items  =데이터 꾸러미를 가져온다.
+
+    private String photoURL;
+
     Context context = null;
     LayoutInflater layoutInflater = null;
     List<GetOfficialChallengeDto> getOfficialChallengeList;
@@ -86,10 +92,16 @@ public class OfficialChallengeAdapter extends BaseAdapter {
         tv_title.setText(getOfficialChallengeList.get(position).getTitle());
         tv_endDate.setText(getOfficialChallengeList.get(position).getEndDate().toString());
         tv_summary.setText(getOfficialChallengeList.get(position).getSummary());
+        photoURL = getOfficialChallengeList.get(position).getImg();
+//        System.out.println("공식 챌린지 어댑터: 프로필 사진 URI는 "+photoURL+"입니다.");
+//        Glide.with(parent).load(photoURL).into(iv_profilePhoto);
+        Glide.with(parent).load(photoURL).into(iv_profilePhoto);
+
+
 
         Boolean isJoin = getOfficialChallengeList.get(position).getIsJoin();
         System.out.println(getOfficialChallengeList.get(position));
-        System.out.println("불린 값은 "+ isJoin + "입니다");
+//        System.out.println("불린 값은 "+ isJoin + "입니다");
 
         if(isJoin == false) {
             iv_ing.setVisibility(view.INVISIBLE);
