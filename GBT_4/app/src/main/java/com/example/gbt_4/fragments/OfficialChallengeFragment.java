@@ -14,6 +14,7 @@ import android.widget.ListView;
 
 import com.example.gbt_4.OfficialChallengeDetail;
 import com.example.gbt_4.OfficialChallengeAdapter;
+import com.example.gbt_4.OfficialChallengeIng;
 import com.example.gbt_4.R;
 import com.example.gbt_4.RetrofitInterface;
 import com.example.gbt_4.dto.GetOfficialChallengeDto;
@@ -86,7 +87,10 @@ public class OfficialChallengeFragment extends Fragment{
                 Long checkedId = getOfficialChallengeList.get(position).getId();
 
                 Intent intent = new Intent(getActivity(), OfficialChallengeDetail.class);
+                Intent intent1 = new Intent(getActivity(), OfficialChallengeIng.class);
                 intent.putExtra("challengeId", checkedId);
+                intent1.putExtra("challengeId1", checkedId);
+
                 startActivity(intent);
             }
         });

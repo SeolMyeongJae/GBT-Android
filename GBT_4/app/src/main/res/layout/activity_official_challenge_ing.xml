@@ -7,7 +7,7 @@
     tools:context=".OfficialChallengeIng">
 
     <ImageView
-        android:id="@+id/iv_official_challenge_photo"
+        android:id="@+id/iv_official_challenge_ing_photo"
         android:layout_width="256dp"
         android:layout_height="118dp"
         android:layout_marginTop="8dp"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_official_challenge_title"
+        android:id="@+id/tv_official_challenge_ing_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -40,7 +40,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_official_challenge_photo" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_official_challenge_ing_photo" />
 
     <LinearLayout
         android:id="@+id/linearLayout12"
@@ -52,7 +52,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_official_challenge_title">
+        app:layout_constraintTop_toBottomOf="@+id/tv_official_challenge_ing_title">
 
         <LinearLayout
             android:id="@+id/linearLayout7"
@@ -69,7 +69,7 @@
                 android:text="챌린지 기간:" />
 
             <TextView
-                android:id="@+id/tv_official_challenge_period"
+                android:id="@+id/tv_official_challenge_ing_period"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight="2"
@@ -95,7 +95,7 @@
 
             <TextView
 
-                android:id="@+id/tv_official_challenge_current"
+                android:id="@+id/tv_official_challenge_ing_current"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
@@ -111,7 +111,7 @@
                 android:text="최대 인원:" />
 
             <TextView
-                android:id="@+id/tv_official_challenge_max"
+                android:id="@+id/tv_official_challenge_ing_max"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
@@ -138,7 +138,7 @@
                 android:text="인증 방식:" />
 
             <TextView
-                android:id="@+id/tv_official_challenge_method"
+                android:id="@+id/tv_official_challenge_ing_method"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_weight="1"
@@ -163,7 +163,7 @@
                 android:text="챌린지 설명" />
 
             <TextView
-                android:id="@+id/tv_official_challenge_description"
+                android:id="@+id/tv_official_challenge_ing_description"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="TextView" />

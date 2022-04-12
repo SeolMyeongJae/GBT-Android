@@ -14,10 +14,12 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".OfficialChallengeVerify"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"/>
         <activity
             android:name=".OfficialChallengeStatus"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"/>
         <activity
             android:name=".OfficialChallengeIng"
             android:exported="false" />
@@ -36,7 +38,7 @@
         <activity
             android:name=".MainPage"
             android:exported="false"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".InputInfo"
             android:exported="false"

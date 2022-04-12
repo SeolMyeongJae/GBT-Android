@@ -65,6 +65,8 @@ public class OfficialChallengeDetail extends AppCompatActivity {
         //Intent로 Data 받아오기
         Intent intent = getIntent();
         Long challengeId = intent.getLongExtra("challengeId", 0L);
+        System.out.println("공식 챌린지 상세 페이지: 선택된 챌린지 Id는"+challengeId+"입니다.");
+
 
         tv_official_challenge_title = (TextView)findViewById(R.id.tv_official_challenge_title);
         tv_official_challenge_current = (TextView)findViewById(R.id.tv_official_challenge_current);
@@ -94,7 +96,8 @@ public class OfficialChallengeDetail extends AppCompatActivity {
                         photoURL = getOfficialChallengeDto.getImg();
                         // TODO: 2022-04-08 img URL로 찾기
                         Glide.with(OfficialChallengeDetail.this).load(photoURL).into(iv_official_challenge_photo);
-                        System.out.println(photoURL);
+                        System.out.println("공식챌린지 상세페이지: 사진 URL은"+photoURL+"입니다.");
+
 
                     }catch (Exception e){
                         System.out.println("공식 챌린지 상세페이지:예외 오류!"+e.getMessage());
@@ -140,6 +143,7 @@ public class OfficialChallengeDetail extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
                                 Intent intent1 = new Intent(getApplicationContext(),OfficialChallengeIng.class);
+                                intent1.putExtra("checkedId",challengeId);
                                 startActivity(intent1);
                             }
                         });
