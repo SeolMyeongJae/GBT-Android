@@ -3,6 +3,7 @@ package com.example.gbt_4;
 import com.example.gbt_4.dto.AddCustomChallengeDto;
 import com.example.gbt_4.dto.AddSmokingDto;
 import com.example.gbt_4.dto.AddUserDto;
+import com.example.gbt_4.dto.GetCustomChallengeDto;
 import com.example.gbt_4.dto.GetOfficialChallengeDto;
 import com.example.gbt_4.dto.GetSmokingDto;
 import com.example.gbt_4.dto.GetSmokingListDto;
@@ -45,14 +46,14 @@ public interface RetrofitInterface {
 
     @POST("user-challenge")
     Call<Integer> participateOfficialChallenge(@Body UserChallengeDto userChallengeDto);
-
-//커스텀 챌린지 인터페이스
-    @GET("custom/{id}")
-    Call<G>
-
-    @POST("custom")
-    Call<Integer> addCustomChallenge(@Body AddCustomChallengeDto addCustomChallengeDto);
-
+//
+////커스텀 챌린지 인터페이스
+//    @GET("custom/{id}")
+//    Call<GetCustomChallengeDto> getCustomChallengeByUserId(@Path("id") Long id);
+//
+//    @POST("custom")
+//    Call<Integer> addCustomChallenge(@Body AddCustomChallengeDto addCustomChallengeDto);
+//
 
 
 
