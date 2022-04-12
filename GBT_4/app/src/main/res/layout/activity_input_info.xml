@@ -14,18 +14,49 @@
         android:layout_gravity="center"
         android:src="@drawable/logo"
         android:scaleType="fitXY"/>
-    <TextView
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:text="회원정보 입력"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:fontFamily="@font/minkyoung"
-        android:layout_marginTop="10dp"
-        />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/minkyoung"
+            android:gravity="center"
+            android:text="회원정보 입력"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="1dp"
+            android:src="@drawable/star"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView15"
+            app:layout_constraintTop_toBottomOf="@+id/textView15"></ImageView>
+
+        <TextView
+            android:textStyle="bold"
+            android:fontFamily="@font/minkyoung"
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="색칠된 항목은 필수로 입력해 주세요"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView12" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 <ScrollView
     android:layout_width="match_parent"
@@ -194,8 +225,11 @@
     </TableLayout>
 </ScrollView>
 
-
-
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/star" />
 
 
 </LinearLayout>

@@ -63,17 +63,17 @@ public class HomeFragment extends Fragment {
         btn_plus = (Button) v.findViewById(R.id.btn_plus);
         ImageView iv_profilePhoto = (ImageView) v.findViewById(R.id.iv_profilePhoto);
 
-        //받아온 번들로 유저 정보 Data 삽입
-        tv_userName.setText(getUserDto.getUserName());
-        tv_comment.setText(getUserDto.getComment());
-
         //받아온 번들로 담배 count Data 삽입
         try {
+            tv_userName.setText(getUserDto.getUserName());
+            tv_comment.setText(getUserDto.getComment());
             tv_todayCount.setText(getSmokingDto.getCount().toString());
             tv_monthCount.setText((getSmokingListDto.getTotal().toString()));
         }catch (NullPointerException e){
             tv_todayCount.setText("0");
             tv_monthCount.setText("0");
+            tv_userName.setText("0");
+            tv_comment.setText("0");
         }
 
         btn_plus.setOnClickListener(new View.OnClickListener() {
@@ -82,10 +82,10 @@ public class HomeFragment extends Fragment {
                 switch (view.getId()) {
                     case R.id.btn_plus:
                         AddSmokingDto addSmokingDto = new AddSmokingDto(1L, "설명재");
-                        Call<ResponseBody> call_addSmoking = retrofitInterface.addSmoking(addSmokingDto);
-                        call_addSmoking.enqueue(new Callback<ResponseBody>() {
+                        Call<Integer> call_addSmoking = retrofitInterface.addSmoking(addSmokingDto);
+                        call_addSmoking.enqueue(new Callback<Integer>() {
                             @Override
-                            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                            public void onResponse(Call<Integer> call, Response<Integer> response) {
                                 try {
                                     Toast.makeText(getActivity(), "담배 한 개비가 추가되었어요...", Toast.LENGTH_SHORT).show();
                                     tv_todayCount.setText("" + (getSmokingDto.getCount() + 1));
@@ -101,7 +101,7 @@ public class HomeFragment extends Fragment {
                                 }
                             }
                             @Override
-                            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                            public void onFailure(Call<Integer> call, Throwable t) {
                                 System.out.println("***********" + t.toString());
                             }
                         });

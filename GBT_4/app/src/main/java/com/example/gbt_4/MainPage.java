@@ -14,6 +14,7 @@ import com.example.gbt_4.dto.GetUserDto;
 import com.example.gbt_4.fragments.ChallengeFragment;
 import com.example.gbt_4.fragments.CommunityFragment;
 import com.example.gbt_4.fragments.HomeFragment;
+import com.example.gbt_4.fragments.MyInfoFragment;
 import com.example.gbt_4.fragments.StatisticsFragment;
 import com.google.android.material.navigation.NavigationBarView;
 
