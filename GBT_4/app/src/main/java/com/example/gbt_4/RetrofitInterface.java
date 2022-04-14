@@ -46,14 +46,14 @@ public interface RetrofitInterface {
 
     @POST("user-challenge")
     Call<Integer> participateOfficialChallenge(@Body UserChallengeDto userChallengeDto);
-//
-////커스텀 챌린지 인터페이스
-//    @GET("custom/{id}")
-//    Call<GetCustomChallengeDto> getCustomChallengeByUserId(@Path("id") Long id);
-//
-//    @POST("custom")
-//    Call<Integer> addCustomChallenge(@Body AddCustomChallengeDto addCustomChallengeDto);
-//
+
+//커스텀 챌린지 인터페이스
+    @GET("custom/{id}")
+    Call<GetCustomChallengeDto> getCustomChallengeByUserId(@Path("id") Long id);
+
+    @POST("custom")
+    Call<Integer> addCustomChallenge(@Body AddCustomChallengeDto addCustomChallengeDto);
+
 
 
 

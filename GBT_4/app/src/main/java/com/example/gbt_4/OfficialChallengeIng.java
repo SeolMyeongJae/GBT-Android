@@ -41,6 +41,8 @@ public class OfficialChallengeIng extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_official_challenge_ing);
 
         btn_official_challenge_ing_status = (Button) findViewById(R.id.btn_official_challenge_status);

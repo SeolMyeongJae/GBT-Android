@@ -18,8 +18,7 @@ import java.util.Calendar;
 
 public class SelectYear extends DialogFragment {
 
-
-    private static final int Max_Year = 2099;
+    private static final int Max_Year = 2022;
     private static final int Min_Year = 1940;
     private DatePickerDialog.OnDateSetListener listener;
     public Calendar calendar = Calendar.getInstance();

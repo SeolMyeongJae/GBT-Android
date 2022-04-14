@@ -11,6 +11,7 @@
 
     <string name="official_challenge_description">금연을 희망하는 사람들과 함께 \n 금연에 도전하고, 포인트를 획득해요!</string>
     <string name="custom_challenge_description">직접 챌린지를 만들고, \n 친구나 지인과 함께 금연에 도전해요!</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dialog2">입력하신 정보로 \n 새로운 챌린지를 만드시겠어요?</string>
+    <string name="start">시작</string>
 </resources>

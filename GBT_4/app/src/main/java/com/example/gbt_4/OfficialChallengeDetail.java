@@ -48,6 +48,8 @@ public class OfficialChallengeDetail extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_official_challenge_detail);
 
         //dialog 세팅

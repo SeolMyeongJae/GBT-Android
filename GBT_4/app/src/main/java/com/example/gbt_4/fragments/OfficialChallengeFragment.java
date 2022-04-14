@@ -13,7 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.example.gbt_4.OfficialChallengeDetail;
-import com.example.gbt_4.OfficialChallengeAdapter;
+import com.example.gbt_4.adapter.OfficialChallengeAdapter;
 import com.example.gbt_4.OfficialChallengeIng;
 import com.example.gbt_4.R;
 import com.example.gbt_4.RetrofitInterface;

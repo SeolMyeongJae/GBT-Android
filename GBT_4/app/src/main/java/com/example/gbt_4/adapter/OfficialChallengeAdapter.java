@@ -1,4 +1,4 @@
-package com.example.gbt_4;
+package com.example.gbt_4.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.gbt_4.R;
 import com.example.gbt_4.dto.GetOfficialChallengeDto;
 import com.example.gbt_4.fragments.OfficialChallengeFragment;
 
@@ -81,12 +82,14 @@ public class OfficialChallengeAdapter extends BaseAdapter {
     public View getView(int position, View converView, ViewGroup parent){
             View view = layoutInflater.inflate(R.layout.item_official_challenge, null);
 
-        ImageView iv_ing = (ImageView) view.findViewById(R.id.iv_ing);
         TextView tv_title = (TextView) view.findViewById(R.id.tv_title);
         TextView tv_endDate = (TextView) view.findViewById(R.id.tv_endDate);
         TextView tv_summary = (TextView) view.findViewById(R.id.tv_summary);
         TextView tv_memberCount = (TextView) view.findViewById(R.id.tv_memberCount);
         TextView tv_period = (TextView) view.findViewById(R.id.tv_period);
+
+        ImageView iv_ing = (ImageView) view.findViewById(R.id.iv_official_challenge_ing);
+        ImageView iv_uning = (ImageView) view.findViewById(R.id.iv_official_challenge_uning);
         ImageView iv_profilePhoto = (ImageView) view.findViewById(R.id.iv_profilePhoto);
 
         tv_title.setText(getOfficialChallengeList.get(position).getTitle());
@@ -94,7 +97,6 @@ public class OfficialChallengeAdapter extends BaseAdapter {
         tv_summary.setText(getOfficialChallengeList.get(position).getSummary());
         photoURL = getOfficialChallengeList.get(position).getImg();
 //        System.out.println("공식 챌린지 어댑터: 프로필 사진 URI는 "+photoURL+"입니다.");
-//        Glide.with(parent).load(photoURL).into(iv_profilePhoto);
         Glide.with(parent).load(photoURL).into(iv_profilePhoto);
 
 
@@ -105,6 +107,8 @@ public class OfficialChallengeAdapter extends BaseAdapter {
 
         if(isJoin == false) {
             iv_ing.setVisibility(view.INVISIBLE);
+        }else {
+            iv_uning.setVisibility(view.INVISIBLE);
         }
         return view;
         }

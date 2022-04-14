@@ -21,7 +21,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class InputInfo extends AppCompatActivity implements View.OnClickListener{
+public class InputInfo extends AppCompatActivity{
     private final String TAG = "InputInfo_Log:";
     private final String URL = "http://54.219.40.82/api/";
 
@@ -56,13 +56,9 @@ public class InputInfo extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_input_info);
 
-        firstInit();
-        btn_submit.setOnClickListener(this);
-    }
-
-    public void firstInit() {
 //        버튼 id값 부여
         btn_submit = (Button)findViewById(R.id.btn_submit);
         btn_select_year = findViewById(R.id.btn_select_year);
@@ -76,12 +72,15 @@ public class InputInfo extends AppCompatActivity implements View.OnClickListener
 //        텍스트뷰 id값 부여
         tv_birthYear = (TextView) findViewById(R.id.tv_birthYear);
 
+        //retrofit 빌드
         retrofit = new Retrofit.Builder()
                 .baseUrl(URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
+
+        //날짜 선택 버튼 기능
         btn_select_year.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,12 +89,11 @@ public class InputInfo extends AppCompatActivity implements View.OnClickListener
                 selectYear.show(getSupportFragmentManager(),"출생년도 선택");
             }
         });
-    }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.btn_submit:
+        btn_submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
 //                데이터 입력(완료) -> 앞으로는 임시로 더미데이터를 사용
 //                nickname = et_nickname.getText().toString();
 //                gender = et_gender.getText().toString();
@@ -120,43 +118,33 @@ public class InputInfo extends AppCompatActivity implements View.OnClickListener
                 badId = 0L;
                 point = 0L;
                 ranking = 0L;
-
-
-//              addUserDto 사용
+                //              addUserDto 사용
                 AddUserDto addUserDto = new AddUserDto(nickname, gender, birthYear, smokingYear,comment,price,smokingAmount,ranking, profileImg,popupImg, point, badId);
                 System.out.println(addUserDto);
 
-
-
-
                 Call<Integer> call_post = retrofitInterface.addUser(addUserDto);
                 call_post.enqueue(new Callback<Integer>() {
-                                      @Override
-                                      public void onResponse(Call<Integer> call, Response<Integer> response) {
-                                          if (response.isSuccessful()) {
-                                              try {
-                                                  int result = Integer.parseInt(response.body().toString());
-                                              }catch (NumberFormatException e) {
-                                                  e.printStackTrace();
-                                              }
-                                              catch (Exception e) {
-                                                  e.printStackTrace();
-                                              }
-                                          }
-                                      }
-                                    @Override
-                                    public void onFailure(Call<Integer> call, Throwable t) {
-                                        Log.v(TAG, "Fail");
-//                                        System.out.println("***********" + t.toString());
-                                        Toast.makeText(getApplicationContext(), "Response Fail", Toast.LENGTH_SHORT).show();
-                                    }
-
+                    @Override
+                    public void onResponse(Call<Integer> call, Response<Integer> response) {
+                        if (response.isSuccessful()) {
+                            try {
+                                int result = Integer.parseInt(response.body().toString());
+                            }catch (NumberFormatException e) {
+                                e.printStackTrace();
+                            }
+                            catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<Integer> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(), "Response Fail", Toast.LENGTH_SHORT).show();
+                    }
                 });
-                break;
-            default:
-                break;
-        }
-        Intent intent = new Intent(getApplicationContext(),MainPage.class);
-        startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(),MainPage.class);
+                startActivity(intent);
+            }
+        });
     }
 }
