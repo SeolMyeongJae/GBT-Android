@@ -52,6 +52,10 @@ public class MainPage extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
+
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_main_page);
 
         getSupportActionBar().hide();

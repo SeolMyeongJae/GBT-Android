@@ -20,8 +20,6 @@ public class AddCustomChallengeDto {
     private Long creatorId;
     @SerializedName("description")
     private String description;
-    @SerializedName("frequency")
-    private Long frequency;
     @SerializedName("id")
     private Long id;
     @SerializedName("img")
@@ -38,4 +36,6 @@ public class AddCustomChallengeDto {
     private String summary;
     @SerializedName("title")
     private String title;
+    @SerializedName("bet")
+    private String bet;
 }

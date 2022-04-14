@@ -38,4 +38,6 @@ public class GetCustomChallengeDto {
     private String summary;
     @SerializedName("title")
     private String title;
+    @SerializedName("isJoin")
+    private Boolean isJoin;
 }
