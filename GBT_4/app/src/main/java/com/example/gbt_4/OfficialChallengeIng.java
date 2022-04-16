@@ -23,7 +23,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class OfficialChallengeIng extends AppCompatActivity implements View.OnClickListener{
 
-    Button btn_official_challenge_ing_status, btn_official_challenge_ing_verify;
+    Button btn_official_challenge_ing_status, btn_official_challenge_ing_verify, btn_official_challenge_ing_back;
     TextView tv_official_challenge_ing_title, tv_official_challenge_ing_period, tv_official_challenge_ing_current, tv_official_challenge_ing_max, tv_official_challenge_ing_method, tv_official_challenge_ing_description;
     ImageView iv_official_challenge_ing_photo;
 
@@ -47,6 +47,7 @@ public class OfficialChallengeIng extends AppCompatActivity implements View.OnCl
 
         btn_official_challenge_ing_status = (Button) findViewById(R.id.btn_official_challenge_status);
         btn_official_challenge_ing_verify = (Button) findViewById(R.id.btn_official_challenge_verify);
+        btn_official_challenge_ing_back = (Button) findViewById(R.id.btn_official_challenge_ing_back);
 
         tv_official_challenge_ing_title = (TextView)findViewById(R.id.tv_official_challenge_ing_title);
         tv_official_challenge_ing_current = (TextView)findViewById(R.id.tv_official_challenge_ing_current);
@@ -56,8 +57,8 @@ public class OfficialChallengeIng extends AppCompatActivity implements View.OnCl
         tv_official_challenge_ing_description = (TextView)findViewById(R.id.tv_official_challenge_ing_description);
         iv_official_challenge_ing_photo = (ImageView)findViewById(R.id.iv_official_challenge_ing_photo);
 
-        Intent intent = getIntent();
-        Long challengeId = intent.getLongExtra("checkedId",0L);
+        Intent intent1 = getIntent();
+        Long challengeId = intent1.getLongExtra("checkedId",0L);
         System.out.println("진행중인 공식 챌린지: 선택된 챌린지 Id는"+challengeId+"입니다.");
 
         //retrofit 빌드
@@ -103,6 +104,7 @@ public class OfficialChallengeIng extends AppCompatActivity implements View.OnCl
 
         btn_official_challenge_ing_status.setOnClickListener(this);
         btn_official_challenge_ing_verify.setOnClickListener(this);
+        btn_official_challenge_ing_back.setOnClickListener(this);
 
     }
 
@@ -110,12 +112,14 @@ public class OfficialChallengeIng extends AppCompatActivity implements View.OnCl
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_official_challenge_status:
-                Intent intent1 = new Intent(getApplicationContext(),OfficialChallengeStatus.class);
-                startActivity(intent1);
+                Intent intent2 = new Intent(getApplicationContext(),OfficialChallengeStatus.class);
+                startActivity(intent2);
                 break;
             case R.id.btn_official_challenge_verify:
-                Intent intent2 = new Intent(getApplicationContext(),OfficialChallengeVerify.class);
-                startActivity(intent2);
+                Intent intent3 = new Intent(getApplicationContext(),OfficialChallengeVerify.class);
+                startActivity(intent3);
+            case R.id.btn_official_challenge_ing_back:
+                finish();
             default:
                 break;
         }

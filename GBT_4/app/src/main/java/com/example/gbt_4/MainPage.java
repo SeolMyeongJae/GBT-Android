@@ -40,7 +40,7 @@ public class MainPage extends AppCompatActivity{
     HomeFragment homeFragment = new HomeFragment();
     StatisticsFragment statisticsFragment = new StatisticsFragment();
     MyInfoFragment myInfoFragment = new MyInfoFragment();
-    CommunityFragment communityFragment = new CommunityFragment();
+//    CommunityFragment communityFragment = new CommunityFragment();
 
     // 하단 Navi bar 선언
     NavigationBarView bottomNavigationView;
@@ -53,18 +53,9 @@ public class MainPage extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-
-        getSupportActionBar().hide();
-
         setContentView(R.layout.activity_main_page);
 
-        getSupportActionBar().hide();
-
-        bundle = getHttp();
-
         bottomNavigationView = (NavigationBarView) findViewById(R.id.bottom_navi);
-
-        homeFragment.setArguments(bundle);
 
         // 하단 Navi bar 구현
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
@@ -72,30 +63,26 @@ public class MainPage extends AppCompatActivity{
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.tab_challenge:
-                        challengeFragment.setArguments(bundle);
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, challengeFragment).commit();
                         break;
 //                    case R.id.tab_community:
-//                        communityFragment.setArguments(bundle);
 //                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, communityFragment).commit();
 //                        break;
                     case R.id.tab_home:
-                        homeFragment.setArguments(bundle);
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, homeFragment).commit();
                         break;
                     case R.id.tab_info:
-                        myInfoFragment.setArguments(bundle);
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, myInfoFragment).commit();
                         break;
                     case R.id.tab_statistic:
-                        statisticsFragment.setArguments(bundle);
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, statisticsFragment).commit();
                         break;
                 }
                 return true;
             }
         });
-
+        //처음 화면 설정
+        getSupportFragmentManager().beginTransaction().add(R.id.frame_lo, homeFragment).commit();
     }
 
     //getHttp 매서드 정의
@@ -110,7 +97,7 @@ public class MainPage extends AppCompatActivity{
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
         // 유저 정보 가져오기 기능
-        Call<GetUserDto> call_getUser = retrofitInterface.getByUserId(1);
+        Call<GetUserDto> call_getUser = retrofitInterface.getByUserId(1L);
         call_getUser.enqueue(new Callback<GetUserDto>() {
             @Override
             public void onResponse(Call<GetUserDto> call, Response<GetUserDto> response) {
@@ -120,8 +107,7 @@ public class MainPage extends AppCompatActivity{
 //                        System.out.println(getUserDto1.toString());
                         bundle.putSerializable("user",getUserDto1);
 
-                        //처음 화면 설정
-                        getSupportFragmentManager().beginTransaction().add(R.id.frame_lo, homeFragment).commit();
+
                     }catch (NumberFormatException e) {
                         e.printStackTrace();
                     }

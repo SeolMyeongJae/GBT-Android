@@ -8,7 +8,7 @@
 
 
     <Button
-        android:id="@+id/btn_official_challenge_detail_back"
+        android:id="@+id/btn_official_challenge_ing_back"
         android:layout_width="33dp"
         android:layout_height="39dp"
         android:layout_marginStart="5dp"

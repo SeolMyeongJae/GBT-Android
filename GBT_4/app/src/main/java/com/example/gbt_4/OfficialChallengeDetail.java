@@ -147,6 +147,7 @@ public class OfficialChallengeDetail extends AppCompatActivity {
                                 Intent intent1 = new Intent(getApplicationContext(),OfficialChallengeIng.class);
                                 intent1.putExtra("checkedId",challengeId);
                                 startActivity(intent1);
+                                dialog.dismiss();
                             }
                         });
 
