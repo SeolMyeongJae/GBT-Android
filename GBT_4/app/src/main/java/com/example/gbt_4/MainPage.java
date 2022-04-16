@@ -1,7 +1,9 @@
 package com.example.gbt_4;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
@@ -32,133 +34,90 @@ public class MainPage extends AppCompatActivity{
 
     private RetrofitInterface retrofitInterface;
 
-    FragmentManager fragmentManager;
+    private FragmentManager fragmentManager;
 
 
-    // Fragments 선언
-    ChallengeFragment challengeFragment = new ChallengeFragment();
-    HomeFragment homeFragment = new HomeFragment();
-    StatisticsFragment statisticsFragment = new StatisticsFragment();
-    MyInfoFragment myInfoFragment = new MyInfoFragment();
-//    CommunityFragment communityFragment = new CommunityFragment();
-
+    private Fragment fh,fc,fs,fm;
+//    // Fragments 선언
+//    ChallengeFragment fc = new ChallengeFragment();
+//    HomeFragment fh = new HomeFragment();
+//    StatisticsFragment fs = new StatisticsFragment();
+//    MyInfoFragment fm = new MyInfoFragment();
+////    CommunityFragment communityFragment = new CommunityFragment();
     // 하단 Navi bar 선언
     NavigationBarView bottomNavigationView;
 
-    // Data 전달 bundle 선언
-    Bundle bundle = new Bundle();
-
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main_page);
 
+        fragmentManager = getSupportFragmentManager();
+
+        //처음 화면 설정
+        fh = new HomeFragment();
+        fragmentManager.beginTransaction().replace(R.id.frame_lo,fh).commit();
+
         bottomNavigationView = (NavigationBarView) findViewById(R.id.bottom_navi);
+
 
         // 하단 Navi bar 구현
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.tab_challenge:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, challengeFragment).commit();
+                        if(fc == null) {
+                            fc = new ChallengeFragment();
+                            fragmentManager.beginTransaction().add(R.id.frame_lo,fc).commit();
+                        }
+
+                        if(fc != null) fragmentManager.beginTransaction().show(fc).commit();
+                        if(fh != null) fragmentManager.beginTransaction().hide(fh).commit();
+                        if(fm != null) fragmentManager.beginTransaction().hide(fm).commit();
+                        if(fs != null) fragmentManager.beginTransaction().hide(fs).commit();
                         break;
 //                    case R.id.tab_community:
 //                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, communityFragment).commit();
 //                        break;
                     case R.id.tab_home:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, homeFragment).commit();
+                        if(fh == null) {
+                            fh = new HomeFragment();
+                            fragmentManager.beginTransaction().add(R.id.frame_lo, fh).commit();
+                        }
+
+                        if(fh != null) fragmentManager.beginTransaction().show(fh).commit();
+                        if(fc != null) fragmentManager.beginTransaction().hide(fc).commit();
+                        if(fm != null) fragmentManager.beginTransaction().hide(fm).commit();
+                        if(fs != null) fragmentManager.beginTransaction().hide(fs).commit();
                         break;
                     case R.id.tab_info:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, myInfoFragment).commit();
+                        if(fm == null) {
+                            fm = new MyInfoFragment();
+                            fragmentManager.beginTransaction().add(R.id.frame_lo, fm).commit();
+                        }
+
+                        if(fm != null) fragmentManager.beginTransaction().show(fm).commit();
+                        if(fc != null) fragmentManager.beginTransaction().hide(fc).commit();
+                        if(fh != null) fragmentManager.beginTransaction().hide(fh).commit();
+                        if(fs != null) fragmentManager.beginTransaction().hide(fs).commit();
                         break;
                     case R.id.tab_statistic:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, statisticsFragment).commit();
+                        if(fs == null) {
+                            fs = new StatisticsFragment();
+                            fragmentManager.beginTransaction().add(R.id.frame_lo, fs).commit();
+                        }
+
+                        if(fs != null) fragmentManager.beginTransaction().show(fs).commit();
+                        if(fh != null) fragmentManager.beginTransaction().hide(fh).commit();
+                        if(fm != null) fragmentManager.beginTransaction().hide(fm).commit();
+                        if(fc != null) fragmentManager.beginTransaction().hide(fc).commit();
                         break;
                 }
                 return true;
             }
         });
-        //처음 화면 설정
-        getSupportFragmentManager().beginTransaction().add(R.id.frame_lo, homeFragment).commit();
-    }
 
-    //getHttp 매서드 정의
-    private Bundle getHttp() {
-        Bundle bundle = new Bundle();
-
-        // retrofit 빌드
-        retrofit = new Retrofit.Builder()
-                .baseUrl(URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        retrofitInterface = retrofit.create(RetrofitInterface.class);
-
-        // 유저 정보 가져오기 기능
-        Call<GetUserDto> call_getUser = retrofitInterface.getByUserId(1L);
-        call_getUser.enqueue(new Callback<GetUserDto>() {
-            @Override
-            public void onResponse(Call<GetUserDto> call, Response<GetUserDto> response) {
-                if (response.isSuccessful()) {
-                    try {
-                        GetUserDto getUserDto1 = response.body();
-//                        System.out.println(getUserDto1.toString());
-                        bundle.putSerializable("user",getUserDto1);
-
-
-                    }catch (NumberFormatException e) {
-                        e.printStackTrace();
-                    }
-                    catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    Toast.makeText(getApplicationContext(), "error = " + String.valueOf(response.code()), Toast.LENGTH_SHORT).show();
-                }
-            }
-            @Override
-            public void onFailure(Call<GetUserDto> call, Throwable t) {
-                System.out.println("***********" + t.toString());
-            }
-        });
-
-        //유저 1일 흡연량 가져오기 기능
-        Call<GetSmokingDto> call_getSmokingDto = retrofitInterface.getTodayCount(1L);
-        call_getSmokingDto.enqueue(new Callback<GetSmokingDto>() {
-            @Override
-            public void onResponse(Call<GetSmokingDto> call, Response<GetSmokingDto> response) {
-                try {
-                    GetSmokingDto getSmokingDto2 = response.body();
-                    bundle.putSerializable("todayCount",getSmokingDto2);
-
-                }catch (Exception e){
-                    System.out.println("예외발생!");
-                }
-            }
-            @Override
-            public void onFailure(Call<GetSmokingDto> call, Throwable t) {
-                System.out.println("***********" + t.toString());
-            }
-        });
-        //유저 1달 흡연량 가져오기
-        Call<GetSmokingListDto> call_getSmokingListDto = retrofitInterface.getMonthCount(1L);
-        call_getSmokingListDto.enqueue(new Callback<GetSmokingListDto>() {
-            @Override
-            public void onResponse(Call<GetSmokingListDto> call, Response<GetSmokingListDto> response) {
-                try {
-                    GetSmokingListDto getSmokingListDto1 = response.body();
-                    bundle.putSerializable("monthCount", getSmokingListDto1);
-                }catch (Exception e){
-                    System.out.println("예외발생!");
-                }
-            }
-            @Override
-            public void onFailure(Call<GetSmokingListDto> call, Throwable t) {
-                System.out.println("***********" + t.toString());
-            }
-        });
-        return bundle;
     }
 }
