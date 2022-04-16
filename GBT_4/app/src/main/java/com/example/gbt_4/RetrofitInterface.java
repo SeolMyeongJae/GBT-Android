@@ -22,14 +22,14 @@ import retrofit2.http.Path;
 public interface RetrofitInterface {
 //유저 인터페이스
     @GET("user/{userId}")
-    Call<GetUserDto> getByUserId(@Path("userId") int userId);
+    Call<GetUserDto> getByUserId(@Path("userId") Long userId);
 
     @POST("user")
     Call<Integer> addUser(@Body AddUserDto addUserDto);
 
 //흡연정보 인터페이스
     @POST("smoking")
-    Call<Integer> addSmoking(@Body AddSmokingDto addSmokingDto);
+    Call<Long> addSmoking(@Body AddSmokingDto addSmokingDto);
 
     @GET("smoking/all/this-month/user/{userId}")
     Call<GetSmokingListDto> getMonthCount(@Path("userId") Long userId);

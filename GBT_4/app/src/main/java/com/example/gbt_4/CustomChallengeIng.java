@@ -20,6 +20,7 @@ public class CustomChallengeIng extends AppCompatActivity {
         btn_custom_challenge_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                finish();
             }
         });
 

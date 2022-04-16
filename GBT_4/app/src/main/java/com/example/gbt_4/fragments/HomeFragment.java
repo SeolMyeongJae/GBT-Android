@@ -49,11 +49,6 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
-        Bundle bundle = getArguments();
-        GetUserDto getUserDto = (GetUserDto) bundle.getSerializable("user");
-        GetSmokingDto getSmokingDto = (GetSmokingDto) bundle.getSerializable("todayCount");
-        GetSmokingListDto getSmokingListDto = (GetSmokingListDto) bundle.getSerializable("monthCount");
-
         //retrofit 빌드
         retrofit = new Retrofit.Builder()
                 .baseUrl(URL)
@@ -61,6 +56,7 @@ public class HomeFragment extends Fragment {
                 .build();
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
+        //ID값 부여
         tv_userName = (TextView) v.findViewById(R.id.tv_home_name);
         tv_comment = (TextView) v.findViewById(R.id.tv_home_comment);
         tv_todayCount = (TextView) v.findViewById(R.id.tv_todayCount);
@@ -68,39 +64,77 @@ public class HomeFragment extends Fragment {
         btn_plus = (Button) v.findViewById(R.id.btn_plus);
         btn_home_certify = (Button) v.findViewById(R.id.btn_home_certify);
 
-        btn_plus.setOnClickListener(new View.OnClickListener() {
+
+        // 유저 정보 가져오기 기능
+        Call<GetUserDto> call_getUser = retrofitInterface.getByUserId(1L);
+        call_getUser.enqueue(new Callback<GetUserDto>() {
             @Override
-            public void onClick(View view) {
-                switch (view.getId()) {
-                    case R.id.btn_plus:
-                        AddSmokingDto addSmokingDto = new AddSmokingDto(1L, "설명재");
-                        Call<Integer> call_addSmoking = retrofitInterface.addSmoking(addSmokingDto);
-                        call_addSmoking.enqueue(new Callback<Integer>() {
-                            @Override
-                            public void onResponse(Call<Integer> call, Response<Integer> response) {
-                                try {
-                                    Toast.makeText(getActivity(), "담배 한 개비가 추가되었어요...", Toast.LENGTH_SHORT).show();
-                                    tv_todayCount.setText("" + (getSmokingDto.getCount() + 1));
-                                    getSmokingDto.setCount(getSmokingDto.getCount() + 1);
-                                    tv_monthCount.setText("" + (getSmokingListDto.getTotal() + 1));
-                                    getSmokingListDto.setTotal(getSmokingListDto.getTotal() + 1);
-
-                                    FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                                    ft.detach(HomeFragment.this).attach(HomeFragment.this).commit();
-
-//                                    getParentFragmentManager().beginTransaction().detach(HomeFragment.this).attach(HomeFragment.this).commit();
-                                } catch (Exception e) {
-                                }
-                            }
-                            @Override
-                            public void onFailure(Call<Integer> call, Throwable t) {
-                                System.out.println("***********" + t.toString());
-                            }
-                        });
-                        break;
-                    default:
-                        break;
+            public void onResponse(Call<GetUserDto> call, Response<GetUserDto> response) {
+                if (response.isSuccessful()) {
+                    try {
+                        GetUserDto getUserDto1 = response.body();
+                        tv_comment.setText(getUserDto1.getComment());
+                        tv_userName.setText(getUserDto1.getUserName());
+                    }catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
+            }
+            @Override
+            public void onFailure(Call<GetUserDto> call, Throwable t) {
+                System.out.println("***********" + t.toString());
+            }
+        });
+
+        //유저 1일 흡연량 가져오기 기능
+        Call<GetSmokingDto> call_getSmokingDto = retrofitInterface.getTodayCount(1L);
+        call_getSmokingDto.enqueue(new Callback<GetSmokingDto>() {
+            @Override
+            public void onResponse(Call<GetSmokingDto> call, Response<GetSmokingDto> response) {
+                try {
+                    GetSmokingDto getSmokingDto = response.body();
+                    if (getSmokingDto.getCount()==null) {
+                        tv_todayCount.setText("0");
+                        getSmokingDto.setCount(0L);
+                    }else {
+                        tv_todayCount.setText(getSmokingDto.getCount().toString());
+                    }
+
+
+                }catch (Exception e){
+                    System.out.println("예외발생!");
+                }
+            }
+            @Override
+            public void onFailure(Call<GetSmokingDto> call, Throwable t) {
+                System.out.println("***********" + t.toString());
+            }
+        });
+
+        //유저 1달 흡연량 가져오기
+        Call<GetSmokingListDto> call_getSmokingListDto = retrofitInterface.getMonthCount(1L);
+        call_getSmokingListDto.enqueue(new Callback<GetSmokingListDto>() {
+            @Override
+            public void onResponse(Call<GetSmokingListDto> call, Response<GetSmokingListDto> response) {
+                try {
+                    GetSmokingListDto getSmokingListDto = response.body();
+                    if (getSmokingListDto.getTotal()==null){
+                        tv_monthCount.setText("0");
+                        getSmokingListDto.setTotal(0L);
+                    }else {
+                        tv_monthCount.setText((getSmokingListDto.getTotal().toString()));
+                    }
+
+                }catch (Exception e){
+                    System.out.println("예외발생!");
+                }
+            }
+            @Override
+            public void onFailure(Call<GetSmokingListDto> call, Throwable t) {
+                System.out.println("***********" + t.toString());
             }
         });
 
@@ -112,42 +146,47 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        //받아온 번들로 담배 count Data 삽입
-        try {
-            tv_userName.setText(getUserDto.getUserName());
-            tv_comment.setText(getUserDto.getComment());
-            tv_todayCount.setText(getSmokingDto.getCount().toString());
-            tv_monthCount.setText((getSmokingListDto.getTotal().toString()));
-        }catch (NullPointerException e){
-            tv_todayCount.setText("0");
-            tv_monthCount.setText("0");
-            tv_userName.setText("설명재");
-            tv_comment.setText("유저 상태 메세지");
-        }
+        btn_plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.btn_plus:
+                        AddSmokingDto addSmokingDto = new AddSmokingDto(1L, "설명재");
+                        Call<Long> call_addSmoking = retrofitInterface.addSmoking(addSmokingDto);
+                        call_addSmoking.enqueue(new Callback<Long>() {
+                            @Override
+                            public void onResponse(Call<Long> call, Response<Long> response) {
+                                try {
+                                    Toast.makeText(getActivity(), "담배 한 개비가 추가되었어요...", Toast.LENGTH_SHORT).show();
+                                    tv_todayCount.setText(""+response.body());
+                                    tv_monthCount.setText(""+Integer.parseInt(tv_monthCount.getText().toString())+1L);
 
-//        iv_my_official_challenge.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent1 = new Intent(getActivity(), OfficialChallengeIng.class);
-//                startActivity(intent1);
-//            }
-//        });
-//
-//        iv_my_custom_challenge.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent2 = new Intent(getActivity(), CustomChallengeIng.class);
-//                startActivity(intent2);
-//            }
-//        });
+//                                    FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+//                                    ft.detach(HomeFragment.this).attach(HomeFragment.this).commit();
+                                } catch (Exception e) {
+                                    System.out.println(e.getMessage());
+                                }
+                            }
 
+
+
+                            @Override
+                            public void onFailure(Call<Long> call, Throwable t) {
+                                System.out.println("***********" + t.toString());
+                            }
+                        });
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+
+//        //번들로 Data 받아오기
+//        Bundle bundle = getArguments();
+//        GetUserDto getUserDto = (GetUserDto) bundle.getSerializable("user");
+//        GetSmokingDto getSmokingDto = (GetSmokingDto) bundle.getSerializable("todayCount");
+//        GetSmokingListDto getSmokingListDto = (GetSmokingListDto) bundle.getSerializable("monthCount");
         return v;
     }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
-
-
 }
