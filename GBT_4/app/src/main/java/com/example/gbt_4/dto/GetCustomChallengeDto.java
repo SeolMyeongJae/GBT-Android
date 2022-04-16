@@ -31,9 +31,9 @@ public class GetCustomChallengeDto {
     @SerializedName("method")
     private String method;
     @SerializedName("startDate")
-    private LocalDateTime startDate;
+    private String startDate;
     @SerializedName("endDate")
-    private LocalDateTime endDate;
+    private String endDate;
     @SerializedName("summary")
     private String summary;
     @SerializedName("title")

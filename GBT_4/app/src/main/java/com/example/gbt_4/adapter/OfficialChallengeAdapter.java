@@ -14,6 +14,9 @@ import com.example.gbt_4.dto.GetOfficialChallengeDto;
 import com.example.gbt_4.fragments.OfficialChallengeFragment;
 
 import java.net.URI;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 
@@ -82,24 +85,37 @@ public class OfficialChallengeAdapter extends BaseAdapter {
     public View getView(int position, View converView, ViewGroup parent){
             View view = layoutInflater.inflate(R.layout.item_official_challenge, null);
 
-        TextView tv_title = (TextView) view.findViewById(R.id.tv_title);
-        TextView tv_endDate = (TextView) view.findViewById(R.id.tv_endDate);
-        TextView tv_summary = (TextView) view.findViewById(R.id.tv_summary);
-        TextView tv_memberCount = (TextView) view.findViewById(R.id.tv_memberCount);
-        TextView tv_period = (TextView) view.findViewById(R.id.tv_period);
+        TextView tv_official_challenge_title = (TextView) view.findViewById(R.id.tv_official_challenge_title);
+        TextView tv_official_challenge_end_date = (TextView)  view.findViewById(R.id.tv_official_challenge_end_date);
+        TextView tv_official_challenge_start_date = (TextView) view.findViewById(R.id.tv_official_challenge_start_date);
+        TextView tv_official_challenge_summary = (TextView) view.findViewById(R.id.tv_official_challenge_summary);
+        TextView tv_official_challenge_current = (TextView) view.findViewById(R.id.tv_official_challenge_current);
+        TextView tv_official_challenge_point = (TextView) view.findViewById(R.id.tv_official_challenge_point);
 
         ImageView iv_ing = (ImageView) view.findViewById(R.id.iv_official_challenge_ing);
         ImageView iv_uning = (ImageView) view.findViewById(R.id.iv_official_challenge_uning);
         ImageView iv_profilePhoto = (ImageView) view.findViewById(R.id.iv_profilePhoto);
 
-        tv_title.setText(getOfficialChallengeList.get(position).getTitle());
-        tv_endDate.setText(getOfficialChallengeList.get(position).getEndDate().toString());
-        tv_summary.setText(getOfficialChallengeList.get(position).getSummary());
+        tv_official_challenge_title.setText(getOfficialChallengeList.get(position).getTitle());
+
+        //String으로 받은 시작날짜 Data를 포맷하여 다시 String으로 띄워주기
+        LocalDateTime startDate = LocalDateTime.parse(getOfficialChallengeList.get(position).getStartDate());
+        String startDate_String = startDate.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 hh시 mm분 부터"));
+        tv_official_challenge_start_date.setText(startDate_String.toString());
+
+        //String으로 받은 종료날짜 Data를 포맷하여 다시 String으로 띄워주기
+        LocalDateTime endDate = LocalDateTime.parse(getOfficialChallengeList.get(position).getEndDate());
+        String endDate_String = endDate.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 hh시 mm분 까지"));
+        tv_official_challenge_end_date.setText(endDate_String);
+
+        tv_official_challenge_current.setText(getOfficialChallengeList.get(position).getCurrent().toString());
+
+        tv_official_challenge_summary.setText(getOfficialChallengeList.get(position).getSummary());
+        tv_official_challenge_point.setText(getOfficialChallengeList.get(position).getPoint().toString());
+
         photoURL = getOfficialChallengeList.get(position).getImg();
 //        System.out.println("공식 챌린지 어댑터: 프로필 사진 URI는 "+photoURL+"입니다.");
         Glide.with(parent).load(photoURL).into(iv_profilePhoto);
-
-
 
         Boolean isJoin = getOfficialChallengeList.get(position).getIsJoin();
         System.out.println(getOfficialChallengeList.get(position));

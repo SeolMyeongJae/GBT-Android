@@ -14,7 +14,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-
         setContentView(R.layout.activity_main);
 
         btn_start = (Button) findViewById(R.id.btn_start);
@@ -25,5 +24,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+//        btn_start.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(),ChatRoom.class);
+//                startActivity(intent);
+//            }
+//        });
     }
 }
