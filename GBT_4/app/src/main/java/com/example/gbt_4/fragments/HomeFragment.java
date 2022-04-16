@@ -159,7 +159,7 @@ public class HomeFragment extends Fragment {
                                 try {
                                     Toast.makeText(getActivity(), "담배 한 개비가 추가되었어요...", Toast.LENGTH_SHORT).show();
                                     tv_todayCount.setText(""+response.body());
-                                    tv_monthCount.setText(""+Integer.parseInt(tv_monthCount.getText().toString())+1L);
+                                    tv_monthCount.setText(""+(Integer.parseInt(tv_monthCount.getText().toString())+1L));
 
 //                                    FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
 //                                    ft.detach(HomeFragment.this).attach(HomeFragment.this).commit();
