@@ -1,5 +1,6 @@
 package com.example.gbt_4.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +14,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.gbt_4.CustomChallengeIng;
+import com.example.gbt_4.OfficialChallengeIng;
+import com.example.gbt_4.OfficialChallengeVerify;
 import com.example.gbt_4.R;
 import com.example.gbt_4.RetrofitInterface;
 import com.example.gbt_4.dto.AddSmokingDto;
@@ -29,9 +33,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeFragment extends Fragment {
 
+
     TextView tv_userName, tv_comment, tv_todayCount, tv_monthCount;
-    Button btn_plus;
-    ImageView iv_profilePhoto;
+    Button btn_plus, btn_home_certify;
+    ImageView iv_my_official_challenge, iv_my_custom_challenge;
 
     private final String URL = "http://54.219.40.82/api/";
 
@@ -56,25 +61,12 @@ public class HomeFragment extends Fragment {
                 .build();
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
-        tv_userName = (TextView) v.findViewById(R.id.tv_userName);
-        tv_comment = (TextView) v.findViewById(R.id.tv_comment);
+        tv_userName = (TextView) v.findViewById(R.id.tv_home_name);
+        tv_comment = (TextView) v.findViewById(R.id.tv_home_comment);
         tv_todayCount = (TextView) v.findViewById(R.id.tv_todayCount);
         tv_monthCount = (TextView) v.findViewById(R.id.tv_monthCount);
         btn_plus = (Button) v.findViewById(R.id.btn_plus);
-        ImageView iv_profilePhoto = (ImageView) v.findViewById(R.id.iv_profilePhoto);
-
-        //받아온 번들로 담배 count Data 삽입
-        try {
-            tv_userName.setText(getUserDto.getUserName());
-            tv_comment.setText(getUserDto.getComment());
-            tv_todayCount.setText(getSmokingDto.getCount().toString());
-            tv_monthCount.setText((getSmokingListDto.getTotal().toString()));
-        }catch (NullPointerException e){
-            tv_todayCount.setText("0");
-            tv_monthCount.setText("0");
-            tv_userName.setText("0");
-            tv_comment.setText("0");
-        }
+        btn_home_certify = (Button) v.findViewById(R.id.btn_home_certify);
 
         btn_plus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,6 +103,51 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+
+        btn_home_certify.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(getActivity(), OfficialChallengeVerify.class);
+                startActivity(intent1);
+            }
+        });
+
+        //받아온 번들로 담배 count Data 삽입
+        try {
+            tv_userName.setText(getUserDto.getUserName());
+            tv_comment.setText(getUserDto.getComment());
+            tv_todayCount.setText(getSmokingDto.getCount().toString());
+            tv_monthCount.setText((getSmokingListDto.getTotal().toString()));
+        }catch (NullPointerException e){
+            tv_todayCount.setText("0");
+            tv_monthCount.setText("0");
+            tv_userName.setText("설명재");
+            tv_comment.setText("유저 상태 메세지");
+        }
+
+//        iv_my_official_challenge.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent1 = new Intent(getActivity(), OfficialChallengeIng.class);
+//                startActivity(intent1);
+//            }
+//        });
+//
+//        iv_my_custom_challenge.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent2 = new Intent(getActivity(), CustomChallengeIng.class);
+//                startActivity(intent2);
+//            }
+//        });
+
         return v;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+
 }

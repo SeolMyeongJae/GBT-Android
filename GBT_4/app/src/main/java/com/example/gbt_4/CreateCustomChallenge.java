@@ -34,7 +34,7 @@ public class CreateCustomChallenge extends AppCompatActivity {
 
     Button btn_create_custom_challenge_generate,btn_yes_create_challenge,btn_no_create_challenge;
     Dialog dialog;
-    EditText et_create_custom_challenge_title, et_create_custom_challenge_start_date,et_create_custom_challenge_end_date,et_create_custom_challenge_bet,et_create_custom_challenge_max,et_create_custom_challenge_method,
+    EditText et_create_custom_challenge_title,et_create_custom_challenge_bet,et_create_custom_challenge_max,
             et_create_custom_challenge_summary,et_create_custom_challenge_description;
     Spinner spinner;
 

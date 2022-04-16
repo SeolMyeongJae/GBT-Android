@@ -95,17 +95,31 @@ public class InputInfo extends AppCompatActivity{
             public void onClick(View view) {
 
 //                데이터 입력(완료) -> 앞으로는 임시로 더미데이터를 사용
-//                nickname = et_nickname.getText().toString();
-//                gender = et_gender.getText().toString();
-//                price = Long.parseLong(et_price.getText().toString());
-//                comment = et_comment.getText().toString();
-//                smokingYear = Long.parseLong(et_smoking_year.getText().toString());
-//                smokingAmount = Long.parseLong(et_smoking_amount.getText().toString());
+                nickname = et_nickname.getText().toString();
+                gender = et_gender.getText().toString();
+                price = Long.parseLong(et_price.getText().toString());
+                comment = et_comment.getText().toString();
+                smokingYear = Long.parseLong(et_smoking_year.getText().toString());
+                smokingAmount = Long.parseLong(et_smoking_amount.getText().toString());
+                profileImg = "더미데이터";
+                popupImg = "더미데이터";
+                badId = 0L;
+                point = 0L;
+                ranking = 0L;
+
+//                nickname = "설명재";
+//                gender = "남자";
+//                price =4500L;
+//                comment = "끊어봅시다!";
+//                smokingYear = 8L;
+//                smokingAmount = 20L;
 //                profileImg = "더미데이터";
 //                popupImg = "더미데이터";
 //                badId = 0L;
 //                point = 0L;
 //                ranking = 0L;
+
+
 
                 //              addUserDto 사용
                 AddUserDto addUserDto = new AddUserDto(nickname, gender, birthYear, smokingYear,comment,price,smokingAmount,ranking, profileImg,popupImg, point, badId);
