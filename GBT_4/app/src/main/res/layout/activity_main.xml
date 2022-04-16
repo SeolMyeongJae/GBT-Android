@@ -7,33 +7,54 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="190dp"
-        android:layout_height="180dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="150dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/logo" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="50sp"
-        android:fontFamily="@font/minkyoung"
-        android:text="나를 위한 도전, 같이해요 금연"
-        android:textColor="#090909"
-        android:textSize="35sp" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/textView57"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/minkyoung"
+            android:text="나를 위한 도전, 같이해요 금연"
+            android:textColor="#090909"
+            android:textSize="35sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-    <Button
-        android:id="@+id/btn_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="110dp"
-        android:background="#9CBFF3"
-        android:text="시작하기" />
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="246dp"
+            android:layout_height="278dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="109dp"
+            android:layout_height="59dp"
+            android:layout_gravity="center"
+            android:background="#9CBFF3"
+            android:text="시작하기"
+            tools:layout_editor_absoluteX="67dp"
+            tools:layout_editor_absoluteY="449dp" />
+
+        <Button
+            android:id="@+id/button14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="230dp"
+            tools:layout_editor_absoluteY="449dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

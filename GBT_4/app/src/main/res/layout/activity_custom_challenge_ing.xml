@@ -6,8 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".CustomChallengeIng">
 
+    <Button
+        android:id="@+id/btn_custom_challenge_ing_back"
+        android:layout_width="33dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back"
+        app:layout_constraintBottom_toTopOf="@+id/iv_custom_challenge_photo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
-        android:id="@+id/iv_official_challenge_photo"
+        android:id="@+id/iv_custom_challenge_photo"
         android:layout_width="256dp"
         android:layout_height="118dp"
         android:layout_marginTop="8dp"
@@ -33,14 +44,14 @@
         android:textColor="@color/black"
         android:textStyle="bold"
         android:fontFamily="@font/modu"
-        android:id="@+id/official_challenge_title"
+        android:id="@+id/custom_challenge_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="챌린지 제목"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_official_challenge_photo" />
+        app:layout_constraintTop_toBottomOf="@+id/iv_custom_challenge_photo" />
 
     <LinearLayout
         android:id="@+id/linearLayout12"
@@ -52,7 +63,7 @@
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/official_challenge_title">
+        app:layout_constraintTop_toBottomOf="@+id/custom_challenge_title">
 
         <LinearLayout
             android:id="@+id/linearLayout7"
@@ -62,7 +73,7 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/official_challenge_period"
+                android:id="@+id/custom_challenge_period"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight="2"
@@ -96,7 +107,7 @@
 
             <TextView
 
-                android:id="@+id/official_challenge_current"
+                android:id="@+id/custom_challenge_current"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
@@ -112,7 +123,7 @@
                 android:text="최대 인원:" />
 
             <TextView
-                android:id="@+id/official_challenge_max"
+                android:id="@+id/custom_challenge_max"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
@@ -139,7 +150,7 @@
                 android:text="내기 주제:" />
 
             <TextView
-                android:id="@+id/official_challenge_method"
+                android:id="@+id/custom_challenge_method"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_weight="1"
@@ -164,7 +175,7 @@
                 android:text="챌린지 설명" />
 
             <TextView
-                android:id="@+id/official_challenge_description"
+                android:id="@+id/custom_challenge_description"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="TextView" />
@@ -172,22 +183,22 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btn_custom_challenge_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="도전 현황"
-        app:layout_constraintEnd_toStartOf="@+id/button7"
+        app:layout_constraintEnd_toStartOf="@+id/btn_custom_challenge_chat"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout12" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btn_custom_challenge_chat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="채팅방 보기"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button8"
-        app:layout_constraintTop_toTopOf="@+id/button8" />
+        app:layout_constraintStart_toEndOf="@+id/btn_custom_challenge_status"
+        app:layout_constraintTop_toTopOf="@+id/btn_custom_challenge_status" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

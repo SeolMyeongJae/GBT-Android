@@ -6,228 +6,307 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.HomeFragment">
 
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:orientation="horizontal">
-        <!--    상단 왼편-->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/iv_profilePhoto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/nuroongji" />
-
-                <TextView
-                    android:id="@+id/tv_userName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:src="@drawable/nuroongji" />
-
-                    <TextView
-                        android:id="@+id/tv_comment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center" />
-                </LinearLayout>
-            </LinearLayout>
-
-        </LinearLayout>
-        <!--    상단 오른편-->
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:id="@+id/linearLayout4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="나의 챌린지 진행상황"
-                        android:textSize="15sp" />
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="7"
-                        android:src="@drawable/nuroongji" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="8"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:text="금연 후의 변화과정"
-                        android:textSize="15sp" />
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="7"
-                        android:src="@drawable/nuroongji" />
-                </LinearLayout>
-
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@drawable/outline_stroke"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+                <!--    상단 왼편-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:background="@drawable/outline_stroke"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/imageView9"
+                            android:layout_width="209dp"
+                            android:layout_height="178dp"
+                            android:layout_marginTop="16dp"
+                            android:src="@drawable/nuroongji"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:riv_corner_radius="100dp" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="201dp"
+                            android:layout_height="99dp"
+                            android:background="@drawable/outline_stroke"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView9">
+
+                            <TextView
+                                android:id="@+id/tv_home_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/modu"
+                                android:text="설명재"
+                                android:textColor="@color/black"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:id="@+id/imageView10"
+                                android:layout_width="72dp"
+                                android:layout_height="74dp"
+                                android:layout_marginStart="2dp"
+                                android:src="@drawable/nuroongji"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_home_name" />
+
+                            <TextView
+                                android:id="@+id/tv_home_comment"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="29dp"
+                                android:layout_marginEnd="25dp"
+                                android:text="금연 화이팅!"
+                                app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView10"
+                                app:layout_constraintTop_toTopOf="@+id/imageView10" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+                <!--    상단 오른편-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/linearLayout3"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/textView16"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/minkyoung"
+                                android:gravity="center"
+                                android:text="오늘의 흡연량: "
+                                android:textSize="28sp" />
+
+                            <TextView
+                                android:id="@+id/tv_todayCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="5dp"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical|right"
+                                android:text=""
+                                android:textColor="#E1608C"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:id="@+id/textView20"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/minkyoung"
+                                android:gravity="center_vertical|left"
+                                android:text="개비"
+                                android:textSize="28sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+
+                            <TextView
+                                android:id="@+id/textView18"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/minkyoung"
+                                android:gravity="center"
+                                android:text="이번 달 누적: "
+                                android:textSize="28sp" />
+
+                            <TextView
+                                android:id="@+id/tv_monthCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="5dp"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical|right"
+                                android:text=""
+                                android:textColor="#E69E34"
+                                android:textSize="24sp" />
+
+                            <TextView
+                                android:id="@+id/textView21"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/minkyoung"
+                                android:gravity="center_vertical|left"
+                                android:text="개비"
+                                android:textSize="28sp" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <Button
             android:id="@+id/btn_plus"
-            android:layout_width="131dp"
-            android:layout_height="103dp"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
             android:layout_gravity="center"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="85dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/main_page_plus_button"
             android:fontFamily="@font/modu"
-            android:hint="담배
-            +1개비"
+            android:hint="담배 +1"
             android:padding="10dp"
             android:textColorHint="@color/black"
-            android:textSize="29sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout13"
+            app:layout_constraintEnd_toStartOf="@+id/btn_home_certify"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.522" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
-        <LinearLayout
-            android:id="@+id/linearLayout3"
+        <Button
+            android:id="@+id/btn_home_certify"
             android:layout_width="wrap_content"
-            android:layout_height="114dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="5dp"
-            android:orientation="vertical"
+            android:layout_height="55dp"
+            android:layout_gravity="center"
+            android:background="@drawable/main_page_check_button"
+            android:fontFamily="@font/modu"
+            android:hint="금연 인증"
+            android:padding="10dp"
+            android:textColorHint="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_plus"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/btn_plus"
-            app:layout_constraintTop_toTopOf="@+id/btn_plus">
+            app:layout_constraintTop_toTopOf="@+id/btn_plus" />
+
+        <LinearLayout
+            android:background="@drawable/outline_stroke"
+            android:id="@+id/linearLayout13"
+            android:layout_width="409dp"
+            android:layout_height="251dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_home_certify">
 
             <LinearLayout
+                android:background="@drawable/outline_stroke"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minkyoung"
+                    android:textStyle="bold"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/modu"
+                    android:id="@+id/textView53"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="오늘 하루 핀 담배: "
-                    android:textSize="28sp" />
+                    android:text="공식 챌린지 현황" />
 
-                <TextView
-                    android:id="@+id/tv_todayCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical|right"
-                    android:text=""
-                    android:textColor="#E1608C"
-                    android:textSize="24sp" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="7"
+                    android:src="@drawable/nuroongji" />
 
-                <TextView
-                    android:id="@+id/textView20"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minkyoung"
-                    android:gravity="center_vertical|left"
-                    android:text="개비"
-                    android:textSize="28sp" />
+                <Button
+                    android:id="@+id/button12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="바로가기" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView18"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minkyoung"
+                    android:textStyle="bold"
+
+                    android:textSize="25sp"
+                    android:fontFamily="@font/modu"
+                    android:id="@+id/textView54"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="이번 달에 핀 담배: "
-                    android:textSize="28sp" />
+                    android:text="커스텀 챌린지 현황" />
 
-                <TextView
-                    android:id="@+id/tv_monthCount"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical|right"
-                    android:text=""
-                    android:textColor="#E69E34"
-                    android:textSize="24sp" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="7"
+                    android:src="@drawable/nuroongji" />
 
-                <TextView
-                    android:id="@+id/textView21"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minkyoung"
-                    android:gravity="center_vertical|left"
-                    android:text="개비"
-                    android:textSize="28sp" />
+                <Button
+                    android:id="@+id/button13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="바로가기" />
             </LinearLayout>
         </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

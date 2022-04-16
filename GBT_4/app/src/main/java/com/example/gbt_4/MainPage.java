@@ -75,10 +75,10 @@ public class MainPage extends AppCompatActivity{
                         challengeFragment.setArguments(bundle);
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, challengeFragment).commit();
                         break;
-                    case R.id.tab_community:
-                        communityFragment.setArguments(bundle);
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, communityFragment).commit();
-                        break;
+//                    case R.id.tab_community:
+//                        communityFragment.setArguments(bundle);
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, communityFragment).commit();
+//                        break;
                     case R.id.tab_home:
                         homeFragment.setArguments(bundle);
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, homeFragment).commit();

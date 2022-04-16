@@ -180,4 +180,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout12" />
 
+    <Button
+        android:id="@+id/btn_official_challenge_detail_back"
+        android:layout_width="33dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back"
+        app:layout_constraintBottom_toTopOf="@+id/iv_official_challenge_photo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
