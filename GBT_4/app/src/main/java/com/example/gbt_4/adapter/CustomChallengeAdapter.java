@@ -1,5 +1,6 @@
 package com.example.gbt_4.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +14,24 @@ import com.example.gbt_4.dto.GetCustomChallengeDto;
 import com.example.gbt_4.dto.GetOfficialChallengeDto;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Formatter;
 import java.util.List;
 
 public class CustomChallengeAdapter extends BaseAdapter {
 
     LayoutInflater layoutInflater = null;
     List<GetCustomChallengeDto> getCustomChallengeList;
-    String photoURL;
+    private String photoURL;
+
+    public CustomChallengeAdapter(Context context, List<GetCustomChallengeDto> data)
+//            throws java.text.ParseException
+    {
+        context = context;
+        getCustomChallengeList = data;
+        layoutInflater = LayoutInflater.from(context);
+    }
 
 
     @Override
@@ -51,9 +63,13 @@ public class CustomChallengeAdapter extends BaseAdapter {
         ImageView iv_custom_challenge_profilePhoto = (ImageView) view.findViewById(R.id.iv_custom_challenge_photo);
 
         tv_custom_challenge_title.setText(getCustomChallengeList.get(position).getTitle());
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/MM/dd");
-        String endDate = simpleDateFormat.format(getCustomChallengeList.get(position).getEndDate());
-        tv_custom_challenge_endDate.setText(endDate);
+
+        //String으로 받은 날짜 Data를 포맷하여 다시 String으로 띄워주기
+        LocalDateTime endDate = LocalDateTime.parse(getCustomChallengeList.get(position).getEndDate());
+        String date = endDate.format(DateTimeFormatter.ofPattern("yyyy년 MM월 dd일 hh시 mm분 부터"));
+        System.out.println(">>>>>>>>> 포맷한 날짜:"+ date);
+
+        tv_custom_challenge_endDate.setText(date.toString());
         tv_custom_challenge_summary.setText(getCustomChallengeList.get(position).getSummary());
         tv_custom_challenge_memberCount.setText(""+getCustomChallengeList.get(position).getMax());
 

@@ -13,18 +13,20 @@ import android.text.format.DateFormat;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 
+import java.text.SimpleDateFormat;
 import java.time.Clock;
 import java.util.Calendar;
+import java.util.Date;
 
-public class SelectStartTime extends DialogFragment implements TimePickerDialog.OnTimeSetListener {
+public class SelectStartTime extends DialogFragment implements TimePickerDialog.OnTimeSetListener{
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         final Calendar calendar = Calendar.getInstance();
-        int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        int minute = calendar.get(Calendar.MINUTE);
+        int startHour = calendar.get(Calendar.HOUR_OF_DAY);
+        int startMinute = calendar.get(Calendar.MINUTE);
 
-        return new TimePickerDialog(getActivity(),this,hour,minute, DateFormat.is24HourFormat(getActivity()));
+        return new TimePickerDialog(getActivity(),this,startHour,startMinute,true);
     }
 
     @Override

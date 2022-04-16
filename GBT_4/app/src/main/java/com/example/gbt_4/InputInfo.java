@@ -107,17 +107,6 @@ public class InputInfo extends AppCompatActivity{
 //                point = 0L;
 //                ranking = 0L;
 
-                nickname = "설명재";
-                gender = "남자";
-                price =4500L;
-                comment = "형님형님 야야 기분좋다";
-                smokingYear = 8L;
-                smokingAmount = 20L;
-                profileImg = "더미데이터";
-                popupImg = "더미데이터";
-                badId = 0L;
-                point = 0L;
-                ranking = 0L;
                 //              addUserDto 사용
                 AddUserDto addUserDto = new AddUserDto(nickname, gender, birthYear, smokingYear,comment,price,smokingAmount,ranking, profileImg,popupImg, point, badId);
                 System.out.println(addUserDto);

@@ -20,22 +20,21 @@ public class AddCustomChallengeDto {
     private Long creatorId;
     @SerializedName("description")
     private String description;
-    @SerializedName("id")
-    private Long id;
     @SerializedName("img")
     private String img;
     @SerializedName("max")
     private Long max;
     @SerializedName("method")
-    private String method;
+    private Long method;
     @SerializedName("startDate")
-    private LocalDateTime startDate;
+    private String startDate;
     @SerializedName("endDate")
-    private LocalDateTime endDate;
+    private String endDate;
     @SerializedName("summary")
     private String summary;
     @SerializedName("title")
     private String title;
     @SerializedName("bet")
     private String bet;
+
 }

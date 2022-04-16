@@ -13,6 +13,12 @@
         android:theme="@style/Theme.GBT_4"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ChatRoom"
+            android:exported="false" />
+        <activity
+            android:name=".CustomChallengeIng"
+            android:exported="false" />
+        <activity
             android:name=".SelectEndTime"
             android:exported="false" />
         <activity

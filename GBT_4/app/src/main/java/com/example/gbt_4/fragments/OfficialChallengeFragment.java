@@ -87,9 +87,9 @@ public class OfficialChallengeFragment extends Fragment{
                 Long checkedId = getOfficialChallengeList.get(position).getId();
 
                 Intent intent = new Intent(getActivity(), OfficialChallengeDetail.class);
-                Intent intent1 = new Intent(getActivity(), OfficialChallengeIng.class);
+//                Intent intent1 = new Intent(getActivity(), OfficialChallengeIng.class);
                 intent.putExtra("challengeId", checkedId);
-                intent1.putExtra("challengeId1", checkedId);
+//                intent1.putExtra("challengeId1", checkedId);
 
                 startActivity(intent);
             }
