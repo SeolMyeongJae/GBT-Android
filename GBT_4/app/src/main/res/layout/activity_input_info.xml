@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".InputInfo">
+    tools:context=".InputInfo"
+    android:layout_margin="5dp">
 
     <ImageView
         android:layout_width="85dp"
@@ -58,6 +59,9 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 <ScrollView
+    android:layout_marginTop="5dp"
+    android:background="@drawable/stroke_out_line_round"
+    android:padding="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TableLayout
@@ -187,11 +191,14 @@
             <EditText android:hint="사용하실 프로필 사진을 업로드 해 주세요."
                 android:layout_weight="8"/>
             <Button
+                android:fontFamily="@font/minkyoung"
+                android:background="@drawable/btn_search_in_album"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="앨범에서 찾기"
+                android:text="앨범에서
+                찾기"
                 />
         </TableRow>
 
@@ -211,11 +218,14 @@
                 android:hint="금연의지를 높여줄 사진을 업로드 해주세요." />
 
             <Button
+                android:fontFamily="@font/minkyoung"
+                android:background="@drawable/btn_search_in_album"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="앨범에서 찾기"
+                android:text="앨범에서
+                찾기"
                 />
         </TableRow>
         <Button

@@ -20,11 +20,10 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-
 public class OfficialChallengeIng extends AppCompatActivity implements View.OnClickListener{
 
     Button btn_official_challenge_ing_status, btn_official_challenge_ing_verify, btn_official_challenge_ing_back;
-    TextView tv_official_challenge_ing_title, tv_official_challenge_ing_period, tv_official_challenge_ing_current, tv_official_challenge_ing_max, tv_official_challenge_ing_method, tv_official_challenge_ing_description;
+    TextView tv_official_challenge_ing_title, tv_official_challenge_ing_start,tv_official_challenge_ing_end, tv_official_challenge_ing_current, tv_official_challenge_ing_max, tv_official_challenge_ing_method, tv_official_challenge_ing_description;
     ImageView iv_official_challenge_ing_photo;
 
     private String photoURL;
@@ -35,7 +34,7 @@ public class OfficialChallengeIng extends AppCompatActivity implements View.OnCl
 
     private RetrofitInterface retrofitInterface;
 
-    UserChallengeDto userChallengeDto;
+//    UserChallengeDto userChallengeDto;
 
 
     @Override
@@ -45,15 +44,14 @@ public class OfficialChallengeIng extends AppCompatActivity implements View.OnCl
 
         setContentView(R.layout.activity_official_challenge_ing);
 
-        btn_official_challenge_ing_status = (Button) findViewById(R.id.btn_official_challenge_status);
-        btn_official_challenge_ing_verify = (Button) findViewById(R.id.btn_official_challenge_verify);
+        btn_official_challenge_ing_status = (Button) findViewById(R.id.btn_official_challenge_ing_status);
         btn_official_challenge_ing_back = (Button) findViewById(R.id.btn_official_challenge_ing_back);
 
         tv_official_challenge_ing_title = (TextView)findViewById(R.id.tv_official_challenge_ing_title);
         tv_official_challenge_ing_current = (TextView)findViewById(R.id.tv_official_challenge_ing_current);
         tv_official_challenge_ing_max = (TextView)findViewById(R.id.tv_official_challenge_ing_max);
-        tv_official_challenge_ing_period = (TextView)findViewById(R.id.tv_official_challenge_ing_period);
-        tv_official_challenge_ing_method = (TextView)findViewById(R.id.tv_official_challenge_ing_method);
+        tv_official_challenge_ing_start = (TextView)findViewById(R.id.tv_official_challenge_ing_start);
+        tv_official_challenge_ing_end = (TextView)findViewById(R.id.tv_official_challenge_ing_end);
         tv_official_challenge_ing_description = (TextView)findViewById(R.id.tv_official_challenge_ing_description);
         iv_official_challenge_ing_photo = (ImageView)findViewById(R.id.iv_official_challenge_ing_photo);
 
@@ -80,7 +78,8 @@ public class OfficialChallengeIng extends AppCompatActivity implements View.OnCl
                         tv_official_challenge_ing_title.setText(getOfficialChallengeDto.getTitle());
                         tv_official_challenge_ing_current.setText(getOfficialChallengeDto.getCurrent().toString());
                         tv_official_challenge_ing_max.setText(getOfficialChallengeDto.getMax().toString());
-                        tv_official_challenge_ing_period.setText(getOfficialChallengeDto.getStartDate());
+                        tv_official_challenge_ing_start.setText(getOfficialChallengeDto.getStartDate());
+                        tv_official_challenge_ing_end.setText(getOfficialChallengeDto.getEndDate());
                         // TODO: 2022-04-08 endDate - startDate 날짜 계산하는거 구현하기
                         tv_official_challenge_ing_method.setText(getOfficialChallengeDto.getMethod());
                         tv_official_challenge_ing_description.setText(getOfficialChallengeDto.getDescription());
@@ -111,13 +110,10 @@ public class OfficialChallengeIng extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.btn_official_challenge_status:
+            case R.id.btn_official_challenge_ing_status:
                 Intent intent2 = new Intent(getApplicationContext(),OfficialChallengeStatus.class);
                 startActivity(intent2);
                 break;
-            case R.id.btn_official_challenge_verify:
-                Intent intent3 = new Intent(getApplicationContext(),OfficialChallengeVerify.class);
-                startActivity(intent3);
             case R.id.btn_official_challenge_ing_back:
                 finish();
             default:

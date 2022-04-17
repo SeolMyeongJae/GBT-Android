@@ -53,6 +53,8 @@ public class MainPage extends AppCompatActivity{
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main_page);
 
+
+
         fragmentManager = getSupportFragmentManager();
 
         //처음 화면 설정
@@ -68,51 +70,23 @@ public class MainPage extends AppCompatActivity{
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.tab_challenge:
-                        if(fc == null) {
                             fc = new ChallengeFragment();
-                            fragmentManager.beginTransaction().add(R.id.frame_lo,fc).commit();
-                        }
-
-                        if(fc != null) fragmentManager.beginTransaction().show(fc).commit();
-                        if(fh != null) fragmentManager.beginTransaction().hide(fh).commit();
-                        if(fm != null) fragmentManager.beginTransaction().hide(fm).commit();
-                        if(fs != null) fragmentManager.beginTransaction().hide(fs).commit();
+                            fragmentManager.beginTransaction().replace(R.id.frame_lo,fc).commit();
                         break;
 //                    case R.id.tab_community:
 //                        getSupportFragmentManager().beginTransaction().replace(R.id.frame_lo, communityFragment).commit();
 //                        break;
                     case R.id.tab_home:
-                        if(fh == null) {
-                            fh = new HomeFragment();
-                            fragmentManager.beginTransaction().add(R.id.frame_lo, fh).commit();
-                        }
-
-                        if(fh != null) fragmentManager.beginTransaction().show(fh).commit();
-                        if(fc != null) fragmentManager.beginTransaction().hide(fc).commit();
-                        if(fm != null) fragmentManager.beginTransaction().hide(fm).commit();
-                        if(fs != null) fragmentManager.beginTransaction().hide(fs).commit();
+                        fh = new HomeFragment();
+                        fragmentManager.beginTransaction().replace(R.id.frame_lo, fh).commit();
                         break;
                     case R.id.tab_info:
-                        if(fm == null) {
                             fm = new MyInfoFragment();
-                            fragmentManager.beginTransaction().add(R.id.frame_lo, fm).commit();
-                        }
-
-                        if(fm != null) fragmentManager.beginTransaction().show(fm).commit();
-                        if(fc != null) fragmentManager.beginTransaction().hide(fc).commit();
-                        if(fh != null) fragmentManager.beginTransaction().hide(fh).commit();
-                        if(fs != null) fragmentManager.beginTransaction().hide(fs).commit();
+                            fragmentManager.beginTransaction().replace(R.id.frame_lo, fm).commit();
                         break;
                     case R.id.tab_statistic:
-                        if(fs == null) {
                             fs = new StatisticsFragment();
-                            fragmentManager.beginTransaction().add(R.id.frame_lo, fs).commit();
-                        }
-
-                        if(fs != null) fragmentManager.beginTransaction().show(fs).commit();
-                        if(fh != null) fragmentManager.beginTransaction().hide(fh).commit();
-                        if(fm != null) fragmentManager.beginTransaction().hide(fm).commit();
-                        if(fc != null) fragmentManager.beginTransaction().hide(fc).commit();
+                            fragmentManager.beginTransaction().replace(R.id.frame_lo, fs).commit();
                         break;
                 }
                 return true;

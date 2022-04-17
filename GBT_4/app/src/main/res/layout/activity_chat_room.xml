@@ -45,38 +45,40 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_chat"
-        android:layout_width="413dp"
-        android:layout_height="512dp"
+        android:layout_width="418dp"
+        android:layout_height="531dp"
         android:layout_marginTop="8dp"
+        android:background="@drawable/stroke_out_line"
+        android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/et_chat"
         android:layout_width="276dp"
         android:layout_height="49dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/button9"
+        app:layout_constraintEnd_toStartOf="@+id/btb_chat_submit"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lv_chat" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_chat" />
 
     <Button
         android:background="@drawable/btn_challenge_main_custom_challenge"
-        android:id="@+id/button9"
+        android:id="@+id/btb_chat_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/minkyoung"
         android:text="입력"
         android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="@+id/editText"
+        app:layout_constraintBottom_toBottomOf="@+id/et_chat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/editText"
-        app:layout_constraintTop_toTopOf="@+id/editText" />
+        app:layout_constraintStart_toEndOf="@+id/et_chat"
+        app:layout_constraintTop_toTopOf="@+id/et_chat" />
 
 
 

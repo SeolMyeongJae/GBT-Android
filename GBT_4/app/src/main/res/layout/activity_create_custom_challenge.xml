@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".CreateCustomChallenge">
 
+    <Button
+        android:id="@+id/btn_create_custom_challenge_back"
+        android:layout_width="33dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back"
+        app:layout_constraintBottom_toTopOf="@+id/textView23"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:fontFamily="@font/modu"
         android:textStyle="bold"
@@ -20,6 +31,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
+        android:background="@drawable/stroke_out_line"
+        android:padding="10dp"
         android:id="@+id/linearLayout16"
         android:layout_width="372dp"
         android:layout_height="562dp"
@@ -30,6 +43,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView23">
 
         <LinearLayout
+            android:background="@drawable/stroke_top_bottom"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
@@ -112,8 +126,9 @@
                 android:textSize="15sp" />
             </LinearLayout>
         </LinearLayout>
-
         <LinearLayout
+
+            android:background="@drawable/stroke_top_bottom"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
@@ -167,10 +182,19 @@
         </LinearLayout>
 
         <LinearLayout
+            android:background="@drawable/stroke_top_bottom"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
             android:orientation="horizontal">
+
+<!--                        <EditText-->
+<!--                android:id="@+id/et_create_custom_challenge_method"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_weight="2"-->
+<!--                android:hint="ex)날짜를 선택해 주세요."-->
+<!--                android:textSize="15sp" />-->
 
             <TextView
                 android:layout_width="0dp"
@@ -182,16 +206,9 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-<!--            <EditText-->
-<!--                android:id="@+id/et_create_custom_challenge_method"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="2"-->
-<!--                android:hint="ex)날짜를 선택해 주세요."-->
-<!--                android:textSize="15sp" />-->
             <Spinner
                 android:entries="@array/method"
-                android:id="@+id/sp_custom_challenge_method"
+                android:id="@+id/sp_create_custom_challenge_method"
                 android:layout_gravity="center"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -219,11 +236,12 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:hint="ex)날짜를 선택해 주세요."
+                android:hint="ex)10일동안 끊자"
                 android:textSize="15sp" />
         </LinearLayout>
 
         <LinearLayout
+            android:background="@drawable/stroke_top_bottom"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="4"
@@ -235,16 +253,16 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/modu"
                 android:gravity="center_vertical"
+                android:text="챌린지 상세 내용: "
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:text="챌린지 상세 내용: "/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/et_create_custom_challenge_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:hint="ex)날짜를 선택해 주세요."
+                android:hint="ex)못하면 다음 모임에 2차 쏘는거고, 한도는 없다ㅋㅋ?"
                 android:textSize="15sp" />
         </LinearLayout>
 
@@ -266,7 +284,7 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/create_custom_challenge_photo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
@@ -274,7 +292,7 @@
                 app:srcCompat="@drawable/nuroongji" />
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/btn_create_custom_challenge_album"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -294,4 +312,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout16" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
