@@ -26,7 +26,7 @@ public class CustomChallengeIng extends AppCompatActivity {
     ImageView iv_custom_challenge_ing_photo;
     TextView tv_custom_challenge_ing_title,tv_custom_challenge_ing_start, tv_custom_challenge_ing_end,
             tv_custom_challenge_ing_current,tv_custom_challenge_ing_max,tv_custom_challenge_ing_point,
-            tv_custom_challenge_ing_description;
+            tv_custom_challenge_ing_description, tv_custom_challenge_ing_bet;
 
     private String photoURL;
 
@@ -39,6 +39,7 @@ public class CustomChallengeIng extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_custom_challenge_ing);
 
         btn_custom_challenge_ing_back= (Button) findViewById(R.id.btn_custom_challenge_ing_back);
@@ -51,11 +52,21 @@ public class CustomChallengeIng extends AppCompatActivity {
         tv_custom_challenge_ing_current = (TextView)findViewById(R.id.tv_custom_challenge_ing_current);
         tv_custom_challenge_ing_description = (TextView)findViewById(R.id.tv_custom_challenge_ing_description);
         tv_custom_challenge_ing_max = (TextView)findViewById(R.id.tv_custom_challenge_ing_max);
-        tv_custom_challenge_ing_point = (TextView) findViewById(R.id.tv_custom_challenge_ing_point);
+        tv_custom_challenge_ing_bet = (TextView) findViewById(R.id.tv_custom_challenge_ing_bet);
 
         iv_custom_challenge_ing_photo = (ImageView)findViewById(R.id.iv_custom_challenge_ing_photo);
 
 
+        //retrofit 빌드
+        retrofit = new Retrofit.Builder()
+                .baseUrl(URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        retrofitInterface = retrofit.create(RetrofitInterface.class);
+
+
+
+        //이 페이지 오기전에 Todo 챌린지 ID를 Intent로 받는 작업이 필요하다!
         //해당 챌린지 ID받기
         Intent intent1 = getIntent();
         Long challengeId = intent1.getLongExtra("checkedId",0L);
@@ -75,15 +86,16 @@ public class CustomChallengeIng extends AppCompatActivity {
                         tv_custom_challenge_ing_max.setText(getcustomChallengeDto.getMax().toString());
                         tv_custom_challenge_ing_start.setText(getcustomChallengeDto.getStartDate());
                         tv_custom_challenge_ing_end.setText(getcustomChallengeDto.getEndDate());
+                        tv_custom_challenge_ing_bet.setText(getcustomChallengeDto.getBet());
                         // TODO: 2022-04-08 endDate - startDate 날짜 계산하는거 구현하기
                         tv_custom_challenge_ing_description.setText(getcustomChallengeDto.getDescription());
                         photoURL = getcustomChallengeDto.getImg();
                         // TODO: 2022-04-08 img URL로 찾기
                         Glide.with(CustomChallengeIng.this).load(photoURL).into(iv_custom_challenge_ing_photo);
-                        System.out.println("진행중인 공식챌린지 상세페이지: 사진 URL은"+photoURL+"입니다.");
+                        System.out.println("진행중인 커스텀챌린지 상세페이지: 사진 URL은"+photoURL+"입니다.");
 
                     }catch (Exception e){
-                        System.out.println("진행중인 공식 챌린지 상세페이지:예외 오류!"+e.getMessage());
+                        System.out.println("진행중인 커스텀 챌린지 상세페이지:예외 오류!"+e.getMessage());
                     }
                 }
             }
@@ -94,19 +106,6 @@ public class CustomChallengeIng extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-
-        //retrofit 빌드
-        retrofit = new Retrofit.Builder()
-                .baseUrl(URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        retrofitInterface = retrofit.create(RetrofitInterface.class);
 
 
         //뒤로가기 버튼
@@ -121,8 +120,8 @@ public class CustomChallengeIng extends AppCompatActivity {
         btn_custom_challenge_ing_chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(getApplicationContext(),ChatRoom.class);
-                startActivity(intent1);
+                Intent intent2 = new Intent(getApplicationContext(),ChatRoom.class);
+                startActivity(intent2);
             }
         });
 
@@ -130,8 +129,8 @@ public class CustomChallengeIng extends AppCompatActivity {
         btn_custom_challenge_ing_status.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent2 = new Intent(getApplicationContext(),CustomChallengeSatus.class);
-                startActivity(intent2);
+                Intent intent3 = new Intent(getApplicationContext(),CustomChallengeSatus.class);
+                startActivity(intent3);
             }
         });
     }

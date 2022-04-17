@@ -13,12 +13,15 @@ public class CustomChallengeSatus extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_custom_challenge_satus);
 
+        btn_custom_challenge_status_back = (Button)findViewById(R.id.btn_custom_challenge_status_back);
         btn_custom_challenge_status_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onBackPressed();
+                finish();
+//                onBackPressed();
             }
         });
     }
