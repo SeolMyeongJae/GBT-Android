@@ -32,7 +32,7 @@ import retrofit2.http.Body;
 public class CreateCustomChallenge extends AppCompatActivity {
     private final String URL = "http://54.219.40.82/api/";
 
-    Button btn_create_custom_challenge_generate,btn_yes_create_challenge,btn_no_create_challenge;
+    Button btn_create_custom_challenge_generate,btn_yes_create_challenge,btn_no_create_challenge,btn_create_custom_challenge_back;
     Dialog dialog;
     EditText et_create_custom_challenge_title,et_create_custom_challenge_bet,et_create_custom_challenge_max,
             et_create_custom_challenge_summary,et_create_custom_challenge_description;
@@ -40,7 +40,8 @@ public class CreateCustomChallenge extends AppCompatActivity {
 
     TextView tv_create_custom_challenge_start_date,tv_create_custom_challenge_end_date,tv_create_custom_challenge_start_time,tv_create_custom_challenge_end_time,tv_create_custom_challenge_method;
     String title, bet, summary, description,start_date_string, end_date_string,start_time_string,end_time_string, start_string,end_string;
-    Long max, method;
+    Long max;
+    Long method = 1L;
 
     String photoURL;
 
@@ -68,6 +69,15 @@ public class CreateCustomChallenge extends AppCompatActivity {
         et_create_custom_challenge_max = (EditText)findViewById(R.id.et_create_custom_challenge_max);
         et_create_custom_challenge_summary = (EditText)findViewById(R.id.et_create_custom_challenge_summary);
         et_create_custom_challenge_description = (EditText)findViewById(R.id.et_create_custom_challenge_description);
+
+        //뒤로가기 버튼
+        btn_create_custom_challenge_back = (Button)findViewById(R.id.btn_create_custom_challenge_back);
+        btn_create_custom_challenge_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         spinner = (Spinner)findViewById(R.id.sp_create_custom_challenge_method);
 
@@ -190,6 +200,8 @@ public class CreateCustomChallenge extends AppCompatActivity {
                         });
                         Intent intent1 = new Intent(getApplicationContext(),CustomChallengeIng.class);
                         startActivity(intent1);
+                        dialog.dismiss();
+                        finish();
                     }
                 });
 

@@ -1,7 +1,5 @@
 package com.example.gbt_4;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +15,7 @@ public class OfficialChallengeVerify extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_official_challenge_verify);
+        setContentView(R.layout.activity_verify);
 
         btn_official_challenge_verify_back = (Button) findViewById(R.id.btn_official_challenge_verify_back);
 

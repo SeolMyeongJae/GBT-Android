@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
 
 
     TextView tv_userName, tv_comment, tv_todayCount, tv_monthCount;
-    Button btn_plus, btn_home_certify;
+    Button btn_plus, btn_home_certify,btn_home_go_official_challenge_ing;
     ImageView iv_my_official_challenge, iv_my_custom_challenge;
 
     private final String URL = "http://54.219.40.82/api/";
@@ -59,9 +59,6 @@ public class HomeFragment extends Fragment {
 
         sharedPreferences = this.getActivity().getSharedPreferences("userId",MODE_PRIVATE);
 
-
-
-
         //retrofit 빌드
         retrofit = new Retrofit.Builder()
                 .baseUrl(URL)
@@ -76,6 +73,7 @@ public class HomeFragment extends Fragment {
         tv_monthCount = (TextView) v.findViewById(R.id.tv_monthCount);
         btn_plus = (Button) v.findViewById(R.id.btn_plus);
         btn_home_certify = (Button) v.findViewById(R.id.btn_home_certify);
+        btn_home_go_official_challenge_ing = (Button) v.findViewById(R.id.btn_home_go_official_challenge_ing);
 
         // 유저 정보 가져오기 기능
         Call<GetUserDto> call_getUser = retrofitInterface.getByUserId(1L);
@@ -200,6 +198,15 @@ public class HomeFragment extends Fragment {
                     default:
                         break;
                 }
+            }
+        });
+
+        //공식 챌린지 바로가기
+        btn_home_go_official_challenge_ing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),OfficialChallengeIng.class);
+                startActivity(intent);
             }
         });
 

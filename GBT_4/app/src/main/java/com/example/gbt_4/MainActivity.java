@@ -23,19 +23,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
+        Intent intent1 = new Intent(getApplicationContext(),InputInfo.class);
+        startActivity(intent1);
 
-
-
-        sharedPreferences = getSharedPreferences("userId", MODE_PRIVATE);
-        userId = sharedPreferences.getLong("userId",-1L);
-        System.out.println("11111111111111111111111111"+userId);
-
-        if (userId == -1){
-            Intent intent1 = new Intent(getApplicationContext(),InputInfo.class);
-            startActivity(intent1);
-        }else {
-            Intent intent2 = new Intent(getApplicationContext(),MainPage.class);
-            startActivity(intent2);
-        }
+//
+//        sharedPreferences = getSharedPreferences("userId", MODE_PRIVATE);
+//        userId = sharedPreferences.getLong("userId",-1L);
+//        System.out.println("11111111111111111111111111"+userId);
+//
+//        if (userId == -1){
+//            Intent intent1 = new Intent(getApplicationContext(),InputInfo.class);
+//            startActivity(intent1);
+//        }else {
+//            Intent intent2 = new Intent(getApplicationContext(),MainPage.class);
+//            startActivity(intent2);
+//        }
     }
 }

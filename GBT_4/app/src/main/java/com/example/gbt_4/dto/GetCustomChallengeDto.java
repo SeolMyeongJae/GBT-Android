@@ -42,4 +42,6 @@ public class GetCustomChallengeDto {
     private Boolean isJoin;
     @SerializedName("current")
     private Long current;
+    @SerializedName("bet")
+    private String bet;
 }

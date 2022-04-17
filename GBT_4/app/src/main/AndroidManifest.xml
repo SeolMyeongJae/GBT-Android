@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GBT_4"
         android:usesCleartextTraffic="true">
+
+        <activity
+            android:name=".Invite"
+            android:exported="false" />
         <activity
             android:name=".Notice"
             android:exported="false" />

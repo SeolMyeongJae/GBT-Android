@@ -102,7 +102,6 @@ public class OfficialChallengeIng extends AppCompatActivity implements View.OnCl
 
 
         btn_official_challenge_ing_status.setOnClickListener(this);
-        btn_official_challenge_ing_verify.setOnClickListener(this);
         btn_official_challenge_ing_back.setOnClickListener(this);
 
     }

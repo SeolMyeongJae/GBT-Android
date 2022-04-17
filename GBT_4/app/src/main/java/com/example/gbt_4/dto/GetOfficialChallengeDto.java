@@ -51,6 +51,7 @@ public class GetOfficialChallengeDto {
 
     @SerializedName("isJoin")
     private Boolean isJoin;
+
     @SerializedName("point")
     private Long point;
 }
