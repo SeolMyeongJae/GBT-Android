@@ -52,6 +52,9 @@ public interface RetrofitInterface {
     Call<List<GetCustomChallengeDto>> getCustomChallengeByUserId(@Path("userId") Long id);
 //    Call<ResponseBody> getCustomChallengeByUserId(@Path("userId") Long id);
 
+    @GET("custom/{id}")
+    Call<GetCustomChallengeDto> getCustomChallengeById(@Path("id") Long id);
+
     @POST("custom")
     Call<Integer> addCustomChallenge(@Body AddCustomChallengeDto addCustomChallengeDto);
 

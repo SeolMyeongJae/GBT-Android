@@ -94,7 +94,7 @@ public class OfficialChallengeAdapter extends BaseAdapter {
 
         ImageView iv_ing = (ImageView) view.findViewById(R.id.iv_official_challenge_ing);
         ImageView iv_uning = (ImageView) view.findViewById(R.id.iv_official_challenge_uning);
-        ImageView iv_profilePhoto = (ImageView) view.findViewById(R.id.iv_profilePhoto);
+        ImageView iv_profilePhoto = (ImageView) view.findViewById(R.id.iv_official_challenge_photo);
 
         tv_official_challenge_title.setText(getOfficialChallengeList.get(position).getTitle());
 

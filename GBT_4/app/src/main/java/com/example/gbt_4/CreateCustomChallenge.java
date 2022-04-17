@@ -42,7 +42,6 @@ public class CreateCustomChallenge extends AppCompatActivity {
     String title, bet, summary, description,start_date_string, end_date_string,start_time_string,end_time_string, start_string,end_string;
     Long max, method;
 
-
     String photoURL;
 
 
@@ -70,7 +69,7 @@ public class CreateCustomChallenge extends AppCompatActivity {
         et_create_custom_challenge_summary = (EditText)findViewById(R.id.et_create_custom_challenge_summary);
         et_create_custom_challenge_description = (EditText)findViewById(R.id.et_create_custom_challenge_description);
 
-        spinner = (Spinner)findViewById(R.id.sp_custom_challenge_method);
+        spinner = (Spinner)findViewById(R.id.sp_create_custom_challenge_method);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -130,11 +129,6 @@ public class CreateCustomChallenge extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
         //'생성'버튼 기능
         btn_create_custom_challenge_generate = (Button) findViewById(R.id.btn_create_custom_challenge_generate);
         btn_create_custom_challenge_generate.setOnClickListener(new View.OnClickListener() {
@@ -169,11 +163,10 @@ public class CreateCustomChallenge extends AppCompatActivity {
 
                         photoURL = "임시 스트링";
 
-
-
                         AddCustomChallengeDto addCustomChallengeDto = new AddCustomChallengeDto(1L,description,photoURL,max,method,start_string,end_string,summary,title,bet);
                         System.out.println(addCustomChallengeDto.toString());
-//                        AddCustomChallengeDto addCustomChallengeDto = new AddCustomChallengeDto(1L,"디스크립션",null,"사진 url",max,"담배 줄이기",start,end,"챌린지요약","끊으실분","밥사기");
+
+
                         //입력된 data로 restAPI통신
                         Call<Integer> call_post = retrofitInterface.addCustomChallenge(addCustomChallengeDto);
                         call_post.enqueue(new Callback<Integer>() {
@@ -195,8 +188,8 @@ public class CreateCustomChallenge extends AppCompatActivity {
                                 System.out.println("커스텀 챌린지 생성 http통신 오류: "+t.getMessage());
                             }
                         });
-                        Intent intent = new Intent(getApplicationContext(),CustomChallengeIng.class);
-                        startActivity(intent);
+                        Intent intent1 = new Intent(getApplicationContext(),CustomChallengeIng.class);
+                        startActivity(intent1);
                     }
                 });
 

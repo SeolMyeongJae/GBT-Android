@@ -25,6 +25,7 @@ public class InputInfo extends AppCompatActivity{
     private final String TAG = "InputInfo_Log:";
     private final String URL = "http://54.219.40.82/api/";
 
+
 //    버튼 정의
     private Button btn_submit, btn_select_year;
 //    입력창 정의
@@ -147,6 +148,8 @@ public class InputInfo extends AppCompatActivity{
                 });
                 Intent intent = new Intent(getApplicationContext(),MainPage.class);
                 startActivity(intent);
+
+
                 finish();
             }
         });

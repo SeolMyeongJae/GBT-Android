@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".info.UpdateInfo">
+    tools:context=".info.UpdateInfo"
+    android:layout_margin="5dp">
+
 
     <ImageView
         android:layout_width="85dp"
@@ -14,20 +16,53 @@
         android:layout_gravity="center"
         android:src="@drawable/logo"
         android:scaleType="fitXY"/>
-    <TextView
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40sp"
-        android:text="회원정보 입력"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:fontFamily="@font/minkyoung"
-        android:layout_marginTop="10dp"
-        />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/minkyoung"
+            android:gravity="center"
+            android:text="회원정보 수정"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/star"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView15"
+            app:layout_constraintTop_toBottomOf="@+id/textView15"></ImageView>
+
+        <TextView
+            android:textStyle="bold"
+            android:fontFamily="@font/minkyoung"
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="색칠된 항목은 필수로 입력해 주세요"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView12" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
+        android:layout_marginTop="5dp"
+        android:background="@drawable/stroke_out_line_round"
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TableLayout
@@ -37,6 +72,7 @@
             <TableRow
                 android:layout_marginBottom="15dp">
                 <TextView android:text="닉네임"
+                    android:textColor="#E60339"
                     android:layout_height="50dp"
                     android:gravity="center"
                     android:textSize="35sp"
@@ -51,6 +87,7 @@
                 android:gravity="center_vertical"
                 android:layout_marginBottom="15dp">
                 <TextView android:text="출생년도"
+                    android:textColor="#E60339"
                     android:layout_height="50dp"
                     android:gravity="center"
                     android:textSize="35sp"
@@ -95,6 +132,7 @@
             <TableRow
                 android:layout_marginBottom="15dp">
                 <TextView android:text="1일 흡연량"
+                    android:textColor="#E60339"
                     android:layout_height="50dp"
                     android:gravity="center"
                     android:textSize="35sp"
@@ -107,6 +145,7 @@
             <TableRow
                 android:layout_marginBottom="15dp">
                 <TextView android:text="흡연 경력"
+                    android:textColor="#E60339"
                     android:layout_height="50dp"
                     android:gravity="center"
                     android:textSize="35sp"
@@ -153,11 +192,14 @@
                 <EditText android:hint="사용하실 프로필 사진을 업로드 해 주세요."
                     android:layout_weight="8"/>
                 <Button
+                    android:fontFamily="@font/minkyoung"
+                    android:background="@drawable/btn_search_in_album"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="앨범에서 찾기"
+                    android:text="앨범에서
+                찾기"
                     />
             </TableRow>
 
@@ -177,25 +219,33 @@
                     android:hint="금연의지를 높여줄 사진을 업로드 해주세요." />
 
                 <Button
+                    android:fontFamily="@font/minkyoung"
+                    android:background="@drawable/btn_search_in_album"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="앨범에서 찾기"
+                    android:text="앨범에서
+                찾기"
                     />
             </TableRow>
             <Button
                 android:layout_gravity="center"
                 android:id="@+id/btn_submit"
-                android:layout_width="wrap_content"
+                android:layout_width="70dp"
                 android:layout_height="wrap_content"
-                android:text="제출하기"/>
+                android:text="수정하기"/>
 
         </TableLayout>
     </ScrollView>
 
-
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:srcCompat="@drawable/star" />
 
 
 
 </LinearLayout>
+
