@@ -22,7 +22,7 @@
                 android:id="@+id/linearLayout5"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:background="@drawable/outline_stroke"
+                android:background="@drawable/stroke_out_line"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
-                    android:background="@drawable/outline_stroke"
+                    android:background="@drawable/stroke_out_line"
                     android:orientation="vertical">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -53,7 +53,7 @@
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="201dp"
                             android:layout_height="99dp"
-                            android:background="@drawable/outline_stroke"
+                            android:background="@drawable/stroke_out_line"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -233,7 +233,7 @@
             app:layout_constraintTop_toTopOf="@+id/btn_plus" />
 
         <LinearLayout
-            android:background="@drawable/outline_stroke"
+            android:background="@drawable/stroke_out_line"
             android:id="@+id/linearLayout13"
             android:layout_width="409dp"
             android:layout_height="251dp"
@@ -246,7 +246,7 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_home_certify">
 
             <LinearLayout
-                android:background="@drawable/outline_stroke"
+                android:background="@drawable/stroke_out_line"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

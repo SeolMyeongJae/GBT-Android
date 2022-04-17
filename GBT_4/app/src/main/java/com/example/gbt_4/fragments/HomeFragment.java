@@ -1,10 +1,15 @@
 package com.example.gbt_4.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.preference.PreferenceManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -33,6 +38,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeFragment extends Fragment {
 
+    private SharedPreferences sharedPreferences;
+
 
     TextView tv_userName, tv_comment, tv_todayCount, tv_monthCount;
     Button btn_plus, btn_home_certify;
@@ -49,6 +56,12 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
+
+        sharedPreferences = this.getActivity().getSharedPreferences("userId",MODE_PRIVATE);
+
+
+
+
         //retrofit 빌드
         retrofit = new Retrofit.Builder()
                 .baseUrl(URL)
@@ -64,7 +77,6 @@ public class HomeFragment extends Fragment {
         btn_plus = (Button) v.findViewById(R.id.btn_plus);
         btn_home_certify = (Button) v.findViewById(R.id.btn_home_certify);
 
-
         // 유저 정보 가져오기 기능
         Call<GetUserDto> call_getUser = retrofitInterface.getByUserId(1L);
         call_getUser.enqueue(new Callback<GetUserDto>() {
@@ -72,9 +84,21 @@ public class HomeFragment extends Fragment {
             public void onResponse(Call<GetUserDto> call, Response<GetUserDto> response) {
                 if (response.isSuccessful()) {
                     try {
+
+                        Long userId;
+
                         GetUserDto getUserDto1 = response.body();
                         tv_comment.setText(getUserDto1.getComment());
                         tv_userName.setText(getUserDto1.getUserName());
+
+                        //내부저장
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putLong("userId",getUserDto1.getUserId());
+                        editor.commit();
+
+                        userId = sharedPreferences.getLong("userId",-1);
+                        System.out.println("22222222222222222222222222222222"+userId);
+
                     }catch (NumberFormatException e) {
                         e.printStackTrace();
                     }
@@ -99,11 +123,9 @@ public class HomeFragment extends Fragment {
                     if (getSmokingDto.getCount()==null) {
                         tv_todayCount.setText("0");
                         getSmokingDto.setCount(0L);
-                    }else {
+                    }else if (getSmokingDto.getCount() != null){
                         tv_todayCount.setText(getSmokingDto.getCount().toString());
                     }
-
-
                 }catch (Exception e){
                     System.out.println("예외발생!");
                 }
@@ -124,8 +146,8 @@ public class HomeFragment extends Fragment {
                     if (getSmokingListDto.getTotal()==null){
                         tv_monthCount.setText("0");
                         getSmokingListDto.setTotal(0L);
-                    }else {
-                        tv_monthCount.setText((getSmokingListDto.getTotal().toString()));
+                    }else if(getSmokingListDto.getTotal() != null){
+                        tv_monthCount.setText(getSmokingListDto.getTotal().toString());
                     }
 
                 }catch (Exception e){
@@ -138,6 +160,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //출석 인증 버튼
         btn_home_certify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -146,6 +169,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        //
         btn_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -167,9 +191,6 @@ public class HomeFragment extends Fragment {
                                     System.out.println(e.getMessage());
                                 }
                             }
-
-
-
                             @Override
                             public void onFailure(Call<Long> call, Throwable t) {
                                 System.out.println("***********" + t.toString());

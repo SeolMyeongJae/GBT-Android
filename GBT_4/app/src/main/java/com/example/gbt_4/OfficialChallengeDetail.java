@@ -30,7 +30,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class OfficialChallengeDetail extends AppCompatActivity {
 
-    TextView tv_official_challenge_title, tv_official_challenge_period, tv_official_challenge_current, tv_official_challenge_max, tv_official_challenge_method, tv_official_challenge_description;
+    TextView tv_official_challenge_title,tv_official_challenge_start, tv_official_challenge_end, tv_official_challenge_current, tv_official_challenge_max, tv_official_challenge_method, tv_official_challenge_description;
     ImageView iv_official_challenge_photo;
     Button btn_official_challenge_participate;
     Dialog dialog;
@@ -72,12 +72,13 @@ public class OfficialChallengeDetail extends AppCompatActivity {
 
         tv_official_challenge_title = (TextView)findViewById(R.id.tv_official_challenge_title);
         tv_official_challenge_current = (TextView)findViewById(R.id.tv_official_challenge_current);
-        tv_official_challenge_max = (TextView)findViewById(R.id.tv_official_challenge_max);
-        tv_official_challenge_period = (TextView)findViewById(R.id.tv_official_challenge_period);
-        tv_official_challenge_method = (TextView)findViewById(R.id.tv_official_challenge_method);
-        tv_official_challenge_description = (TextView)findViewById(R.id.tv_official_challenge_description);
+        tv_official_challenge_max = (TextView)findViewById(R.id.tv_official_challenge_detail_max);
+        tv_official_challenge_start = (TextView)findViewById(R.id.tv_official_challenge_detail_start);
+        tv_official_challenge_end = (TextView)findViewById(R.id.tv_official_challenge_detail_end);
+//        tv_official_challenge_method = (TextView)findViewById(R.id.tv_official_challenge_detail_method);
+        tv_official_challenge_description = (TextView)findViewById(R.id.tv_official_challenge_detail_description);
         iv_official_challenge_photo = (ImageView)findViewById(R.id.iv_official_challenge_photo);
-        btn_official_challenge_participate = (Button)findViewById(R.id.btn_official_challenge_participate);
+        btn_official_challenge_participate = (Button)findViewById(R.id.btn_official_challenge_detail_join);
 
         //해당 챌린지 상세정보 불러오기
         Call<GetOfficialChallengeDto> call_OfficialChallenge = retrofitInterface.getOfficialChallenge(challengeId);
@@ -91,7 +92,8 @@ public class OfficialChallengeDetail extends AppCompatActivity {
                         tv_official_challenge_title.setText(getOfficialChallengeDto.getTitle());
                         tv_official_challenge_current.setText(getOfficialChallengeDto.getCurrent().toString());
                         tv_official_challenge_max.setText(getOfficialChallengeDto.getMax().toString());
-                        tv_official_challenge_period.setText(getOfficialChallengeDto.getStartDate());
+                        tv_official_challenge_start.setText(getOfficialChallengeDto.getStartDate().toString());
+                        tv_official_challenge_end.setText(getOfficialChallengeDto.getEndDate().toString());
                         // TODO: 2022-04-08 endDate - startDate 날짜 계산하는거 구현하기
                         tv_official_challenge_method.setText(getOfficialChallengeDto.getMethod());
                         tv_official_challenge_description.setText(getOfficialChallengeDto.getDescription());
@@ -99,7 +101,6 @@ public class OfficialChallengeDetail extends AppCompatActivity {
                         // TODO: 2022-04-08 img URL로 찾기
                         Glide.with(OfficialChallengeDetail.this).load(photoURL).into(iv_official_challenge_photo);
                         System.out.println("공식챌린지 상세페이지: 사진 URL은"+photoURL+"입니다.");
-
 
                     }catch (Exception e){
                         System.out.println("공식 챌린지 상세페이지:예외 오류!"+e.getMessage());
