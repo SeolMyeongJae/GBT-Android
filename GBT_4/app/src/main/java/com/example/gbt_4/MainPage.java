@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.gbt_4.dto.GetSmokingDto;
@@ -62,7 +65,15 @@ public class MainPage extends AppCompatActivity{
         fragmentManager.beginTransaction().replace(R.id.frame_lo,fh).commit();
 
         bottomNavigationView = (NavigationBarView) findViewById(R.id.bottom_navi);
+        Button btn_alert = (Button) findViewById(R.id.btn_alert);
 
+        btn_alert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Notice.class);
+                startActivity(intent);
+            }
+        });
 
         // 하단 Navi bar 구현
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
