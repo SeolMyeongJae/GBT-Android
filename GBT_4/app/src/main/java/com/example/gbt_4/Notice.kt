@@ -1,8 +1,13 @@
 package com.example.gbt_4
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.example.gbt_4.adapter.InviteAdapter
 import com.example.gbt_4.databinding.ActivityNoticeBinding
 
@@ -23,5 +28,13 @@ class Notice : AppCompatActivity() {
 
         binding.recyclerView.adapter = adapter
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
+
+        adapter.setItemClickListener(object: InviteAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int) {
+                var intent = Intent(v.context, CustomChallengeDetail::class.java)
+
+                startActivity(intent)
+            }
+        })
     }
 }

@@ -1,5 +1,6 @@
 package com.example.gbt_4.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +22,21 @@ class InviteAdapter : RecyclerView.Adapter<InviteAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val invite = invites[position]
         holder.setItem(invite)
+
+        holder.itemView.setOnClickListener {
+            itemClickListener.onClick(it, position)
+        }
     }
+
+    interface OnItemClickListener {
+        fun onClick(v: View, position: Int)
+    }
+
+    fun setItemClickListener(onItemClickListener: OnItemClickListener) {
+        this.itemClickListener = onItemClickListener
+    }
+
+    private lateinit var itemClickListener : OnItemClickListener
 
     override fun getItemCount() = invites.size
 
@@ -31,6 +46,6 @@ class InviteAdapter : RecyclerView.Adapter<InviteAdapter.ViewHolder>() {
             binding.tvCaller.text = invite.caller
             binding.tvTitle.text = invite.title
         }
-
     }
+
 }
