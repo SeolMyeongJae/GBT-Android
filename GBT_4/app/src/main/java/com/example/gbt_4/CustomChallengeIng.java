@@ -22,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CustomChallengeIng extends AppCompatActivity {
 
-    Button btn_custom_challenge_ing_status,btn_custom_challenge_ing_chat, btn_custom_challenge_ing_back;
+    Button btn_custom_challenge_ing_status,btn_custom_challenge_ing_chat, btn_custom_challenge_ing_back,btn_custom_challenge_ing_invite;
     ImageView iv_custom_challenge_ing_photo;
     TextView tv_custom_challenge_ing_title,tv_custom_challenge_ing_start, tv_custom_challenge_ing_end,
             tv_custom_challenge_ing_current,tv_custom_challenge_ing_max,tv_custom_challenge_ing_point,
@@ -45,6 +45,7 @@ public class CustomChallengeIng extends AppCompatActivity {
         btn_custom_challenge_ing_back= (Button) findViewById(R.id.btn_custom_challenge_ing_back);
         btn_custom_challenge_ing_chat= (Button) findViewById(R.id.btn_custom_challenge_ing_chat);
         btn_custom_challenge_ing_status= (Button) findViewById(R.id.btn_custom_challenge_ing_status);
+        btn_custom_challenge_ing_invite = (Button) findViewById(R.id.btn_custom_challenge_ing_invite);
 
         tv_custom_challenge_ing_title = (TextView) findViewById(R.id.tv_custom_challenge_ing_title);
         tv_custom_challenge_ing_start = (TextView)findViewById(R.id.tv_custom_challenge_ing_start);
@@ -131,6 +132,16 @@ public class CustomChallengeIng extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent3 = new Intent(getApplicationContext(),CustomChallengeSatus.class);
                 startActivity(intent3);
+            }
+        });
+
+
+        //초대하기 기능
+        btn_custom_challenge_ing_invite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent4 = new Intent(getApplicationContext(),Invite.class);
+                startActivity(intent4);
             }
         });
     }

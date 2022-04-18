@@ -65,12 +65,13 @@ public class MainPage extends AppCompatActivity{
         fragmentManager.beginTransaction().replace(R.id.frame_lo,fh).commit();
 
         bottomNavigationView = (NavigationBarView) findViewById(R.id.bottom_navi);
-        Button btn_alert = (Button) findViewById(R.id.btn_alert);
 
-        btn_alert.setOnClickListener(new View.OnClickListener() {
+        //알림 페이지 이동
+        Button btn_notice = (Button) findViewById(R.id.btn_notice);
+        btn_notice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Notice.class);
+                Intent intent = new Intent(getApplicationContext(),Notice.class);
                 startActivity(intent);
             }
         });

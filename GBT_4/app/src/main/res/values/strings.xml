@@ -9,6 +9,8 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
+    <string name="dialog3">선택된 유저들을 \n 챌린지에 초대하시겠어요?</string>
+
     <string name="official_challenge_description">금연을 희망하는 사람들과 함께 \n 금연에 도전하고, 포인트를 획득해요!</string>
     <string name="custom_challenge_description">직접 챌린지를 만들고, \n 친구나 지인과 함께 금연에 도전해요!</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
