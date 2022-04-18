@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_alert"
+        android:id="@+id/btn_notice"
         android:layout_width="85dp"
         android:layout_height="80dp"
         android:background="@drawable/inform"
