@@ -11,36 +11,58 @@ import com.example.gbt_4.databinding.ActivityNoticeBinding
 
 class Notice : AppCompatActivity() {
     private lateinit var binding : ActivityNoticeBinding
+
+    private var adapter: InviteAdapter? = null
+    private val data: ArrayList<InviteNotice> = ArrayList()
+
+    init {
+        instance = this
+    }
+
+    companion object{
+        private var instance: Notice? = null
+        fun getInstance(): Notice? {
+            return instance
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
 
         binding = ActivityNoticeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-//        binding.recyclerView.layoutManager = layoutManager
 
-
+        initialize()
+        adapter = InviteAdapter()
+        adapter!!.invites = data
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
 
         //뒤로가기 버튼
         binding.btnBack.setOnClickListener {
             finish()
         }
 
-        val adapter = InviteAdapter()
-        adapter.invites.add(InviteNotice("설명재", "금연ㄱㄱ"))
-        adapter.invites.add(InviteNotice("설명재2", "금연ㄱㄱㄱㄱㄱ"))
-        adapter.invites.add(InviteNotice("설명재3", "금연ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ"))
-
-        binding.recyclerView.adapter = adapter
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
-
-        adapter.setItemClickListener(object: InviteAdapter.OnItemClickListener{
+        adapter!!.setItemClickListener(object: InviteAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
                 var intent = Intent(v.context, CustomChallengeDetail::class.java)
 
                 startActivity(intent)
             }
         })
+    }
+
+    fun deleteNotice(inviteNotice : InviteNotice) {
+        data.remove(inviteNotice)
+        adapter?.notifyDataSetChanged()
+    }
+
+    private fun initialize() {
+        with(data){
+            add(InviteNotice("설명재", "금연ㄱㄱ"))
+            add(InviteNotice("설명재2", "금연ㄱㄱㄱㄱㄱ"))
+            add(InviteNotice("설명재3", "금연ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ"))
+        }
     }
 }
