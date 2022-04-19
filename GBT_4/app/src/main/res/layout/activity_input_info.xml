@@ -6,15 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".InputInfo"
-    android:layout_margin="5dp">
-
-    <ImageView
-        android:layout_width="85dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="5dp"
-        android:layout_gravity="center"
-        android:src="@drawable/logo"
-        android:scaleType="fitXY"/>
+    android:layout_marginHorizontal="5dp"
+    android:background="@drawable/background_fade_out">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -24,6 +17,7 @@
             android:id="@+id/textView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_weight="1"
             android:fontFamily="@font/minkyoung"
             android:gravity="center"
@@ -35,25 +29,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></TextView>
 
-        <ImageView
-            android:id="@+id/imageView12"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/star"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/textView15"
-            app:layout_constraintTop_toBottomOf="@+id/textView15"></ImageView>
-
         <TextView
-            android:textStyle="bold"
-            android:fontFamily="@font/minkyoung"
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="261dp"
+            android:layout_marginTop="9dp"
+            android:fontFamily="@font/minkyoung"
             android:text="색칠된 항목은 필수로 입력해 주세요"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView12"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView12" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -190,16 +177,17 @@
                 android:fontFamily="@font/minkyoung"/>
             <EditText android:hint="사용하실 프로필 사진을 업로드 해 주세요."
                 android:layout_weight="8"/>
+
             <Button
-                android:fontFamily="@font/minkyoung"
-                android:background="@drawable/btn_search_in_album"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:background="@drawable/btn_search_in_album"
+                android:fontFamily="@font/minkyoung"
                 android:text="앨범에서
                 찾기"
-                />
+                android:textSize="16sp" />
         </TableRow>
 
         <TableRow
@@ -218,15 +206,15 @@
                 android:hint="금연의지를 높여줄 사진을 업로드 해주세요." />
 
             <Button
-                android:fontFamily="@font/minkyoung"
-                android:background="@drawable/btn_search_in_album"
-                android:layout_gravity="center"
-                android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/btn_search_in_album"
+                android:fontFamily="@font/minkyoung"
                 android:text="앨범에서
                 찾기"
-                />
+                android:textSize="14sp" />
         </TableRow>
         <Button
             android:layout_gravity="center"

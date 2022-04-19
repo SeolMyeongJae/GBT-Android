@@ -13,6 +13,8 @@ import com.example.gbt_4.fragments.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button btn_sign_up, btn_sign_in;
+
     Long userId;
     private SharedPreferences sharedPreferences;
 
@@ -23,10 +25,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
-        Intent intent1 = new Intent(getApplicationContext(),InputInfo.class);
-        startActivity(intent1);
 
-//
+        //회원가입 버튼
+        btn_sign_up = (Button) findViewById(R.id.btn_sign_up);
+        btn_sign_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),AgreeDialog.class);
+                startActivity(intent);
+            }
+        });
+
+        //로그인 버튼
+        btn_sign_in = (Button) findViewById(R.id.btn_sign_in);
+        btn_sign_in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),MainPage.class);
+                startActivity(intent);
+            }
+        });
+
+
+//        자동 로그인 기능
 //        sharedPreferences = getSharedPreferences("userId", MODE_PRIVATE);
 //        userId = sharedPreferences.getLong("userId",-1L);
 //        System.out.println("11111111111111111111111111"+userId);

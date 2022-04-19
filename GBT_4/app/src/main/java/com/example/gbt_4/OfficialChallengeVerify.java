@@ -8,7 +8,6 @@ import android.widget.Button;
 
 public class OfficialChallengeVerify extends Activity {
 
-
     Button btn_official_challenge_verify_back;
 
     @Override
