@@ -11,12 +11,13 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:fontFamily="@font/modu"
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="공식 챌린지"
-            android:textSize="20sp"
+            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,6 +36,8 @@
             app:layout_constraintTop_toBottomOf="@+id/textView13">
 
             <Button
+                android:textSize="22sp"
+                android:fontFamily="@font/modu"
                 android:id="@+id/button3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -45,6 +48,8 @@
                 tools:layout_editor_absoluteY="73dp" />
 
             <Button
+                android:textSize="22sp"
+                android:fontFamily="@font/modu"
                 android:id="@+id/button4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -54,6 +59,8 @@
                 tools:layout_editor_absoluteY="74dp" />
 
             <Button
+                android:textSize="22sp"
+                android:fontFamily="@font/modu"
                 android:id="@+id/button5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -62,20 +69,15 @@
                 app:layout_constraintEnd_toStartOf="@+id/button6"
                 tools:layout_editor_absoluteY="73dp" />
 
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="마감 임박순"
-                app:layout_constraintEnd_toEndOf="parent"
-                tools:layout_editor_absoluteY="73dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="550dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/stroke_out_line_round"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

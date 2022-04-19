@@ -15,7 +15,7 @@
 
 
         <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/roundedImageView4"
+            android:id="@+id/iv_chat_photo"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
@@ -47,7 +47,7 @@
             <TextView
                 android:fontFamily="@font/modu"
                 android:textSize="17sp"
-                android:id="@+id/textView46"
+                android:id="@+id/tv_chat_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="작성시간" />

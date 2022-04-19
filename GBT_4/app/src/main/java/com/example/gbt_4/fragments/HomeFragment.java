@@ -41,9 +41,8 @@ public class HomeFragment extends Fragment {
     private SharedPreferences sharedPreferences;
 
 
-    TextView tv_userName, tv_comment, tv_todayCount, tv_monthCount;
-    Button btn_plus, btn_home_certify,btn_home_go_official_challenge_ing;
-    ImageView iv_my_official_challenge, iv_my_custom_challenge;
+    TextView tv_userName, tv_comment, tv_todayCount, tv_monthCount,btn_home_go_official_challenge_ing, btn_home_go_custom_challenge_ing;
+    Button btn_plus, btn_home_certify;
 
     private final String URL = "http://54.219.40.82/api/";
 
@@ -69,11 +68,12 @@ public class HomeFragment extends Fragment {
         //ID값 부여
         tv_userName = (TextView) v.findViewById(R.id.tv_home_name);
         tv_comment = (TextView) v.findViewById(R.id.tv_home_comment);
-        tv_todayCount = (TextView) v.findViewById(R.id.tv_todayCount);
-        tv_monthCount = (TextView) v.findViewById(R.id.tv_monthCount);
+        tv_todayCount = (TextView) v.findViewById(R.id.tv_today_count);
+//        tv_monthCount = (TextView) v.findViewById(R.id.tv_monthCount);
         btn_plus = (Button) v.findViewById(R.id.btn_plus);
         btn_home_certify = (Button) v.findViewById(R.id.btn_home_certify);
-        btn_home_go_official_challenge_ing = (Button) v.findViewById(R.id.btn_home_go_official_challenge_ing);
+        btn_home_go_official_challenge_ing = (TextView) v.findViewById(R.id.btn_home_go_official_challenge_ing);
+        btn_home_go_custom_challenge_ing = (TextView) v.findViewById(R.id.btn_home_go_custom_challenge_ing);
 
         // 유저 정보 가져오기 기능
         Call<GetUserDto> call_getUser = retrofitInterface.getByUserId(1L);
@@ -207,6 +207,17 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(),OfficialChallengeIng.class);
                 startActivity(intent);
+            }
+        });
+
+
+        btn_home_go_custom_challenge_ing.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                CustomChallengeFragment customChallengeFragment = new CustomChallengeFragment();
+                fragmentTransaction.replace(R.id.frame_lo,customChallengeFragment).addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 

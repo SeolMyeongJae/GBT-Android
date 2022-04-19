@@ -28,8 +28,7 @@ public class CustomChallengeDetail extends AppCompatActivity {
 
 
 
-
-
+        //뒤로가기 버튼
         btn_custom_challenge_detail_back = (Button) findViewById(R.id.btn_custom_challenge_detail_back);
         btn_custom_challenge_detail_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +37,7 @@ public class CustomChallengeDetail extends AppCompatActivity {
             }
         });
 
+        //참여하기 버튼
         btn_custom_challenge_detail_join =(Button) findViewById(R.id.btn_custom_challenge_detail_join);
         btn_custom_challenge_detail_join.setOnClickListener(new View.OnClickListener() {
             @Override

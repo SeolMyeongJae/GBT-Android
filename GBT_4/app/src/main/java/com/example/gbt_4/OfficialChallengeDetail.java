@@ -72,16 +72,17 @@ public class OfficialChallengeDetail extends AppCompatActivity {
         System.out.println("공식 챌린지 상세 페이지: 선택된 챌린지 Id는"+challengeId+"입니다.");
 
 
-        tv_official_challenge_detail_title = (TextView)findViewById(R.id.tv_official_challenge_title);
-        tv_official_challenge_detail_current = (TextView)findViewById(R.id.tv_official_challenge_current);
+        tv_official_challenge_detail_title = (TextView)findViewById(R.id.tv_official_challenge_detail_title);
+        tv_official_challenge_detail_current = (TextView)findViewById(R.id.tv_official_challenge_detail_current);
         tv_official_challenge_detail_max = (TextView)findViewById(R.id.tv_official_challenge_detail_max);
         tv_official_challenge_detail_start = (TextView)findViewById(R.id.tv_official_challenge_detail_start);
         tv_official_challenge_detail_end = (TextView)findViewById(R.id.tv_official_challenge_detail_end);
 //        tv_official_challenge_method = (TextView)findViewById(R.id.tv_official_challenge_detail_method);
         tv_official_challenge_detail_description = (TextView)findViewById(R.id.tv_official_challenge_detail_description);
-        iv_official_challenge_detail_photo = (ImageView)findViewById(R.id.iv_official_challenge_photo);
+        iv_official_challenge_detail_photo = (ImageView)findViewById(R.id.iv_official_challenge_detail_photo);
         btn_official_challenge_detail_join = (Button)findViewById(R.id.btn_official_challenge_detail_join);
         btn_official_challenge_detail_back = (Button)findViewById(R.id.btn_official_challenge_detail_back);
+
 
         //해당 챌린지 상세정보 불러오기
         Call<GetOfficialChallengeDto> call_OfficialChallenge = retrofitInterface.getOfficialChallenge(challengeId);

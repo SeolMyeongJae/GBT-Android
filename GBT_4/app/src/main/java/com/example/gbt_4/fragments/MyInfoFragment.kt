@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import com.example.gbt_4.databinding.ActivityMyInfoBinding
+import com.example.gbt_4.databinding.FragmentMyInfoBinding
+import com.example.gbt_4.info.UpdateInfo
 import com.example.gbt_4.info.UserDto
 import com.example.gbt_4.info.UserInterface
 import retrofit2.Call
@@ -19,14 +21,14 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class MyInfoFragment : Fragment() {
 
-    private lateinit var binding: ActivityMyInfoBinding
+    private lateinit var binding: FragmentMyInfoBinding
     private lateinit var getResult: ActivityResultLauncher<Intent>
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 //         Inflate the layout for this fragment
-        binding = ActivityMyInfoBinding.inflate(inflater, container, false)
+        binding = FragmentMyInfoBinding.inflate(inflater, container, false)
 //        getResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
 //            when (it.resultCode) {
 //                AppCompatActivity.RESULT_OK -> {
@@ -35,6 +37,11 @@ class MyInfoFragment : Fragment() {
 //                }
 //            }
 //        }
+        binding.btnEditInfo.setOnClickListener {
+            var intent = Intent(context, UpdateInfo::class.java)
+
+        }
+
 
         val retrofit = Retrofit.Builder()
             .baseUrl("http://54.219.40.82/api/")
