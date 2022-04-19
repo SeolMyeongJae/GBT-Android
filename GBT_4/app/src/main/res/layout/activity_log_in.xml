@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LogIn">
+    tools:context=".LogIn"
+    android:background="@drawable/background">
 
     <ImageView
         android:layout_width="240dp"
@@ -16,6 +17,7 @@
         android:scaleType="fitXY"/>
 
     <TextView
+        android:textColor="@color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="로그인 방법을 선택해 주세요!"
@@ -82,6 +84,6 @@
         android:layout_marginTop="50sp"
         android:fontFamily="@font/minkyoung"
         android:text="Produce By Team 'Discoder'"
-        android:textColor="#090909"
+        android:textColor="@color/white"
         android:textSize="20sp" />
 </LinearLayout>

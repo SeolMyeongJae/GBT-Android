@@ -85,13 +85,18 @@ public class OfficialChallengeFragment extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Long checkedId = getOfficialChallengeList.get(position).getId();
+                Boolean isJoin = getOfficialChallengeList.get(position).getIsJoin();
 
-                Intent intent = new Intent(getActivity(), OfficialChallengeDetail.class);
-//                Intent intent1 = new Intent(getActivity(), OfficialChallengeIng.class);
-                intent.putExtra("challengeId", checkedId);
+                if(isJoin == true){
+                    Intent intent = new Intent(getActivity(),OfficialChallengeIng.class);
+                    intent.putExtra("challengeId", checkedId);
+                    startActivity(intent);
+                }else {
+                    Intent intent = new Intent(getActivity(), OfficialChallengeDetail.class);
+                    intent.putExtra("challengeId", checkedId);
+                    startActivity(intent);
+                }
 //                intent1.putExtra("challengeId1", checkedId);
-
-                startActivity(intent);
             }
         });
 

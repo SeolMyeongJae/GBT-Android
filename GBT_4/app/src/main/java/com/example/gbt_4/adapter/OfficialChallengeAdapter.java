@@ -21,24 +21,6 @@ import java.util.List;
 
 
 public class OfficialChallengeAdapter extends BaseAdapter {
-//
-//    //날짜 계산
-//    String today, startDate, endDate;
-//    Date format1 = new SimpleDateFormat("yyyy/MM/dd").parse(today);
-//    Date format2 = new SimpleDateFormat("yyyy/MM/dd").parse(startDate);
-//    Date format3 = new SimpleDateFormat("yyyy/MM/dd").parse(endDate);
-//
-//    Long piriodSec = (format3.getTime() - format2.getTime()) / 1000;
-//    Long piriodDays = piriodSec / (24 * 60 * 60);
-//
-//    Long dSec = (format2.getTime() - format1.getTime()) / 1000;
-//    Long dDay = dSec / (24 * 60 * 60);
-
-    //     어댑터를 쓸때 필요한 부분들을 가져오는 생성자를 만든다.
-//     context =리스트를 보여주는 액티비티의 Contenxt : itemlayout을 inflate를 할때 필요하다.
-//     layout  =데이터들을 담아둘 itemlayout Address : R.layout.sample_item 이들어오는 곳이다. 리소스 디렉토리내의 주소를 가져오므로 int로 저장된다.
-//     items  =데이터 꾸러미를 가져온다.
-
     private String photoURL;
 
     Context context = null;
