@@ -41,6 +41,7 @@
         <entry key="..\:/Users/admin/Desktop/GBT-Android/GBT_4/app/src/main/res/drawable/select_date_1.xml" value="0.248" />
         <entry key="..\:/Users/admin/Desktop/GBT-Android/GBT_4/app/src/main/res/drawable/select_date_2.xml" value="0.248" />
         <entry key="..\:/Users/admin/Desktop/GBT-Android/GBT_4/app/src/main/res/drawable/select_year_textview.xml" value="0.248" />
+        <entry key="..\:/Users/admin/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_agree_dialog.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/admin/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_chat_room.xml" value="0.25" />
         <entry key="..\:/Users/admin/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_create_custom_challenge.xml" value="0.33" />
         <entry key="..\:/Users/admin/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_custom_challenge_detail.xml" value="0.264" />
@@ -50,7 +51,7 @@
         <entry key="..\:/Users/admin/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_input_info.xml" value="0.264" />
         <entry key="..\:/Users/admin/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_invite.xml" value="0.23052536231884058" />
         <entry key="..\:/Users/admin/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_log_in.xml" value="0.2" />
-        <entry key="..\:/Users/admin/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_main.xml" value="0.14746543778801843" />
+        <entry key="..\:/Users/admin/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/admin/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_main_page.xml" value="0.22393822393822393" />
         <entry key="..\:/Users/admin/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_my_info.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/admin/Desktop/GBT-Android/GBT_4/app/src/main/res/layout/activity_notice.xml" value="0.23052536231884058" />

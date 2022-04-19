@@ -12,7 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GBT_4"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".AgreeDialog"
+            android:exported="false"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"
+            />
         <activity
             android:name=".Invite"
             android:exported="false" />
@@ -43,7 +47,7 @@
         <activity
             android:name=".OfficialChallengeVerify"
             android:exported="false"
-            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"/>
         <activity
             android:name=".OfficialChallengeStatus"
             android:exported="false"
