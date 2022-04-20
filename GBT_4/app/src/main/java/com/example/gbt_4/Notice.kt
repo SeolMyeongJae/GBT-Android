@@ -1,5 +1,6 @@
 package com.example.gbt_4
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -9,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gbt_4.adapter.InviteAdapter
 import com.example.gbt_4.databinding.ActivityNoticeBinding
 
-class Notice : AppCompatActivity() {
+class Notice : Activity() {
     private lateinit var binding : ActivityNoticeBinding
 
     private var adapter: InviteAdapter? = null
@@ -60,9 +61,9 @@ class Notice : AppCompatActivity() {
 
     private fun initialize() {
         with(data){
-            add(InviteNotice("설명재", "금연ㄱㄱ"))
-            add(InviteNotice("설명재2", "금연ㄱㄱㄱㄱㄱ"))
-            add(InviteNotice("설명재3", "금연ㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱㄱ"))
+            add(InviteNotice("황정민", "내성초 104기 동창들 금연하자!"))
+            add(InviteNotice("김민기", "형, 우리도 담배 끊어보죠~"))
+            add(InviteNotice("장수민", "1달 금연 내기할까?"))
         }
     }
 }

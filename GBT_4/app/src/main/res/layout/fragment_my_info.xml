@@ -14,10 +14,10 @@
             android:id="@+id/textView60"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/minkyoung"
             android:text="내 정보"
-            android:textSize="40sp"
+            android:textSize="35sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -26,7 +26,8 @@
             android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
+            android:alpha="0.85"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView60">
@@ -35,8 +36,8 @@
                 android:id="@+id/roundedImageView"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:src="@drawable/samplephoto2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -96,9 +97,11 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
+
             android:layout_width="match_parent"
             android:layout_height="168dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
+            android:alpha="0.85"
             android:background="@drawable/stroke_top_bottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -109,8 +112,8 @@
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/minkyoung"
                 android:text="챌린지 현황"
                 android:textSize="30sp"
@@ -201,9 +204,11 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="272dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="412dp"
+
+            android:layout_height="252dp"
+            android:layout_marginTop="8dp"
+            android:alpha="0.85"
             android:background="@drawable/stroke_top_bottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -212,8 +217,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/minkyoung"
                 android:text="유저 정보"
                 android:textSize="30sp"
@@ -231,6 +236,7 @@
                 app:layout_constraintVertical_bias="0.685">
 
                 <TableLayout
+                    android:layout_marginTop="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -247,7 +253,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:fontFamily="@font/minkyoung"
-                            android:text="생년월일"
+                            android:text="생년월일: "
                             android:textSize="20sp" />
 
                         <TextView android:id="@+id/birth" />
@@ -262,7 +268,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:fontFamily="@font/minkyoung"
-                            android:text="흡연경력"
+                            android:text="흡연경력: "
                             android:textSize="20sp" />
 
                         <TextView android:id="@+id/smokingYear" />
@@ -277,7 +283,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:fontFamily="@font/minkyoung"
-                            android:text="하루 흡연량"
+                            android:text="하루 흡연량: "
                             android:textSize="20sp" />
 
                         <TextView android:id="@+id/average" />
@@ -291,7 +297,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:fontFamily="@font/minkyoung"
-                            android:text="담배가격"
+                            android:text="담배가격: "
                             android:textSize="20sp" />
 
                         <TextView android:id="@+id/price" />
@@ -304,13 +310,13 @@
                     android:layout_weight="1">
 
                     <ImageView
+                        android:layout_marginTop="10dp"
                         android:id="@+id/imageView4"
-                        android:layout_width="203dp"
-                        android:layout_height="201dp"
+                        android:layout_width="201dp"
+                        android:layout_height="172dp"
                         android:src="@drawable/samplephoto3"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.0" />
@@ -321,8 +327,8 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="32dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="42dp"
                 android:fontFamily="@font/minkyoung"
                 android:text="동기부여 사진"
                 android:textSize="30sp"

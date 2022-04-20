@@ -8,7 +8,7 @@
     tools:context=".fragments.StatisticsFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:padding="5dp"
+        android:padding="2dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -16,7 +16,7 @@
             android:id="@+id/textView61"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/minkyoung"
             android:text="흡연 통계"
             android:textSize="40sp"
@@ -32,6 +32,7 @@
             android:background="@drawable/stroke_out_line_round"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            android:alpha="0.85"
             app:layout_constraintTop_toBottomOf="@+id/textView61">
 
             <TextView
@@ -56,6 +57,7 @@
             android:layout_marginTop="16dp"
             android:background="@drawable/stroke_out_line_round"
             app:layout_constraintEnd_toEndOf="parent"
+            android:alpha="0.85"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
 
@@ -76,6 +78,7 @@
             android:layout_width="416dp"
             android:layout_height="200dp"
             android:layout_marginTop="16dp"
+            android:alpha="0.85"
             android:background="@drawable/stroke_out_line_round"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

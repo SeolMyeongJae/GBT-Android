@@ -11,13 +11,13 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:fontFamily="@font/modu"
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/minkyoung"
             android:text="공식 챌린지"
-            android:textSize="30sp"
+            android:textSize="35sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,13 +72,16 @@
         </LinearLayout>
 
         <LinearLayout
+            android:alpha="0.8"
             android:layout_width="match_parent"
             android:layout_height="550dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="32dp"
             android:background="@drawable/stroke_out_line_round"
             android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout6">

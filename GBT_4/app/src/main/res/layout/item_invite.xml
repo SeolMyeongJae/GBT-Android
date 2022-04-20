@@ -4,6 +4,9 @@
     android:layout_height="wrap_content">
 
     <TextView
+        android:textStyle="bold"
+        android:textSize="15sp"
+        android:fontFamily="@font/minkyoung"
         android:id="@+id/tv_caller"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -11,6 +14,8 @@
         android:text="TextView" />
 
     <TextView
+        android:textSize="17sp"
+        android:fontFamily="@font/minkyoung"
         android:id="@+id/tv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -18,6 +23,8 @@
         android:text="TextView" />
 
     <Button
+        android:background="@drawable/btn_refuse"
+        android:fontFamily="@font/minkyoung"
         android:id="@+id/btn_remove"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
