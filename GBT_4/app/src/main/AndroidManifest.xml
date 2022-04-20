@@ -22,7 +22,8 @@
             android:exported="false" />
         <activity
             android:name=".Notice"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"/>
         <activity
             android:name=".ChatRoom"
             android:exported="false" />
