@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E6FBF3F3"
     tools:context=".fragments.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,7 +15,8 @@
             android:id="@+id/linearLayout5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/stroke_out_line"
+            android:alpha="0.85"
+            android:background="@drawable/stroke_top_bottom"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +52,6 @@
                         android:id="@+id/constraintLayout6"
                         android:layout_width="match_parent"
                         android:layout_height="160dp"
-                        android:background="@drawable/stroke_out_line"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +65,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:fontFamily="@font/modu"
-                            android:text="유저 닉네임"
+                            android:text="홍길동"
                             android:textColor="@color/black"
                             android:textSize="22sp"
                             android:textStyle="bold"
@@ -109,7 +110,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:fontFamily="@font/minkyoung"
-                        android:text="n개"
+                        android:text="1개"
                         android:textColor="@color/black"
                         android:textSize="26sp"
                         android:textStyle="bold" />
@@ -247,16 +248,160 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout13"
-            android:layout_width="413dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout5"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:orientation="vertical"
+            android:alpha="0.85"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout18"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+            app:layout_constraintVertical_bias="1.0">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="0dp"
+                android:layout_height="112dp"
+                android:src="@drawable/watch_sample"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+                <TextView
+                    android:id="@+id/textView118"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="#EFECD1"
+                    android:fontFamily="@font/minkyoung"
+                    android:gravity="center"
+                    android:text="치킨"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toStartOf="@+id/textView119"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView119"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="#D1EFEF"
+                    android:fontFamily="@font/minkyoung"
+                    android:gravity="center"
+                    android:text="스위스 여행"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView118"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView118"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView122"
+                    android:layout_width="0dp"
+                    android:layout_height="85dp"
+                    android:background="#D7F4F4EF"
+                    android:fontFamily="@font/minkyoung"
+                    android:gravity="center"
+                    android:text="1012.5 마리"
+                    android:textColor="#3A3535"
+                    android:textSize="27sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/textView124"
+                    app:layout_constraintEnd_toStartOf="@+id/textView123"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView118" />
+
+                <TextView
+                    android:id="@+id/textView123"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="#D7F4F4EF"
+                    android:fontFamily="@font/minkyoung"
+                    android:gravity="center"
+                    android:text="10.8 번"
+                    android:textColor="#3A3535"
+                    android:textSize="27sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView122"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView122"
+                    app:layout_constraintTop_toTopOf="@+id/textView122"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <TextView
+                    android:id="@+id/textView124"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="#D9D1EF"
+                    android:fontFamily="@font/minkyoung"
+                    android:gravity="center"
+                    android:text="커피"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toStartOf="@+id/textView125"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView122" />
+
+                <TextView
+                    android:id="@+id/textView125"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="#EFD1D7"
+                    android:fontFamily="@font/minkyoung"
+                    android:gravity="center"
+                    android:text="수면 시간"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView124"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView124"
+                    app:layout_constraintTop_toTopOf="@+id/textView124" />
+
+                <TextView
+                    android:id="@+id/textView126"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="#D7F4F4EF"
+                    android:fontFamily="@font/minkyoung"
+                    android:gravity="center"
+                    android:text="4628.5 잔"
+                    android:textColor="#3A3535"
+                    android:textSize="27sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/textView127"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView124"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textView127"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="#D7F4F4EF"
+                    android:fontFamily="@font/minkyoung"
+                    android:gravity="center"
+                    android:text="7650 시간"
+                    android:textColor="#3A3535"
+                    android:textSize="27sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView126"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView126"
+                    app:layout_constraintTop_toTopOf="@+id/textView126" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:id="@+id/linearLayout18"
@@ -269,13 +414,13 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
-                android:alpha="0.85"
                 android:id="@+id/btn_plus"
                 android:layout_width="0dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:layout_marginVertical="5dp"
                 android:layout_weight="1"
+                android:alpha="0.85"
                 android:background="@drawable/main_page_plus_button"
                 android:fontFamily="@font/minkyoung"
                 android:hint="@string/plus"
@@ -284,13 +429,13 @@
                 android:textSize="22sp" />
 
             <Button
-                android:alpha="0.85"
                 android:id="@+id/btn_home_certify"
                 android:layout_width="0dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:layout_marginVertical="5dp"
                 android:layout_weight="1"
+                android:alpha="0.85"
                 android:background="@drawable/main_page_check_button"
                 android:fontFamily="@font/minkyoung"
                 android:hint="@string/check"

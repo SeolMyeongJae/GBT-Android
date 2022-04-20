@@ -218,8 +218,9 @@
         android:layout_height="39dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="156dp"
         android:background="@drawable/back"
-        app:layout_constraintBottom_toTopOf="@+id/iv_custom_challenge_photo"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -231,7 +232,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10"
-        android:src="@drawable/nuroongji"/>
+        android:src="@drawable/background"/>
 
     <TextView
         android:textStyle="bold"
@@ -282,7 +283,7 @@
         android:id="@+id/btn_custom_challenge_ing_chat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="채팅방 보기"
+        android:text="게시판 보기"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btn_custom_challenge_ing_status"
         app:layout_constraintTop_toTopOf="@+id/btn_custom_challenge_ing_status" />
@@ -305,10 +306,13 @@
         android:id="@+id/iv_custom_challenge_ing_invite"
         android:layout_width="81dp"
         android:layout_height="83dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/iv_custom_challenge_ing_photo"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/invite"
-        tools:layout_editor_absoluteY="93dp" />
+        app:srcCompat="@drawable/invite" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

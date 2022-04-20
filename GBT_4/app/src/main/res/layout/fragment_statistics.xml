@@ -26,63 +26,168 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"
-            android:layout_width="409dp"
-            android:layout_height="193dp"
+            android:layout_width="404dp"
+            android:layout_height="304dp"
             android:layout_marginTop="8dp"
+            android:alpha="0.85"
             android:background="@drawable/stroke_out_line_round"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:alpha="0.85"
             app:layout_constraintTop_toBottomOf="@+id/textView61">
+
+            <Button
+                android:id="@+id/btn_statistics_show_graph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/btn_invite"
+                android:fontFamily="@font/minkyoung"
+                android:padding="10dp"
+                android:text="주간 통계 그래프 보기"
+                android:textSize="27sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tableLayout2" />
 
             <TextView
                 android:id="@+id/textView62"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="4dp"
                 android:fontFamily="@font/minkyoung"
-                android:text="흡연으로 잃은 것들"
+                android:text="나의 흡연 추이"
+                android:textColor="#4C4646"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+
+            <TableLayout
+                android:id="@+id/tableLayout2"
+                android:layout_width="407dp"
+                android:layout_height="0dp"
+                android:padding="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView62">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView74"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/minkyoung"
+                        android:gravity="center"
+                        android:text="오늘 피운 담배: "
+                        android:textSize="27sp" />
+
+                    <TextView
+                        android:id="@+id/textView73"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/minkyoung"
+                        android:text="2개비"
+                        android:textSize="27sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:id="@+id/textView76"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/minkyoung"
+                        android:gravity="center"
+                        android:text="이번 주 피운 담배: "
+                        android:textSize="27sp" />
+
+                    <TextView
+                        android:id="@+id/textView75"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/minkyoung"
+                        android:text="13개비"
+                        android:textSize="27sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:id="@+id/textView78"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/minkyoung"
+                        android:gravity="center"
+                        android:text="이번 달 피운 담배:"
+                        android:textSize="27sp" />
+
+                    <TextView
+                        android:id="@+id/textView77"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/minkyoung"
+                        android:text="26개비"
+                        android:textSize="27sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="16dp">
+
+                    <TextView
+                        android:id="@+id/textView80"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/minkyoung"
+                        android:gravity="center"
+                        android:text="평생 피운 담배"
+                        android:textSize="27sp" />
+
+                    <TextView
+                        android:id="@+id/textView79"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:fontFamily="@font/minkyoung"
+                        android:text="72000개비"
+                        android:textSize="27sp" />
+
+                </TableRow>
+            </TableLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout5"
-            android:layout_width="416dp"
-            android:layout_height="200dp"
-            android:layout_marginStart="6dp"
+            android:layout_width="404dp"
+            android:layout_height="249dp"
             android:layout_marginTop="16dp"
+            android:alpha="0.85"
             android:background="@drawable/stroke_out_line_round"
             app:layout_constraintEnd_toEndOf="parent"
-            android:alpha="0.85"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
-
-            <TextView
-                android:id="@+id/textView263"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/minkyoung"
-                android:text="금연으로 얻은 것들"
-                android:textSize="30sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="416dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="16dp"
-            android:alpha="0.85"
-            android:background="@drawable/stroke_out_line_round"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout5">
 
             <TextView
                 android:id="@+id/textView63"
@@ -91,10 +196,148 @@
                 android:layout_marginTop="16dp"
                 android:fontFamily="@font/minkyoung"
                 android:text="향후 건강 예측 정보"
+                android:textColor="#4C4646"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView63"
+                tools:layout_editor_absoluteX="1dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/textView83"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minkyoung"
+                        android:gravity="center"
+                        android:text="심장 박동량:"
+                        android:textSize="27sp" />
+
+                    <TextView
+                        android:id="@+id/textView82"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minkyoung"
+                        android:text="일반인의 85%"
+                        android:textSize="27sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/textView85"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minkyoung"
+                        android:gravity="center"
+                        android:text="니코틴 수치:"
+                        android:textSize="27sp" />
+
+                    <TextView
+                        android:id="@+id/textView84"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minkyoung"
+                        android:text="정상수치의 70%"
+                        android:textSize="27sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/textView87"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minkyoung"
+                        android:gravity="center"
+                        android:text="폐암 발병률:"
+                        android:textSize="27sp" />
+
+                    <TextView
+                        android:id="@+id/textView86"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minkyoung"
+                        android:text="15%"
+                        android:textSize="27sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/textView88"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minkyoung"
+                        android:gravity="center"
+                        android:text="줄어든 수명"
+                        android:textSize="27sp" />
+
+                    <TextView
+                        android:id="@+id/textView89"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minkyoung"
+                        android:text="약 250일"
+                        android:textSize="27sp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp">
+
+                    <TextView
+                        android:id="@+id/textView92"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minkyoung"
+                        android:gravity="center"
+                        android:text="퇴찾은 수명"
+                        android:textSize="27sp" />
+
+                    <TextView
+                        android:id="@+id/textView93"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minkyoung"
+                        android:text="16일"
+                        android:textSize="27sp" />
+
+                </TableRow>
+
+            </TableLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
