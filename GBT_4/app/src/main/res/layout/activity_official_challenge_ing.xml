@@ -227,7 +227,7 @@
         android:layout_width="256dp"
         android:layout_height="118dp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/nuroongji"
+        android:src="@drawable/background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView10" />
@@ -237,7 +237,7 @@
         android:layout_width="wrap_content"
         android:layout_height="19dp"
         android:layout_marginTop="7dp"
-        android:text="공식 챌린지"
+        android:text="진행중인 공식 챌린지"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

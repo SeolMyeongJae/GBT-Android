@@ -65,11 +65,17 @@ public class InputInfo extends AppCompatActivity{
         btn_select_year = findViewById(R.id.btn_select_year);
 //        입력창 id값 부여
         et_nickname = (EditText)findViewById(R.id.et_nickname);
+        et_nickname.setPrivateImeOptions("defaultInputmode=korean;");
         et_gender = (EditText)findViewById(R.id.et_gender);
+        et_gender.setPrivateImeOptions("defaultInputmode=korean;");
         et_price = (EditText)findViewById(R.id.et_price);
+        et_price.setPrivateImeOptions("defaultInputmode=korean;");
         et_comment = (EditText)findViewById(R.id.et_comment);
+        et_comment.setPrivateImeOptions("defaultInputmode=korean;");
         et_smoking_amount = (EditText)findViewById(R.id.et_smoking_amount);
+        et_smoking_amount.setPrivateImeOptions("defaultInputmode=korean;");
         et_smoking_year = (EditText)findViewById(R.id.et_smoking_year);
+        et_smoking_year.setPrivateImeOptions("defaultInputmode=korean;");
 //        텍스트뷰 id값 부여
         tv_birthYear = (TextView) findViewById(R.id.tv_birthYear);
 

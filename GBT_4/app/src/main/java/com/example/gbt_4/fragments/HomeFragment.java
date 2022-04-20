@@ -2,26 +2,22 @@ package com.example.gbt_4.fragments;
 
 import static android.content.Context.MODE_PRIVATE;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.preference.PreferenceManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.gbt_4.CustomChallengeIng;
 import com.example.gbt_4.OfficialChallengeIng;
-import com.example.gbt_4.OfficialChallengeVerify;
+import com.example.gbt_4.Verify;
 import com.example.gbt_4.R;
 import com.example.gbt_4.RetrofitInterface;
 import com.example.gbt_4.dto.AddSmokingDto;
@@ -29,7 +25,6 @@ import com.example.gbt_4.dto.GetSmokingDto;
 import com.example.gbt_4.dto.GetSmokingListDto;
 import com.example.gbt_4.dto.GetUserDto;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -162,7 +157,7 @@ public class HomeFragment extends Fragment {
         btn_home_certify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(getActivity(), OfficialChallengeVerify.class);
+                Intent intent1 = new Intent(getActivity(), Verify.class);
                 startActivity(intent1);
             }
         });

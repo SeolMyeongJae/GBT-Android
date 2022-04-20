@@ -262,7 +262,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:hint="ex)못하면 다음 모임에 2차 쏘는거고, 한도는 없다ㅋㅋ?"
+                android:hint="ex)못하면 다음 모임에 2차 쏘는거고, 한도는 없다!?"
                 android:textSize="15sp" />
         </LinearLayout>
 
@@ -289,7 +289,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="3"
                 android:gravity="center_vertical|left"
-                app:srcCompat="@drawable/nuroongji" />
+                app:srcCompat="@drawable/background" />
 
             <Button
                 android:id="@+id/btn_create_custom_challenge_album"
