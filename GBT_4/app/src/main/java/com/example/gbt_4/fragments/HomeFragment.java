@@ -17,10 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gbt_4.OfficialChallengeIng;
-import com.example.gbt_4.Verify;
+import com.example.gbt_4.TodayAttend;
 import com.example.gbt_4.R;
 import com.example.gbt_4.RetrofitInterface;
-import com.example.gbt_4.dto.AddSmokingDto;
 import com.example.gbt_4.dto.GetSmokingDto;
 import com.example.gbt_4.dto.GetSmokingListDto;
 import com.example.gbt_4.dto.GetUserDto;
@@ -35,21 +34,17 @@ public class HomeFragment extends Fragment {
 
     private SharedPreferences sharedPreferences;
 
-
     TextView tv_userName, tv_comment, tv_todayCount, tv_monthCount,btn_home_go_official_challenge_ing, btn_home_go_custom_challenge_ing;
-    Button btn_plus, btn_home_certify;
+    Button btn_home_plus, btn_home_attend;
 
     private final String URL = "http://54.219.40.82/api/";
-
     private Retrofit retrofit;
-
     private RetrofitInterface retrofitInterface;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
-
 
         sharedPreferences = this.getActivity().getSharedPreferences("userId",MODE_PRIVATE);
 
@@ -64,9 +59,8 @@ public class HomeFragment extends Fragment {
         tv_userName = (TextView) v.findViewById(R.id.tv_home_name);
         tv_comment = (TextView) v.findViewById(R.id.tv_home_comment);
         tv_todayCount = (TextView) v.findViewById(R.id.tv_today_count);
-//        tv_monthCount = (TextView) v.findViewById(R.id.tv_monthCount);
-        btn_plus = (Button) v.findViewById(R.id.btn_plus);
-        btn_home_certify = (Button) v.findViewById(R.id.btn_home_certify);
+        btn_home_plus = (Button) v.findViewById(R.id.btn_home_plus);
+        btn_home_attend = (Button) v.findViewById(R.id.btn_home_attend);
         btn_home_go_official_challenge_ing = (TextView) v.findViewById(R.id.btn_home_go_official_challenge_ing);
         btn_home_go_custom_challenge_ing = (TextView) v.findViewById(R.id.btn_home_go_custom_challenge_ing);
 
@@ -77,16 +71,14 @@ public class HomeFragment extends Fragment {
             public void onResponse(Call<GetUserDto> call, Response<GetUserDto> response) {
                 if (response.isSuccessful()) {
                     try {
-
                         Long userId;
+                        GetUserDto getUserDto = response.body();
+                        tv_comment.setText(getUserDto.getComment());
+                        tv_userName.setText(getUserDto.getUserName());
 
-                        GetUserDto getUserDto1 = response.body();
-                        tv_comment.setText(getUserDto1.getComment());
-                        tv_userName.setText(getUserDto1.getUserName());
-
-                        //내부저장
+                        //userID를 내부 저장소에 저장
                         SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putLong("userId",getUserDto1.getUserId());
+                        editor.putLong("userId",getUserDto.getUserId());
                         editor.commit();
 
                         userId = sharedPreferences.getLong("userId",-1);
@@ -153,26 +145,25 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        //출석 인증 버튼
-        btn_home_certify.setOnClickListener(new View.OnClickListener() {
+        //출석 버튼
+        btn_home_attend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(getActivity(), Verify.class);
+                Intent intent1 = new Intent(getActivity(), TodayAttend.class);
                 startActivity(intent1);
             }
         });
 
         //
-        btn_plus.setOnClickListener(new View.OnClickListener() {
+        btn_home_plus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 switch (view.getId()) {
-                    case R.id.btn_plus:
-                        AddSmokingDto addSmokingDto = new AddSmokingDto(1L, "설명재");
-                        Call<Long> call_addSmoking = retrofitInterface.addSmoking(addSmokingDto);
-                        call_addSmoking.enqueue(new Callback<Long>() {
+                    case R.id.btn_home_plus:
+                        Call<Integer> call_addSmoking = retrofitInterface.addSmoking(1L);
+                        call_addSmoking.enqueue(new Callback<Integer>() {
                             @Override
-                            public void onResponse(Call<Long> call, Response<Long> response) {
+                            public void onResponse(Call<Integer> call, Response<Integer> response) {
                                 try {
                                     Toast.makeText(getActivity(), "담배 한 개비가 추가되었어요...", Toast.LENGTH_SHORT).show();
                                     tv_todayCount.setText(""+response.body());
@@ -185,7 +176,7 @@ public class HomeFragment extends Fragment {
                                 }
                             }
                             @Override
-                            public void onFailure(Call<Long> call, Throwable t) {
+                            public void onFailure(Call<Integer> call, Throwable t) {
                                 System.out.println("***********" + t.toString());
                             }
                         });

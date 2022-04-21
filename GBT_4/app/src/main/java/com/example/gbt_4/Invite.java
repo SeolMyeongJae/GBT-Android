@@ -2,21 +2,111 @@ package com.example.gbt_4;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-public class Invite extends AppCompatActivity {
+import com.bumptech.glide.Glide;
+import com.example.gbt_4.dto.InviteDto;
+import com.example.gbt_4.dto.SearchUserDto;
 
-    Button btn_invite_back, btn_invite_search_user,btn_invite_add;
-    CheckBox checkBox;
+import org.w3c.dom.Text;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+public class Invite extends Activity {
+
+    String photoURL;
+
+    Button btn_invite_back, btn_invite_search,btn_invite_invite, btn_invite_delete;
+    EditText et_invite_title, et_invite_user_name;
+    TextView tv_invite_user_name, tv_invite_user_id;
+    ImageView iv_invite_photo;
+
+    private final String URL = "http://54.219.40.82/api/";
+    private Retrofit retrofit;
+    private RetrofitInterface retrofitInterface;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_invite);
+
+        iv_invite_photo = (ImageView)findViewById(R.id.iv_invite_photo);
+        tv_invite_user_name = (TextView)findViewById(R.id.tv_invite_user_name);
+        tv_invite_user_id = (TextView) findViewById(R.id.tv_invite_user_id);
+        et_invite_title = (EditText)findViewById(R.id.et_invite_title);
+        et_invite_user_name = (EditText) findViewById(R.id.et_invite_user_name);
+
+        //retrofit 빌드
+        retrofit = new Retrofit.Builder()
+                .baseUrl(URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        retrofitInterface = retrofit.create(RetrofitInterface.class);
+
+        Intent intent = getIntent();
+        Long challengeId = intent.getLongExtra("checkedId",0L);
+
+
+        //유저 찾기 버튼
+        btn_invite_search = (Button) findViewById(R.id.btn_invite_search);
+        btn_invite_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Call<SearchUserDto> call_search = retrofitInterface.searchUser(et_invite_user_name.getText().toString());
+                call_search.enqueue(new Callback<SearchUserDto>() {
+                    @Override
+                    public void onResponse(Call<SearchUserDto> call, Response<SearchUserDto> response) {
+                        if (response.isSuccessful()) {
+                            try {
+                                SearchUserDto searchUserDto = new SearchUserDto();
+                                searchUserDto = response.body();
+                                photoURL = searchUserDto.getPhoto();
+                                tv_invite_user_name.setText(searchUserDto.getUserName());
+                                tv_invite_user_id.setText(""+searchUserDto.getUserId());
+                                btn_invite_delete.setVisibility(view.VISIBLE);
+
+                            }catch (Exception e){
+                                System.out.println("유저 검색 예외발생: "+e.getMessage());
+                            }
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<SearchUserDto> call, Throwable t) {
+                        System.out.println("유저 검색 API통신 실패: "+t.toString());
+                    }
+                });
+            }
+        });
+
+
+
+        btn_invite_delete = (Button) findViewById(R.id.btn_invite_delete);
+        btn_invite_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                iv_invite_photo.setImageResource(R.drawable.empty_picture);
+                tv_invite_user_name.setText("");
+                tv_invite_user_id.setText("");
+                btn_invite_delete.setVisibility(view.GONE);
+            }
+        });
 
 
         //뒤로가기 버튼
@@ -29,20 +119,26 @@ public class Invite extends AppCompatActivity {
         });
 
 
-        //유저 찾기 버튼
-        btn_invite_search_user = (Button) findViewById(R.id.btn_invite_search_user);
-        btn_invite_search_user.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
 
         //체크된 유저 초대
-        btn_invite_add = (Button) findViewById(R.id.btn_invite_add);
-        btn_invite_add.setOnClickListener(new View.OnClickListener() {
+        btn_invite_invite = (Button) findViewById(R.id.btn_invite_invite);
+        btn_invite_invite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                InviteDto inviteDto = new InviteDto();
+                Call<Integer> call_invite = retrofitInterface.inviteUser(inviteDto);
+                call_invite.enqueue(new Callback<Integer>() {
+                    @Override
+                    public void onResponse(Call<Integer> call, Response<Integer> response) {
+
+                    }
+
+                    @Override
+                    public void onFailure(Call<Integer> call, Throwable t) {
+
+                    }
+                });
 
             }
         });

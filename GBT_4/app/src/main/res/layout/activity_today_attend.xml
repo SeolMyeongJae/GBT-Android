@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_gravity="center"
     android:layout_width="350dp"
-    android:layout_height="500dp"
-    tools:context=".Verify">
+    android:layout_height="400dp"
+    tools:context=".TodayAttend">
 
 
     <TextView
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/minkyoung"
-        android:text="금연일기"
+        android:text="출석체크"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,45 +29,48 @@
         android:layout_marginTop="85dp"
         android:layout_marginEnd="10dp"
         android:fontFamily="@font/minkyoung"
-        android:text="나는 오늘 "
+        android:text="오늘은 총 "
         android:textSize="27sp"
-        app:layout_constraintEnd_toStartOf="@+id/editText"
+        app:layout_constraintEnd_toStartOf="@+id/et_attend_count"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:textColor="#EF8787"
-        android:inputType="number"
-        android:id="@+id/editText"
+        android:id="@+id/et_attend_count"
         android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/minkyoung"
+        android:textColor="#EF8787"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="@+id/textView46"
         app:layout_constraintEnd_toStartOf="@+id/textView51"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@+id/textView46" />
 
     <TextView
         android:id="@+id/textView51"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:fontFamily="@font/minkyoung"
-        android:text="개의 담배를 폈다."
+        android:text="개비 흡연했어요."
         android:textSize="27sp"
-        app:layout_constraintBottom_toBottomOf="@+id/editText"
-        app:layout_constraintStart_toEndOf="@+id/editText" />
+        app:layout_constraintBottom_toBottomOf="@+id/et_attend_count"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/et_attend_count" />
 
     <EditText
         android:id="@+id/editText2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="315dp"
+        android:layout_height="204dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
         android:gravity="start"
-        android:hint="이곳에 일기 내용을 입력해 주세요."
-        app:layout_constraintBottom_toTopOf="@+id/btn_verify_submit"
+        android:hint="오늘 하루 아쉬운 점, 잘한 점이 있다면 적어주세요! (선택사항)"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView51" />
@@ -85,14 +88,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:background="@drawable/btn_invite"
         android:id="@+id/btn_verify_submit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/btn_invite"
         android:text="제출하기"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

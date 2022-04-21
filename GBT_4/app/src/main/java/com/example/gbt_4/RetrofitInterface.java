@@ -1,18 +1,20 @@
 package com.example.gbt_4;
 
 import com.example.gbt_4.dto.AddCustomChallengeDto;
-import com.example.gbt_4.dto.AddSmokingDto;
 import com.example.gbt_4.dto.AddUserDto;
+import com.example.gbt_4.dto.ChallengeAttendDto;
 import com.example.gbt_4.dto.GetCustomChallengeDto;
 import com.example.gbt_4.dto.GetOfficialChallengeDto;
 import com.example.gbt_4.dto.GetSmokingDto;
 import com.example.gbt_4.dto.GetSmokingListDto;
 import com.example.gbt_4.dto.GetUserDto;
+import com.example.gbt_4.dto.InviteDto;
+import com.example.gbt_4.dto.SearchUserDto;
+import com.example.gbt_4.dto.TodayAttendDto;
 import com.example.gbt_4.dto.UserChallengeDto;
 
 import java.util.List;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -29,13 +31,20 @@ public interface RetrofitInterface {
 
 //흡연정보 인터페이스
     @POST("smoking")
-    Call<Long> addSmoking(@Body AddSmokingDto addSmokingDto);
+    Call<Integer> addSmoking(@Body Long userId);
+
+    @POST("smoking/attend")
+    Call<Integer> todayAttend(@Body TodayAttendDto todayAttendDto);
+
+    @POST("smoking/challenge-attend")
+    Call<Integer> challengeAttend(@Body ChallengeAttendDto challengeAttendDto);
 
     @GET("smoking/all/this-month/user/{userId}")
     Call<GetSmokingListDto> getMonthCount(@Path("userId") Long userId);
 
     @GET("smoking/today/{userId}")
     Call<GetSmokingDto> getTodayCount(@Path("userId") Long userId);
+
 
 //공식 챌린지 인터페이스
     @GET("challenge/all/{userId}")
@@ -58,7 +67,11 @@ public interface RetrofitInterface {
     @POST("custom")
     Call<Integer> addCustomChallenge(@Body AddCustomChallengeDto addCustomChallengeDto);
 
+//커스텀 챌린지 초대 인터페이스
+    @GET("user/username/{userName}")
+    Call<SearchUserDto> searchUser(@Path("userName") String userName);
 
-
+    @POST("invite")
+    Call<Integer> inviteUser(@Body InviteDto inviteDto);
 
 }
