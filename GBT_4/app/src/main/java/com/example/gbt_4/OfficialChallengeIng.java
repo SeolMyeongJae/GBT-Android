@@ -20,9 +20,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class OfficialChallengeIng extends AppCompatActivity implements View.OnClickListener{
+public class OfficialChallengeIng extends AppCompatActivity{
 
-    Button btn_official_challenge_ing_status, btn_official_challenge_ing_verify, btn_official_challenge_ing_back;
+    Button btn_official_challenge_ing_status, btn_official_challenge_ing_attend, btn_official_challenge_ing_back;
     TextView tv_official_challenge_ing_title, tv_official_challenge_ing_start,tv_official_challenge_ing_end, tv_official_challenge_ing_current, tv_official_challenge_ing_max, tv_official_challenge_ing_method, tv_official_challenge_ing_description;
     ImageView iv_official_challenge_ing_photo;
 
@@ -46,6 +46,7 @@ public class OfficialChallengeIng extends AppCompatActivity implements View.OnCl
 
         btn_official_challenge_ing_status = (Button) findViewById(R.id.btn_official_challenge_ing_status);
         btn_official_challenge_ing_back = (Button) findViewById(R.id.btn_official_challenge_ing_back);
+        btn_official_challenge_ing_attend = (Button) findViewById(R.id.btn_official_challenge_ing_attend);
 
         tv_official_challenge_ing_title = (TextView)findViewById(R.id.tv_official_challenge_ing_title);
         tv_official_challenge_ing_current = (TextView)findViewById(R.id.tv_official_challenge_ing_current);
@@ -55,8 +56,8 @@ public class OfficialChallengeIng extends AppCompatActivity implements View.OnCl
         tv_official_challenge_ing_description = (TextView)findViewById(R.id.tv_official_challenge_ing_description);
         iv_official_challenge_ing_photo = (ImageView)findViewById(R.id.iv_official_challenge_ing_photo);
 
-        Intent intent1 = getIntent();
-        Long challengeId = intent1.getLongExtra("checkedId",0L);
+        Intent intent = getIntent();
+        Long challengeId = intent.getLongExtra("checkedId",0L);
         System.out.println("진행중인 공식 챌린지: 선택된 챌린지 Id는"+challengeId+"입니다.");
 
         //retrofit 빌드
@@ -67,8 +68,8 @@ public class OfficialChallengeIng extends AppCompatActivity implements View.OnCl
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
         //해당 챌린지 상세정보 불러오기
-        Call<GetOfficialChallengeDto> call_OfficialChallenge = retrofitInterface.getOfficialChallenge(challengeId);
-        call_OfficialChallenge.enqueue(new Callback<GetOfficialChallengeDto>() {
+        Call<GetOfficialChallengeDto> call_officialChallenge = retrofitInterface.getOfficialChallenge(challengeId);
+        call_officialChallenge.enqueue(new Callback<GetOfficialChallengeDto>() {
             @Override
             public void onResponse(Call<GetOfficialChallengeDto> call, Response<GetOfficialChallengeDto> response) {
                 if(response.isSuccessful()){
@@ -101,23 +102,33 @@ public class OfficialChallengeIng extends AppCompatActivity implements View.OnCl
         });
 
 
-        btn_official_challenge_ing_status.setOnClickListener(this);
-        btn_official_challenge_ing_back.setOnClickListener(this);
+        //챌린지 현황 버튼
+        btn_official_challenge_ing_status.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),OfficialChallengeStatus.class);
+                startActivity(intent);
+            }
+        });
 
-    }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_official_challenge_ing_status:
-                Intent intent2 = new Intent(getApplicationContext(),OfficialChallengeStatus.class);
-                startActivity(intent2);
-                break;
-            case R.id.btn_official_challenge_ing_back:
+        //인증하기 버튼
+        btn_official_challenge_ing_attend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),ChallengeAttend.class);
+                intent.putExtra("challengeId",challengeId);
+                startActivity(intent);
+            }
+        });
+
+        //뒤로가기 버튼
+        btn_official_challenge_ing_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
-            default:
-                break;
-        }
+            }
+        });
 
     }
 }

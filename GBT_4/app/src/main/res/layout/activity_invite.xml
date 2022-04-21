@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Invite">
+    android:layout_height="570dp"
 
+    tools:context=".Invite">
 
     <Button
         android:id="@+id/btn_invite_back"
@@ -18,15 +19,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <TextView
-        android:textSize="30sp"
-        android:fontFamily="@font/minkyoung"
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/minkyoung"
         android:text="커스텀 챌린지"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -35,7 +35,7 @@
         android:id="@+id/textView58"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/minkyoung"
         android:text="챌린지 멤버 초대하기"
         android:textColor="#E39898"
@@ -45,90 +45,211 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
-    <TextView
-        android:textColor="#A698E3"
-        android:id="@+id/textView59"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
-        android:layout_marginStart="93dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="98dp"
-        android:fontFamily="@font/minkyoung"
-        android:text="초대 목록에 추가"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_invite_search_user" />
-
     <EditText
-        android:id="@+id/et_invite_in_put_user_name"
-        android:layout_width="260dp"
+        android:id="@+id/et_invite_user_name"
+        android:layout_width="186dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="4dp"
         android:fontFamily="@font/minkyoung"
-        android:hint="초대하고 싶은 유저의 닉네임 입력."
+        android:hint="닉네임을 입력해 주세요"
         android:textSize="23sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_invite_search_user"
-        app:layout_constraintEnd_toStartOf="@+id/btn_invite_search_user"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/btn_invite_search"
+        app:layout_constraintStart_toEndOf="@+id/textView98"
+        app:layout_constraintTop_toBottomOf="@+id/et_invite_title" />
 
     <Button
-        android:id="@+id/btn_invite_search_user"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
+        android:id="@+id/btn_invite_search"
+        android:layout_width="73dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="4dp"
         android:background="@drawable/btn_search_member"
         android:fontFamily="@font/minkyoung"
         android:padding="15dp"
-        android:text="유저 찾기"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="찾기"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_invite_user_name"
         app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toEndOf="@+id/et_invite_in_put_user_name"
-        app:layout_constraintTop_toBottomOf="@+id/textView58" />
+        app:layout_constraintStart_toEndOf="@+id/et_invite_user_name" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_invite_search_user"
-        android:layout_width="match_parent"
-        android:layout_height="115dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/stroke_out_line_round"
-        android:padding="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_invite_search_user" />
+    <TextView
+        android:id="@+id/textView98"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/minkyoung"
+        android:text="초대 할 친구: "
+        android:textColor="@color/black"
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_invite_user_name"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/textView97"
+        app:layout_constraintTop_toBottomOf="@+id/et_invite_title"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/btn_invite_add"
+        android:id="@+id/btn_invite_invite"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/btn_invite"
         android:fontFamily="@font/minkyoung"
         android:padding="15dp"
-        android:text="체크 한 유저 추가 하기"
+        android:text="위 정보로 초대하기"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.522"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rv_invite_select_user" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout13" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_invite_select_user"
-        android:layout_width="match_parent"
-        android:layout_height="187dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+    <LinearLayout
+        android:id="@+id/linearLayout13"
+        android:layout_width="409dp"
+        android:layout_height="160dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="1dp"
+        android:orientation="vertical"
+        android:padding="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_invite_user_name">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView59"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@drawable/stroke_out_line_round"
+                android:fontFamily="@font/minkyoung"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="프로필 사진"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView90"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@drawable/stroke_out_line_round"
+                android:fontFamily="@font/minkyoung"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="닉네임"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView91"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:background="@drawable/stroke_out_line_round"
+                android:fontFamily="@font/minkyoung"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="유저ID"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/textView94"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/stroke_out_line_round"
+                android:fontFamily="@font/minkyoung"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="항목"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/iv_invite_photo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                app:srcCompat="@drawable/empty_picture" />
+
+            <TextView
+                android:id="@+id/tv_invite_user_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:fontFamily="@font/minkyoung"
+                android:gravity="center"
+                android:text="황정민(샘플)"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tv_invite_user_id"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:fontFamily="@font/minkyoung"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="#EC6363"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/btn_invite_delete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:background="@drawable/btn_delete"
+                android:fontFamily="@font/minkyoung"
+                android:text="삭제"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_invite_title"
+        android:layout_width="281dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="41dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/stroke_out_line_round"
-        android:padding="15dp"
-        app:layout_constraintEnd_toEndOf="@+id/rv_invite_search_user"
+        android:fontFamily="@font/minkyoung"
+        android:hint="초대장 제목을 입력해 주세요"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/rv_invite_search_user"
-        app:layout_constraintTop_toBottomOf="@+id/textView59" />
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/textView97"
+        app:layout_constraintTop_toBottomOf="@+id/textView58" />
+
+    <TextView
+        android:id="@+id/textView97"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/minkyoung"
+        android:text="초대 제목: "
+        android:textColor="@color/black"
+        android:textSize="27sp"
+        app:layout_constraintBottom_toBottomOf="@+id/et_invite_title"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/et_invite_title"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

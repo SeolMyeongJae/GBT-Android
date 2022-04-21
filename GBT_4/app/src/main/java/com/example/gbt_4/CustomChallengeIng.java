@@ -31,9 +31,7 @@ public class CustomChallengeIng extends AppCompatActivity {
     private String photoURL;
 
     private final String URL = "http://54.219.40.82/api/";
-
     private Retrofit retrofit;
-
     private RetrofitInterface retrofitInterface;
 
     @Override
@@ -91,7 +89,6 @@ public class CustomChallengeIng extends AppCompatActivity {
                         // TODO: 2022-04-08 endDate - startDate 날짜 계산하는거 구현하기
                         tv_custom_challenge_ing_description.setText(getcustomChallengeDto.getDescription());
                         photoURL = getcustomChallengeDto.getImg();
-                        // TODO: 2022-04-08 img URL로 찾기
                         Glide.with(CustomChallengeIng.this).load(photoURL).into(iv_custom_challenge_ing_photo);
                         System.out.println("진행중인 커스텀챌린지 상세페이지: 사진 URL은"+photoURL+"입니다.");
 
