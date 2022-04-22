@@ -67,9 +67,9 @@ public class CustomChallengeIng extends AppCompatActivity {
 
         //이 페이지 오기전에 Todo 챌린지 ID를 Intent로 받는 작업이 필요하다!
         //해당 챌린지 ID받기
-        Intent intent1 = getIntent();
-        Long challengeId = intent1.getLongExtra("checkedId",0L);
-        System.out.println("선택한 커스텀 챌린지: 선택된 챌린지 Id는"+challengeId+"입니다.");
+        Intent intent = getIntent();
+        Long challengeId = intent.getLongExtra("challengeId",0L);
+        System.out.println("진행중인 커스텀 챌린지: 전해받은 챌린지 Id는"+challengeId+"입니다.");
 
         //해당 챌린지 상세정보 불러오기
         Call<GetCustomChallengeDto> call_customChallenge = retrofitInterface.getCustomChallengeById(challengeId);
@@ -137,8 +137,9 @@ public class CustomChallengeIng extends AppCompatActivity {
         btn_custom_challenge_ing_invite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent4 = new Intent(getApplicationContext(),Invite.class);
-                startActivity(intent4);
+                Intent intent = new Intent(getApplicationContext(),Invite.class);
+                intent.putExtra("challengeId",challengeId);
+                startActivity(intent);
             }
         });
     }

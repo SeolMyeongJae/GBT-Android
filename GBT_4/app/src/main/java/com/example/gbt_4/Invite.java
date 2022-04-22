@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.gbt_4.dto.InviteDto;
@@ -28,16 +30,21 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Invite extends Activity {
 
-    String photoURL;
+    String photoURL, callerName, title;
+    Long userId, callerId;
 
     Button btn_invite_back, btn_invite_search,btn_invite_invite, btn_invite_delete;
     EditText et_invite_title, et_invite_user_name;
     TextView tv_invite_user_name, tv_invite_user_id;
     ImageView iv_invite_photo;
 
+    private SharedPreferences sharedPreferences;
+
+
     private final String URL = "http://54.219.40.82/api/";
     private Retrofit retrofit;
     private RetrofitInterface retrofitInterface;
+
 
 
 
@@ -60,8 +67,18 @@ public class Invite extends Activity {
                 .build();
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
+
+
+        sharedPreferences = getSharedPreferences("userId", MODE_PRIVATE);
+        callerName = sharedPreferences.getString("myName","");
+        callerId = sharedPreferences.getLong("userid",1L);
+        System.out.println("챌린지 초대: 가져온 사용자 이름= "+callerName);
+        System.out.println("챌린지 초대: 가져온 사용자 ID= "+callerId);
+
+
         Intent intent = getIntent();
-        Long challengeId = intent.getLongExtra("checkedId",0L);
+        Long challengeId = intent.getLongExtra("challengeId",0L);
+        System.out.println("챌린지 초대: 가져온 챌린지 ID= "+challengeId);
 
 
         //유저 찾기 버튼
@@ -69,6 +86,8 @@ public class Invite extends Activity {
         btn_invite_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 Call<SearchUserDto> call_search = retrofitInterface.searchUser(et_invite_user_name.getText().toString());
                 call_search.enqueue(new Callback<SearchUserDto>() {
                     @Override
@@ -126,17 +145,28 @@ public class Invite extends Activity {
         btn_invite_invite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                InviteDto inviteDto = new InviteDto();
+                title =  et_invite_title.getText().toString();
+                userId = Long.parseLong(tv_invite_user_id.getText().toString());
+
+
+                InviteDto inviteDto = new InviteDto(title,callerName,callerId,challengeId,userId,null);
                 Call<Integer> call_invite = retrofitInterface.inviteUser(inviteDto);
                 call_invite.enqueue(new Callback<Integer>() {
                     @Override
                     public void onResponse(Call<Integer> call, Response<Integer> response) {
+                        if (response.isSuccessful()) {
+                            try{
+                                System.out.println("초대성공: 제목= "+title+"초청자= "+callerName+"초청자 Id="+callerId+"챌린지 Id= "+challengeId+"유저 Id= "+userId);
+                                Toast.makeText(Invite.this, "성공적으로 초대를 보냈습니다", Toast.LENGTH_SHORT).show();
 
+                            }catch (Exception e){
+                                System.out.println("유저 초대 단계 예외오류: "+e.getMessage());
+                            }
+                        }
                     }
-
                     @Override
                     public void onFailure(Call<Integer> call, Throwable t) {
-
+                        System.out.println("유저 초대 단계 API통신 오류: "+t.toString());
                     }
                 });
 

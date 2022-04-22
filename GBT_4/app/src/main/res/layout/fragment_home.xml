@@ -110,7 +110,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:fontFamily="@font/minkyoung"
-                        android:text="1개"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="26sp"
                         android:textStyle="bold" />

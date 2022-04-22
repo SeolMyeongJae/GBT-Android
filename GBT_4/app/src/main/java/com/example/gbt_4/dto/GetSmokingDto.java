@@ -21,6 +21,4 @@ public class GetSmokingDto implements Serializable {
     private Long userId;
     @SerializedName("count")
     private Long count;
-    @SerializedName("provider")
-    private String provider;
 }

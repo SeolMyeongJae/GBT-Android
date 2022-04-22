@@ -131,7 +131,7 @@ public class OfficialChallengeDetail extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 userChallengeDto = new UserChallengeDto(challengeId,1L);
-                Call<Integer> call_participate = retrofitInterface.participateOfficialChallenge(userChallengeDto);
+                Call<Integer> call_participate = retrofitInterface.joinOfficialChallenge(userChallengeDto);
                 call_participate.enqueue(new Callback<Integer>() {
                     @Override
                     public void onResponse(Call<Integer> call, Response<Integer> response) {

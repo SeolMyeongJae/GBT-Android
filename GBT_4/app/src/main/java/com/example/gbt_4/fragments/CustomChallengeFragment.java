@@ -89,6 +89,7 @@ public class CustomChallengeFragment extends Fragment {
 
                 Intent intent = new Intent(getActivity(), CustomChallengeDetail.class);
                 intent.putExtra("challengeId", checkedId);
+                System.out.println("선택된 챌린지 ID는 "+checkedId+"입니다");
 
                 startActivity(intent);
             }

@@ -10,21 +10,12 @@ import lombok.ToString;
 
 @Setter
 @Getter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-public class InviteDto {
+public class AddSmokingDto {
 
-    @SerializedName("title")
-    private String title;
-    @SerializedName("caller")
-    private String caller;
-    @SerializedName("callerId")
-    private Long callerId;
-    @SerializedName("customChallengeId")
-    private Long customChallengeId;
+
     @SerializedName("userId")
     private Long userId;
-    @SerializedName("Id")
-    private Long id;
 }
