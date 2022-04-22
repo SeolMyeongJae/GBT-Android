@@ -38,10 +38,11 @@ public class ChatRoom extends AppCompatActivity {
 //            list.add(String.format("Text %d",i));
 //        }
 
+        ArrayList<ChatItemDto> chatDtoList = new ArrayList<>();
+
 
         ChatItemDto chat2 = new ChatItemDto(2L,"채팅2", LocalDateTime.now(),1L,"황정민",
                 "https://www.google.com/url?sa=i&url=https%3A%2F%2Fweb.dominos.co.kr%2Fgoods%2Fdetail%3Fdsp_ctgr%3DC0101%26code_01%3DRPZ007SL%26dough_gb%3D203&psig=AOvVaw2LUpZeF0DTlNYg7oeS4Yic&ust=1650421684713000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCOCJ2YSKn_cCFQAAAAAdAAAAABAD");
-        ArrayList<ChatItemDto> chatDtoList = new ArrayList<>();
         ChatItemDto chat1 = new ChatItemDto(1L,"채팅1", LocalDateTime.now(),1L,"설명재",
                 "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpelicana.co.kr%2Fmenu%2Fbest_menu.html&psig=AOvVaw3gegQ3_zLAUKBvvDlbTB1D&ust=1650421650308000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNidovSJn_cCFQAAAAAdAAAAABAD");
         chatDtoList.add(chat1);

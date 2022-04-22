@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="450dp"
+    android:layout_gravity="center"
+    tools:context=".SmokingPlus">
+
+
+    <TextView
+        android:id="@+id/textView60"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:fontFamily="@font/minkyoung"
+        android:text="담배 한 개비, 정말 피시겠어요?"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView51"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/minkyoung"
+        android:text="한 번만더 참아보실래요?.."
+        android:textSize="27sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView60" />
+
+    <Button
+        android:padding="10dp"
+        android:textSize="25sp"
+        android:fontFamily="@font/minkyoung"
+        android:id="@+id/btn_smoking_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/btn_delete"
+        android:text="참아 볼게요"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_smoking_yes"
+        app:layout_constraintTop_toBottomOf="@+id/textView51" />
+
+    <Button
+        android:padding="10dp"
+        android:textSize="25sp"
+        android:fontFamily="@font/minkyoung"
+        android:id="@+id/btn_smoking_yes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_invite"
+        android:text="필게요"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_smoking_no"
+        app:layout_constraintEnd_toStartOf="@+id/btn_smoking_no"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

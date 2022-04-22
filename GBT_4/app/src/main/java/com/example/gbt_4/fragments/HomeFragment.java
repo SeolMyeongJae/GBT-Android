@@ -20,22 +20,26 @@ import com.example.gbt_4.OfficialChallengeIng;
 import com.example.gbt_4.TodayAttend;
 import com.example.gbt_4.R;
 import com.example.gbt_4.RetrofitInterface;
+import com.example.gbt_4.dto.AddSmokingDto;
 import com.example.gbt_4.dto.GetSmokingDto;
 import com.example.gbt_4.dto.GetSmokingListDto;
 import com.example.gbt_4.dto.GetUserDto;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment{
 
     private SharedPreferences sharedPreferences;
 
     TextView tv_userName, tv_comment, tv_todayCount, tv_monthCount,btn_home_go_official_challenge_ing, btn_home_go_custom_challenge_ing;
     Button btn_home_plus, btn_home_attend;
+    Long count;
 
     private final String URL = "http://54.219.40.82/api/";
     private Retrofit retrofit;
@@ -48,9 +52,14 @@ public class HomeFragment extends Fragment {
 
         sharedPreferences = this.getActivity().getSharedPreferences("userId",MODE_PRIVATE);
 
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
+
         //retrofit 빌드
         retrofit = new Retrofit.Builder()
                 .baseUrl(URL)
+                .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         retrofitInterface = retrofit.create(RetrofitInterface.class);
@@ -105,11 +114,11 @@ public class HomeFragment extends Fragment {
             public void onResponse(Call<GetSmokingDto> call, Response<GetSmokingDto> response) {
                 try {
                     GetSmokingDto getSmokingDto = response.body();
-                    if (getSmokingDto.getCount()==null) {
+
+                    if (getSmokingDto == null){
                         tv_todayCount.setText("0");
-                        getSmokingDto.setCount(0L);
-                    }else if (getSmokingDto.getCount() != null){
-                        tv_todayCount.setText(getSmokingDto.getCount().toString());
+                    } else {
+                        tv_todayCount.setText(getSmokingDto.getCount().toString()+"개비");
                     }
                 }catch (Exception e){
                     System.out.println("예외발생!");
@@ -117,30 +126,6 @@ public class HomeFragment extends Fragment {
             }
             @Override
             public void onFailure(Call<GetSmokingDto> call, Throwable t) {
-                System.out.println("***********" + t.toString());
-            }
-        });
-
-        //유저 1달 흡연량 가져오기
-        Call<GetSmokingListDto> call_getSmokingListDto = retrofitInterface.getMonthCount(1L);
-        call_getSmokingListDto.enqueue(new Callback<GetSmokingListDto>() {
-            @Override
-            public void onResponse(Call<GetSmokingListDto> call, Response<GetSmokingListDto> response) {
-                try {
-                    GetSmokingListDto getSmokingListDto = response.body();
-                    if (getSmokingListDto.getTotal()==null){
-                        tv_monthCount.setText("0");
-                        getSmokingListDto.setTotal(0L);
-                    }else if(getSmokingListDto.getTotal() != null){
-                        tv_monthCount.setText(getSmokingListDto.getTotal().toString());
-                    }
-
-                }catch (Exception e){
-                    System.out.println("예외발생!");
-                }
-            }
-            @Override
-            public void onFailure(Call<GetSmokingListDto> call, Throwable t) {
                 System.out.println("***********" + t.toString());
             }
         });
@@ -154,30 +139,35 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        //
+
+        //담배 추가 버튼
         btn_home_plus.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
                 switch (view.getId()) {
                     case R.id.btn_home_plus:
-                        Call<Integer> call_addSmoking = retrofitInterface.addSmoking(1L);
-                        call_addSmoking.enqueue(new Callback<Integer>() {
+                        AddSmokingDto addSmokingDto = new AddSmokingDto(1L);
+                        Call<Long> call_addSmoking = retrofitInterface.addSmoking(addSmokingDto);
+                        call_addSmoking.enqueue(new Callback<Long>() {
                             @Override
-                            public void onResponse(Call<Integer> call, Response<Integer> response) {
-                                try {
-                                    Toast.makeText(getActivity(), "담배 한 개비가 추가되었어요...", Toast.LENGTH_SHORT).show();
-                                    tv_todayCount.setText(""+response.body());
-                                    tv_monthCount.setText(""+(Integer.parseInt(tv_monthCount.getText().toString())+1L));
+                            public void onResponse(Call<Long> call, Response<Long> response) {
+                                if (response.isSuccessful()) {
+                                    try {
+                                        System.out.println("API 통신은 되는데,,");
+                                        Toast.makeText(getActivity(), "담배 한 개비가 추가되었어요...", Toast.LENGTH_SHORT).show();
+                                        tv_todayCount.setText(response.body().toString()+"개비");
 
-//                                    FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-//                                    ft.detach(HomeFragment.this).attach(HomeFragment.this).commit();
-                                } catch (Exception e) {
-                                    System.out.println(e.getMessage());
+                                    } catch (Exception e) {
+                                        System.out.println(e.getMessage());
+                                    }
+                                }else {
+                                    System.out.println(response.errorBody());
                                 }
                             }
                             @Override
-                            public void onFailure(Call<Integer> call, Throwable t) {
-                                System.out.println("***********" + t.toString());
+                            public void onFailure(Call<Long> call, Throwable t) {
+                                System.out.println("통신 실패:" + t.toString());
                             }
                         });
                         break;
@@ -207,11 +197,50 @@ public class HomeFragment extends Fragment {
             }
         });
 
-//        //번들로 Data 받아오기
-//        Bundle bundle = getArguments();
-//        GetUserDto getUserDto = (GetUserDto) bundle.getSerializable("user");
-//        GetSmokingDto getSmokingDto = (GetSmokingDto) bundle.getSerializable("todayCount");
-//        GetSmokingListDto getSmokingListDto = (GetSmokingListDto) bundle.getSerializable("monthCount");
+
+
+
         return v;
+    }
+//
+//    @Override
+//    public void onClick(View view) {
+//        switch (view.getId()){
+//            case R.id.btn_home_plus:
+//                Call<Long> call_addSmoking = retrofitInterface.addSmoking(1L);
+//                call_addSmoking.enqueue(new Callback<Long>() {
+//                    @Override
+//                    public void onResponse(Call<Long> call, Response<Long> response) {
+//                        if (response.isSuccessful()) {
+//                            try {
+//                                Toast.makeText(getActivity(), "담배 한 개비가 추가되었어요...", Toast.LENGTH_SHORT).show();
+//                                tv_todayCount.setText(count.toString());
+//                            } catch (Exception e) {
+//                                System.out.println(e.getMessage());
+//                            }
+//                        }
+//                    }
+//                    @Override
+//                    public void onFailure(Call<Long> call, Throwable t) {
+//                        System.out.println("***********" + t.toString());
+//                    }
+//                });
+//                break;
+//            default:
+//                break;
+//        }
+//    }
+
+
+    private HttpLoggingInterceptor httpLoggingInterceptor(){
+
+        HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+            @Override
+            public void log(String message) {
+                android.util.Log.e("MyGitHubData :", message + "");
+            }
+        });
+
+        return interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
     }
 }

@@ -34,7 +34,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:padding="10dp"
         android:background="@drawable/stroke_out_line_round"
-        android:id="@+id/recyclerView"
+        android:id="@+id/recycler_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"

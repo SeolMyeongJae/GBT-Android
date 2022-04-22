@@ -13,9 +13,16 @@
         android:theme="@style/Theme.GBT_4"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".SmokingPlus"
+            android:exported="false"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
+<!--        <activity-->
+<!--            android:name=".Notice2"-->
+<!--            android:exported="false" />-->
+        <activity
             android:name=".ChallengeAttend"
             android:exported="false"
-            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"/>
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
         <activity
             android:name=".SmokingGraph"
             android:exported="false"
@@ -27,7 +34,7 @@
         <activity
             android:name=".Invite"
             android:exported="false"
-            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"/>
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
         <activity
             android:name=".Notice"
             android:exported="false"

@@ -1,14 +1,11 @@
 package com.example.gbt_4.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gbt_4.InviteNotice
 import com.example.gbt_4.Notice
-import com.example.gbt_4.R
-import com.example.gbt_4.databinding.ActivityNoticeBinding
 import com.example.gbt_4.databinding.ItemInviteBinding
 
 class InviteAdapter : RecyclerView.Adapter<InviteAdapter.ViewHolder>() {
