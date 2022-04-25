@@ -88,6 +88,7 @@ public class HomeFragment extends Fragment{
                         //userID를 내부 저장소에 저장
                         SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putLong("userId",getUserDto.getUserId());
+                        editor.putString("myName",getUserDto.getUserName());
                         editor.commit();
 
                         userId = sharedPreferences.getLong("userId",-1);

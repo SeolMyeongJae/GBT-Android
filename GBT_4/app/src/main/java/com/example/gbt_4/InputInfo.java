@@ -114,10 +114,10 @@ public class InputInfo extends AppCompatActivity{
 //                point = 0L;
 //                ranking = 0L;
 
-                nickname = "김민기";
+                nickname = "김태희";
                 gender = "남자";
                 price =4500L;
-                comment = "왜 안뜨지?";
+                comment = "올해는 꼭 해보자!!";
                 smokingYear = 8L;
                 smokingAmount = 20L;
                 profileImg = "더미데이터";

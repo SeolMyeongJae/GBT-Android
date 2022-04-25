@@ -41,21 +41,19 @@ public class ChatRoom extends AppCompatActivity {
         ArrayList<ChatItemDto> chatDtoList = new ArrayList<>();
 
 
-        ChatItemDto chat2 = new ChatItemDto(2L,"채팅2", LocalDateTime.now(),1L,"황정민",
+        ChatItemDto chat2 = new ChatItemDto(2L,"아 오늘 너무 힘들었다", LocalDateTime.now(),1L,"황정민",
                 "https://www.google.com/url?sa=i&url=https%3A%2F%2Fweb.dominos.co.kr%2Fgoods%2Fdetail%3Fdsp_ctgr%3DC0101%26code_01%3DRPZ007SL%26dough_gb%3D203&psig=AOvVaw2LUpZeF0DTlNYg7oeS4Yic&ust=1650421684713000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCOCJ2YSKn_cCFQAAAAAdAAAAABAD");
-        ChatItemDto chat1 = new ChatItemDto(1L,"채팅1", LocalDateTime.now(),1L,"설명재",
+        ChatItemDto chat1 = new ChatItemDto(1L,"나도 진짜 간신히 참았어...ㅠㅠ", LocalDateTime.now(),1L,"설명재",
                 "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpelicana.co.kr%2Fmenu%2Fbest_menu.html&psig=AOvVaw3gegQ3_zLAUKBvvDlbTB1D&ust=1650421650308000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCNidovSJn_cCFQAAAAAdAAAAABAD");
+        ChatItemDto chat3 = new ChatItemDto(3L,"그래도 요즘 몸이 가벼워진것 같지 않아?", LocalDateTime.now(),1L,"김민기",
+                "https://www.google.com/url?sa=i&url=https%3A%2F%2Fweb.dominos.co.kr%2Fgoods%2Fdetail%3Fdsp_ctgr%3DC0101%26code_01%3DRPZ007SL%26dough_gb%3D203&psig=AOvVaw2LUpZeF0DTlNYg7oeS4Yic&ust=1650421684713000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCOCJ2YSKn_cCFQAAAAAdAAAAABAD");
+        ChatItemDto chat4 = new ChatItemDto(4L,"응 확실히 체감이 되더라나도!", LocalDateTime.now(),1L,"황정민",
+                "https://www.google.com/url?sa=i&url=https%3A%2F%2Fweb.dominos.co.kr%2Fgoods%2Fdetail%3Fdsp_ctgr%3DC0101%26code_01%3DRPZ007SL%26dough_gb%3D203&psig=AOvVaw2LUpZeF0DTlNYg7oeS4Yic&ust=1650421684713000&source=images&cd=vfe&ved=0CAwQjRxqFwoTCOCJ2YSKn_cCFQAAAAAdAAAAABAD");
         chatDtoList.add(chat1);
         chatDtoList.add(chat2);
-        chatDtoList.add(chat2);
-        chatDtoList.add(chat2);
-        chatDtoList.add(chat1);
-        chatDtoList.add(chat2);
-        chatDtoList.add(chat2);
-        chatDtoList.add(chat1);
-        chatDtoList.add(chat1);
-        chatDtoList.add(chat1);
-        chatDtoList.add(chat2);
+        chatDtoList.add(chat3);
+        chatDtoList.add(chat4);
+
 //        List;
         ArrayList<ChatItem> chatList = new ArrayList<>();
 

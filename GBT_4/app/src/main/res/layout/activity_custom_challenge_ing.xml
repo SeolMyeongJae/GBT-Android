@@ -50,7 +50,7 @@
                 android:layout_weight="2"
                 android:fontFamily="@font/minkyoung"
                 android:gravity="center_vertical|left"
-                android:text="TextView"
+                android:text="2022년 4월 1일"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -83,7 +83,7 @@
                 android:layout_weight="2"
                 android:fontFamily="@font/minkyoung"
                 android:gravity="center_vertical|left"
-                android:text="TextView"
+                android:text="2022년 5월 1일"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -118,7 +118,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/minkyoung"
                 android:gravity="center_vertical|left"
-                android:text="TextView"
+                android:text="19명"
                 android:textSize="20sp" />
 
             <TextView
@@ -141,7 +141,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/minkyoung"
                 android:gravity="center_vertical|left"
-                android:text="TextView"
+                android:text="20명"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -175,7 +175,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/minkyoung"
                 android:gravity="center_vertical|left"
-                android:text="TextView"
+                android:text="치맥 쏘기"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -207,7 +207,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/minkyoung"
-                android:text="TextView"
+                android:text="부산 금정구에서 한달동안 금연할 20명을 모집합니다! 벌칙은 치킨 쏘기입니다~"
                 android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
@@ -252,7 +252,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/modu"
-        android:text="챌린지 제목"
+        android:text="한가람 금연클럽"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"

@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="챌린지 제목"
+        android:text="한가람 금연클럽"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_custom_challenge_detail_photo" />
@@ -98,7 +98,7 @@
                 android:layout_weight="2"
                 android:fontFamily="@font/minkyoung"
                 android:gravity="center_vertical|left"
-                android:text="TextView"
+                android:text="2022년 2월 13일"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -131,7 +131,7 @@
                 android:layout_weight="2"
                 android:fontFamily="@font/minkyoung"
                 android:gravity="center_vertical|left"
-                android:text="TextView"
+                android:text="2022년 3월 13일"
                 android:textSize="20sp" />
 
         </LinearLayout>
@@ -166,7 +166,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/minkyoung"
                 android:gravity="center_vertical|left"
-                android:text="TextView"
+                android:text="3명"
                 android:textSize="20sp" />
 
             <TextView
@@ -189,7 +189,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/minkyoung"
                 android:gravity="center_vertical|left"
-                android:text="TextView"
+                android:text="10명"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -223,7 +223,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/minkyoung"
                 android:gravity="center_vertical|left"
-                android:text="TextView"
+                android:text="꽃등심 쏘기"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -256,7 +256,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/minkyoung"
-                android:text="TextView"
+                android:text="우리 내성초 104기 올해는 다 같이 금연해보자! 목표는 한달동안 금연하기야. 못지키면 다음 모임때 소고기 쏘기다?"
                 android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>
