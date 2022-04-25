@@ -31,6 +31,7 @@ public class OfficialChallengeFragment extends Fragment{
 
     List<GetOfficialChallengeDto> getOfficialChallengeList;
     ListView listView;
+
     private static OfficialChallengeAdapter officialChallengeAdapter;
 
     private final String URL = "http://54.219.40.82/api/";
@@ -56,6 +57,7 @@ public class OfficialChallengeFragment extends Fragment{
                 .build();
         retrofitInterface = retrofit.create(RetrofitInterface.class);
 
+        //챌린지 정보 불러오기
         Call<List<GetOfficialChallengeDto>> call_allOfficialChallenge = retrofitInterface.getAllOfficialChallenge(1L);
         call_allOfficialChallenge.enqueue((new Callback<List<GetOfficialChallengeDto>>() {
             @Override

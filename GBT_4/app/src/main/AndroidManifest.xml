@@ -6,9 +6,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/tabaco_icon"
         android:label="굿바이 타바코"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/tabaco_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.GBT_4"
         android:usesCleartextTraffic="true">
@@ -16,9 +16,9 @@
             android:name=".SmokingPlus"
             android:exported="false"
             android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
-<!--        <activity-->
-<!--            android:name=".Notice2"-->
-<!--            android:exported="false" />-->
+        <activity
+            android:name=".Notice2"
+            android:exported="false" />
         <activity
             android:name=".ChallengeAttend"
             android:exported="false"

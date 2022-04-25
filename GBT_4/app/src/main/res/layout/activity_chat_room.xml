@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/modu"
-        android:text="챌린지 이름"
+        android:text="한가람 금연클럽"
         android:textColor="#918677"
         android:textSize="30sp"
         android:textStyle="bold"

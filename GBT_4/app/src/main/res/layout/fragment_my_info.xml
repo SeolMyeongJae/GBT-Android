@@ -38,7 +38,7 @@
                 android:layout_height="150dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:src="@drawable/samplephoto2"
+                android:src="@drawable/samplephoto4"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:riv_corner_radius="150dp" />
@@ -57,7 +57,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/roundedImageView" />
 
             <TextView
-                android:id="@+id/username"
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="28dp"
@@ -77,9 +77,9 @@
                 android:fontFamily="@font/minkyoung"
                 android:text="랭크:"
                 android:textSize="25sp"
-                app:layout_constraintEnd_toEndOf="@+id/username"
-                app:layout_constraintStart_toStartOf="@+id/username"
-                app:layout_constraintTop_toBottomOf="@+id/username" />
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <TextView
                 android:id="@+id/username3"
@@ -113,16 +113,16 @@
                 android:fontFamily="@font/minkyoung"
                 android:text="설명재"
                 android:textSize="24sp"
-                app:layout_constraintBottom_toBottomOf="@+id/username"
-                app:layout_constraintStart_toEndOf="@+id/username"
-                app:layout_constraintTop_toTopOf="@+id/username" />
+                app:layout_constraintBottom_toBottomOf="@+id/textView"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toTopOf="@+id/textView" />
 
             <TextView
                 android:id="@+id/textView72"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/minkyoung"
-                android:text="500점"
+                android:text="300점"
                 android:textSize="24sp"
                 app:layout_constraintBottom_toBottomOf="@+id/username3"
                 app:layout_constraintStart_toStartOf="@+id/textView70"
@@ -198,7 +198,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/modu"
                         android:gravity="center"
-                        android:text="커스텀 챌린지"
+                        android:text="실패"
                         android:textSize="24sp" />
                 </TableRow>
 
@@ -286,6 +286,7 @@
                     android:paddingTop="20sp">
 
                     <TableRow
+                        android:padding="5dp"
                         android:gravity="center_vertical"
                         android:layout_weight="1"
                         android:layout_width="match_parent"
@@ -311,11 +312,12 @@
                     </TableRow>
 
                     <TableRow
+                        android:padding="10dp"
                         android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="10sp"
+                        android:layout_marginBottom="5sp"
                         android:background="@drawable/stroke_out_line">
 
                         <TextView
@@ -336,6 +338,7 @@
                     </TableRow>
 
                     <TableRow
+                        android:padding="5dp"
                         android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:layout_width="match_parent"
@@ -361,6 +364,7 @@
                     </TableRow>
 
                     <TableRow
+                        android:padding="5dp"
                         android:layout_weight="1"
                         android:gravity="center_vertical"
                         android:layout_width="match_parent"

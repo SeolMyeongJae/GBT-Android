@@ -150,6 +150,7 @@ public class Invite extends Activity {
 
 
                 InviteDto inviteDto = new InviteDto(title,callerName,callerId,challengeId,userId,null);
+//                InviteDto inviteDto = new InviteDto(title,callerName,callerId,1L,1L,null);
                 Call<Integer> call_invite = retrofitInterface.inviteUser(inviteDto);
                 call_invite.enqueue(new Callback<Integer>() {
                     @Override

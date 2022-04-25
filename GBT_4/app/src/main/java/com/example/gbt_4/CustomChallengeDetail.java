@@ -33,7 +33,9 @@ public class CustomChallengeDetail extends AppCompatActivity {
             tv_custom_challenge_detail_end, tv_custom_challenge_detail_current, tv_custom_challenge_detail_max,
             tv_custom_challenge_detail_description, tv_custom_challenge_detail_bet;
     ImageView iv_custom_challenge_detail_photo;
-    
+
+
+
 
     private final String URL = "http://54.219.40.82/api/";
     private Retrofit retrofit;
@@ -51,7 +53,6 @@ public class CustomChallengeDetail extends AppCompatActivity {
         dialog = new Dialog(CustomChallengeDetail.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.alert_dialog_1);
-
 
         //retrofit 빌드
         retrofit = new Retrofit.Builder()
@@ -77,7 +78,8 @@ public class CustomChallengeDetail extends AppCompatActivity {
         btn_custom_challenge_detail_back = (Button)findViewById(R.id.btn_custom_challenge_detail_back);
 
         //커스텀 챌린지 상세정보 받아오기
-        Call<GetCustomChallengeDto> call_getCustomChallengeDto = retrofitInterface.getCustomChallengeById(challengeId);
+//        Call<GetCustomChallengeDto> call_getCustomChallengeDto = retrofitInterface.getCustomChallengeById(challengeId);
+        Call<GetCustomChallengeDto> call_getCustomChallengeDto = retrofitInterface.getCustomChallengeById(1L);
         call_getCustomChallengeDto.enqueue(new Callback<GetCustomChallengeDto>() {
             @Override
             public void onResponse(Call<GetCustomChallengeDto> call, Response<GetCustomChallengeDto> response) {

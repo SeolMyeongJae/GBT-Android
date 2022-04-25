@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.Window
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gbt_4.adapter.InviteAdapter
@@ -55,15 +56,16 @@ class Notice : Activity() {
     }
 
     fun deleteNotice(inviteNotice : InviteNotice) {
+        Toast.makeText(applicationContext, "버튼 클릭", Toast.LENGTH_SHORT).show()
         data.remove(inviteNotice)
         adapter?.notifyDataSetChanged()
     }
 
     private fun initialize() {
         with(data){
-            add(InviteNotice("황정민", "내성초 104기 동창들 금연하자!"))
-            add(InviteNotice("김민기", "형, 우리도 담배 끊어보죠~"))
-            add(InviteNotice("장수민", "1달 금연 내기할까?"))
+            add(InviteNotice("황정민", "내성초 104기 동창들 금연하자!",1L))
+            add(InviteNotice("김민기", "형, 우리도 담배 끊어보죠~",2L))
+            add(InviteNotice("장수민", "1달 금연 내기할까?",3L))
         }
     }
 }

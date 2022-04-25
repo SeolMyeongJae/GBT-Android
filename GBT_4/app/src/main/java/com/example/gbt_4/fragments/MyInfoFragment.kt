@@ -69,7 +69,6 @@ class MyInfoFragment : Fragment() {
 
 //                    binding.username.text = pre.getString("username", "데이터가 없어요")
 
-                    binding.username.text = result?.userName.toString()
                     binding.birth.text = result?.birthYear.toString()
                     binding.smokingYear.text = result?.smokingYear.toString()
                     binding.average.text = result?.averageSmoking.toString()
