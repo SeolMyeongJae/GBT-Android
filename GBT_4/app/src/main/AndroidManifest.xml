@@ -21,7 +21,8 @@
             android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
         <activity
             android:name=".Notice2"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@android:style/Theme.DeviceDefault.Light.Dialog"/>
         <activity
             android:name=".ChallengeAttend"
             android:exported="false"

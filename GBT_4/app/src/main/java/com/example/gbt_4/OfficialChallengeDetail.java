@@ -1,15 +1,11 @@
 package com.example.gbt_4;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.media.Image;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -21,7 +17,6 @@ import com.bumptech.glide.Glide;
 import com.example.gbt_4.dto.GetOfficialChallengeDto;
 import com.example.gbt_4.dto.UserChallengeDto;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -57,7 +52,7 @@ public class OfficialChallengeDetail extends AppCompatActivity {
         //dialog 세팅
         dialog = new Dialog(OfficialChallengeDetail.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.alert_dialog_1);
+        dialog.setContentView(R.layout.alert_dialog_join);
 
         //retrofit 빌드
         retrofit = new Retrofit.Builder()

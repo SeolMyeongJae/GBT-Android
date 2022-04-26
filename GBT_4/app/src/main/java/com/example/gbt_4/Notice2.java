@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 
 import com.example.gbt_4.adapter.InviteAdapter;
 import com.example.gbt_4.dto.InviteDto;
@@ -21,7 +23,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class Notice2 extends AppCompatActivity {
+public class Notice2 extends Activity {
+
+    Button btn_notice_back;
 
 
     private InviteAdapter inviteAdapter = null;
@@ -46,6 +50,15 @@ public class Notice2 extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.rv_notice);
 
+        //뒤로가기 버튼
+        btn_notice_back = (Button) findViewById(R.id.btn_invite_back);
+        btn_notice_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         //retrofit 빌드
         retrofit = new Retrofit.Builder()
                 .baseUrl(URL)
@@ -56,7 +69,7 @@ public class Notice2 extends AppCompatActivity {
         inviteAdapter = new InviteAdapter();
 
         //사용자의 모든 초대 정보 불러오기
-        Call<ArrayList<InviteDto>> call_invites = retrofitInterface.getAllInviteByUserId(2L);
+        Call<ArrayList<InviteDto>> call_invites = retrofitInterface.getAllInviteByUserId(3L);
         call_invites.enqueue(new Callback<ArrayList<InviteDto>>() {
             @Override
             public void onResponse(Call<ArrayList<InviteDto>> call, Response<ArrayList<InviteDto>> response) {
