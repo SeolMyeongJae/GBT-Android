@@ -31,7 +31,6 @@ public class TimerPractice extends AppCompatActivity {
 
     Long nowTime;
 
-    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,22 +48,6 @@ public class TimerPractice extends AppCompatActivity {
 //        SharedPreferences.Editor editor = sharedPreferences.edit();
 
         nowTime = sharedPreferences.getLong("now",0L);
-        System.out.println(nowTime);
-        if (nowTime != null){
-            //그대로 실행
-
-
-        }else {
-            nowTime = SystemClock.elapsedRealtime();
-            handler.postDelayed(runnable,0);
-        }
-
-
-        LocalDateTime localDateTime = LocalDateTime.now();
-//        editor.putString("time",localDateTime.toString());
-
-
-
 
 
 
@@ -75,40 +58,6 @@ public class TimerPractice extends AppCompatActivity {
         System.out.println(startTime);
 
 
-
-
-
-//        //시작 버튼
-//        start.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                startTime = SystemClock.uptimeMillis();
-//                handler.postDelayed(runnable, 0);
-//                reset.setEnabled(false);
-//            }
-//        });
-//
-//        //정지 버튼
-//        pause.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                timeBuff += millisecondTime;
-//                handler.removeCallbacks(runnable);
-//                reset.setEnabled(true);
-//            }
-//        });
-
-        //시간 체크 버튼
-        pause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                System.out.println(textView.getText().toString());
-                System.out.println(startTime);
-                System.out.println(System.currentTimeMillis());
-                System.out.println(nowTime);
-            }
-        });
-//
         //리셋 버튼
         reset.setOnClickListener(new View.OnClickListener() {
             @Override

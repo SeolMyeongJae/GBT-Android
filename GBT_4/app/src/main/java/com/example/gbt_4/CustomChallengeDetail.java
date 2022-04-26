@@ -52,7 +52,7 @@ public class CustomChallengeDetail extends AppCompatActivity {
         //dialog 세팅
         dialog = new Dialog(CustomChallengeDetail.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.alert_dialog_1);
+        dialog.setContentView(R.layout.alert_dialog_join);
 
         //retrofit 빌드
         retrofit = new Retrofit.Builder()

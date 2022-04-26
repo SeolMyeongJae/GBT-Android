@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -19,15 +18,11 @@ import android.widget.TextView;
 
 import com.example.gbt_4.dto.AddCustomChallengeDto;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.http.Body;
 
 public class CreateCustomChallenge extends AppCompatActivity {
     private final String URL = "http://54.219.40.82/api/";
@@ -101,7 +96,7 @@ public class CreateCustomChallenge extends AppCompatActivity {
         //dialog 세팅
         dialog = new Dialog(CreateCustomChallenge.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.alert_dialog_2);
+        dialog.setContentView(R.layout.alert_dialog_create_challenge);
 
         //retrofit 빌드
         retrofit = new Retrofit.Builder()

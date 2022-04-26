@@ -13,8 +13,8 @@
 
         <LinearLayout
             android:id="@+id/linearLayout5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="409dp"
+            android:layout_height="277dp"
             android:alpha="0.85"
             android:background="@drawable/stroke_top_bottom"
             android:orientation="horizontal"
@@ -38,7 +38,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
+                        android:layout_marginTop="16dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginBottom="8dp"
                         android:src="@drawable/samplephoto4"
@@ -260,22 +260,32 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
             app:layout_constraintVertical_bias="1.0">
 
-            <ImageView
-                android:id="@+id/iv_timer"
-                android:layout_width="0dp"
-                android:layout_height="112dp"
-                android:src="@drawable/watch_sample"
-                app:layout_constraintEnd_toEndOf="parent"
+            <TextView
+                android:id="@+id/timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/minkyoung"
+                android:text="00:00:00"
+                android:textColor="#4A4546"
+                android:textSize="35sp"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout7"
+                app:layout_constraintHorizontal_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout7"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_timer">
+                app:layout_constraintTop_toBottomOf="@+id/timer">
 
                 <TextView
                     android:id="@+id/textView118"
@@ -400,6 +410,22 @@
                     app:layout_constraintTop_toTopOf="@+id/textView126" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textView95"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/minkyoung"
+                android:text="동안 금연중!"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/constraintLayout7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
