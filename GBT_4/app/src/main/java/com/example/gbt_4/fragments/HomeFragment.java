@@ -9,14 +9,17 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gbt_4.OfficialChallengeIng;
+import com.example.gbt_4.TimerPractice;
 import com.example.gbt_4.TodayAttend;
 import com.example.gbt_4.R;
 import com.example.gbt_4.RetrofitInterface;
@@ -24,6 +27,8 @@ import com.example.gbt_4.dto.AddSmokingDto;
 import com.example.gbt_4.dto.GetSmokingDto;
 import com.example.gbt_4.dto.GetSmokingListDto;
 import com.example.gbt_4.dto.GetUserDto;
+
+import java.time.LocalDateTime;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -36,6 +41,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class HomeFragment extends Fragment{
 
     private SharedPreferences sharedPreferences;
+
+    ImageView iv_timer;
 
     TextView tv_userName, tv_comment, tv_todayCount, tv_monthCount,btn_home_go_official_challenge_ing, btn_home_go_custom_challenge_ing;
     Button btn_home_plus, btn_home_attend;
@@ -51,7 +58,15 @@ public class HomeFragment extends Fragment{
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
         sharedPreferences = this.getActivity().getSharedPreferences("userId",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
+
+        //초기 시간
+        if(sharedPreferences.getLong("now", 0L) == 0L) {
+            System.out.println(">>>>>>>>>>>" + sharedPreferences.getLong("now", 0L));
+            editor.putLong("now", System.currentTimeMillis());
+            editor.commit();
+        }
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
@@ -86,9 +101,9 @@ public class HomeFragment extends Fragment{
                         tv_userName.setText(getUserDto.getUserName());
 
                         //userID를 내부 저장소에 저장
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
                         editor.putLong("userId",getUserDto.getUserId());
                         editor.putString("myName",getUserDto.getUserName());
+
                         editor.commit();
 
                         userId = sharedPreferences.getLong("userId",-1);
@@ -143,7 +158,6 @@ public class HomeFragment extends Fragment{
 
         //담배 추가 버튼
         btn_home_plus.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 switch (view.getId()) {
@@ -188,6 +202,7 @@ public class HomeFragment extends Fragment{
         });
 
 
+        //커스텀 챌린지 바로가기
         btn_home_go_custom_challenge_ing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -195,6 +210,16 @@ public class HomeFragment extends Fragment{
                 CustomChallengeFragment customChallengeFragment = new CustomChallengeFragment();
                 fragmentTransaction.replace(R.id.frame_lo,customChallengeFragment).addToBackStack(null);
                 fragmentTransaction.commit();
+            }
+        });
+
+
+        iv_timer = (ImageView) v.findViewById(R.id.iv_timer);
+        iv_timer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), TimerPractice.class);
+                startActivity(intent);
             }
         });
 

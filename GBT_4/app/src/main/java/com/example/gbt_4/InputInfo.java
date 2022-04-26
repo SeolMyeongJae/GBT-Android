@@ -114,7 +114,7 @@ public class InputInfo extends AppCompatActivity{
 //                point = 0L;
 //                ranking = 0L;
 
-                nickname = "김태희";
+                nickname = "장동건";
                 gender = "남자";
                 price =4500L;
                 comment = "올해는 꼭 해보자!!";

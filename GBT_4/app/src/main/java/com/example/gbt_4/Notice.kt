@@ -28,6 +28,18 @@ class Notice : Activity() {
         }
     }
 
+//
+//    init {
+//        instance = this
+//    }
+//
+//    companion object{
+//        private var instance: Notice? = null
+//        fun getInstance(): Notice? {
+//            return instance
+//        }
+//    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)

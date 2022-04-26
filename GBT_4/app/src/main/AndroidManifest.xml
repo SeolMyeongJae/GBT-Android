@@ -13,6 +13,9 @@
         android:theme="@style/Theme.GBT_4"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".TimerPractice"
+            android:exported="false" />
+        <activity
             android:name=".SmokingPlus"
             android:exported="false"
             android:theme="@android:style/Theme.DeviceDefault.Light.Dialog" />
