@@ -29,6 +29,7 @@ public class Notice2 extends AppCompatActivity {
     private ArrayList<InviteNotice> inviteNotices = new ArrayList<>();
     //초대 보내는 dto
     private ArrayList<InviteDto> invites = new ArrayList<>();
+    private static Notice2 instance;
 
 
 
@@ -54,7 +55,8 @@ public class Notice2 extends AppCompatActivity {
 
         inviteAdapter = new InviteAdapter();
 
-        Call<ArrayList<InviteDto>> call_invites = retrofitInterface.getAllInviteByUserId(4L);
+        //사용자의 모든 초대 정보 불러오기
+        Call<ArrayList<InviteDto>> call_invites = retrofitInterface.getAllInviteByUserId(2L);
         call_invites.enqueue(new Callback<ArrayList<InviteDto>>() {
             @Override
             public void onResponse(Call<ArrayList<InviteDto>> call, Response<ArrayList<InviteDto>> response) {
@@ -98,10 +100,17 @@ public class Notice2 extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
     }
+
+    public Notice2() {
+        instance = (Notice2)this;
+    }
+    public static Notice2 getInstance() {
+        return instance;
+    }
+
     public void deleteNotice(InviteNotice inviteNotice){
         inviteNotices.remove(inviteNotice);
         inviteAdapter.notifyDataSetChanged();
     }
-
 }
 

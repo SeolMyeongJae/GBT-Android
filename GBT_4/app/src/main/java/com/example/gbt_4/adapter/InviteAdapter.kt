@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gbt_4.InviteNotice
 import com.example.gbt_4.Notice
+import com.example.gbt_4.Notice2
 import com.example.gbt_4.databinding.ItemInviteBinding
 
 class InviteAdapter : RecyclerView.Adapter<InviteAdapter.ViewHolder>() {
@@ -39,11 +40,11 @@ class InviteAdapter : RecyclerView.Adapter<InviteAdapter.ViewHolder>() {
     override fun getItemCount() = invites.size
 
     inner class ViewHolder(val binding: ItemInviteBinding) : RecyclerView.ViewHolder(binding.root) {
-        private val noticeActivity = Notice.getInstance()
+        private val notice2Activity = Notice2.getInstance();
         var inviteNotice : InviteNotice? = null
         init {
             binding.btnRemove.setOnClickListener {
-                noticeActivity?.deleteNotice(inviteNotice!!)
+                notice2Activity?.deleteNotice(inviteNotice!!)
             }
         }
 
